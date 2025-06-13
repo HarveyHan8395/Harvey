@@ -249,12 +249,33 @@ figcaption {
             border-radius: 8px;
         }
         }</style>
-<script src="https://static-recommend-img.tiangong.cn/router/agent/chart_0c881812ee9d48598f6fe7dbffb2e546.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 <div class="container">
-<div class="current-time">报告生成时间：2025-06-12</div>
-<h1>云南省海外投资有限公司企业情况检索报告</h1>
+<div style="text-align: left; margin: 10px 0;">
+  <img src="https://dachenglaw.oss-cn-beijing.aliyuncs.com/media/logo/LOGO-%E8%8B%B1-%E7%B4%AB%E8%89%B2-%E9%87%8D%E5%8F%A0%E7%89%88.png" alt="北京大成律师事务所Logo" style="max-height: 60px; max-width: 250px; margin-left: 0;">
+</div>
+
+<!-- 目录导航 -->
+<div id="table-of-contents" class="toc-sidebar">
+  <div class="toc-header">目录</div>
+  <ul class="toc-list">
+    <li><a href="#main-title" class="toc-h1">云南省海外投资有限公司 - 企业情况检索报告</a></li>
+    <li><a href="#introduction" class="toc-h2">报告导读与核心目标</a></li>
+    <li><a href="#company-overview" class="toc-h2">公司概览：基础画像与发展脉络</a></li>
+    <li><a href="#business-analysis" class="toc-h2">业务深度解析：主营构成与市场定位</a></li>
+    <li><a href="#operations-finance" class="toc-h2">运营概况与财务摘要</a></li>
+    <li><a href="#overseas-business" class="toc-h2">海外业务专项调研 (核心章节)</a></li>
+    <li><a href="#domestic-business" class="toc-h2">国内业务布局与重点项目</a></li>
+    <li><a href="#compliance-risks" class="toc-h2">初步合规风险关注点 (基于检索信息)</a></li>
+    <li><a href="#summary" class="toc-h2">总结与信息来源</a></li>
+  </ul>
+</div>
+
+<div class="main-content">
+<div class="current-time">北京大成律师事务所｜2025-06-12</div>
+<h1 id="main-title">云南省海外投资有限公司 - 企业情况检索报告</h1>
 <section id="introduction">
 <h2>报告导读与核心目标</h2>
 <p><strong>报告目的：</strong> 本报告旨在为云南省海外投资有限公司（简称“云南海投”或“公司”）的境外合规专项服务方案提供全面、深入、数据导向的背景信息支持。通过对公司的基本情况、业务范围、运营状况及特别是其广泛的海外业务布局进行系统性梳理，为后续制定具有针对性和可操作性的合规指引及风险管控机制奠定坚实基础。</p>
@@ -1086,7 +1107,7 @@ figcaption {
 </ol>
 <p><em>上述风险点是初步判断，具体到云南海投的每个境外项目和业务环节，其面临的合规风险组合和优先级别会有所不同，需要在后续工作中进行更细致的识别、评估和排序。</em></p>
 </section>
-<section id="summary-sources">
+<section id="summary">
 <h2>总结与信息来源</h2>
 <h3>核心内容总结</h3>
 <p>云南省海外投资有限公司（云南海投）作为云南省建设投资控股集团有限公司（云南建投集团）的全资子公司和核心海外投融资平台，承载着云南省实施“走出去”战略、深度融入国家“一带一路”倡议的重要使命。公司成立于2009年，注册资本10亿元人民币，法定代表人为周民。</p>
@@ -1129,5 +1150,198 @@ figcaption {
 </ul>
 </section>
 </div>
+
+</div> <!-- 关闭 main-content -->
+
+<style>
+/* 目录样式 */
+.toc-sidebar {
+  position: fixed;
+  left: 20px;
+  top: 120px;
+  width: 260px;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  font-size: 13px;
+}
+
+.toc-header {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #007bff;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-list li {
+  margin: 0;
+  padding: 0;
+}
+
+.toc-list a {
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #495057;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  line-height: 1.4;
+}
+
+.toc-list a:hover {
+  background-color: #e9ecef;
+  color: #007bff;
+}
+
+.toc-list a.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.toc-h1 {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.toc-h2 {
+  font-size: 14px;
+  padding-left: 20px !important;
+}
+
+/* 主内容区域调整 */
+.main-content {
+  margin-left: 0;
+  padding-right: 20px;
+}
+
+/* 响应式设计 */
+@media (max-width: 1400px) {
+  .toc-sidebar {
+    width: 220px;
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .toc-sidebar {
+    width: 200px;
+    left: 10px;
+    font-size: 11px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .toc-sidebar {
+    display: none;
+  }
+  
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+/* 滚动条样式 */
+.toc-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.toc-sidebar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.toc-sidebar::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.toc-sidebar::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+</style>
+
+<script>
+// 目录功能JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+  // 平滑滚动
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+  
+  // 高亮当前章节
+  function highlightCurrentSection() {
+    const sections = document.querySelectorAll('section[id], h1[id]');
+    const tocLinks = document.querySelectorAll('.toc-list a');
+    
+    let currentSection = null;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // 找到当前可见的章节
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 100) {
+        currentSection = section;
+      }
+    });
+    
+    // 移除所有active类
+    tocLinks.forEach(link => link.classList.remove('active'));
+    
+    // 为当前章节添加active类
+    if (currentSection) {
+      const currentLink = document.querySelector(`a[href="#${currentSection.id}"]`);
+      if (currentLink) {
+        currentLink.classList.add('active');
+      }
+    }
+  }
+  
+  // 监听滚动事件
+  let ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        highlightCurrentSection();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+  
+  window.addEventListener('scroll', onScroll);
+  
+  // 初始化高亮
+  highlightCurrentSection();
+});
+</script>
+
 </body>
 </html>
