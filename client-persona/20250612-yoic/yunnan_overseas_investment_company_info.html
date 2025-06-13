@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过程文件1：「海投公司」基本信息</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #2c5aa0;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #2c5aa0, #4a90e2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        h1 {
+            color: #2c5aa0;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .timestamp {
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .content {
+            margin-top: 30px;
+        }
+
+        h2 {
+            color: #2c5aa0;
+            font-size: 1.8em;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: #495057;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            font-weight: 600;
+        }
+
+        h4 {
+            color: #6c757d;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 1em;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, #2c5aa0, #4a90e2);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1em;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e9ecef;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        tr:hover {
+            background-color: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .info-box {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .info-box h4 {
+            color: #0c5460;
+            margin-top: 0;
+        }
+
+        strong {
+            color: #2c5aa0;
+            font-weight: 600;
+        }
+
+        em {
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: 10px 8px;
+            }
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .timeline-item {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            border-left: 3px solid #2c5aa0;
+        }
+
+        .timeline-item strong {
+            display: block;
+            color: #2c5aa0;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="text-align: left; margin: 10px 0;">
+            <img src="https://dachenglaw.oss-cn-beijing.aliyuncs.com/media/logo/LOGO-%E8%8B%B1-%E7%B4%AB%E8%89%B2-%E9%87%8D%E5%8F%A0%E7%89%88.png" alt="北京大成律师事务所Logo" style="max-height: 60px; max-width: 250px; margin-left: 0;">
+        </div>
+        <div class="header">
+            <div class="logo">云投</div>
+            <h1>过程文件1：云南省海外投资有限公司基本信息</h1>
+            <div class="subtitle">企业基础信息与发展概况</div>
+            <div class="timestamp">北京大成律师事务所：2025年6月</div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h3>1. 注册信息、设立背景与发展历程</h3>
+                
+                <p>云南省海外投资有限公司（简称"云南海投"，外文名YOIC）是经云南省人民政府批准设立的国有独资有限责任公司。</p>
+                
+                <h4>设立背景与时间线：</h4>
+                <div class="timeline-item">
+                    <strong>2009年10月/11月16日：</strong>
+                    公司正式成立，注册资本金为10亿元人民币。由云南省人民政府出资，并委托云南建工集团有限公司代为持股。
+                </div>
+                <div class="timeline-item">
+                    <strong>2010年：</strong>
+                    作为云南省建设投资控股集团有限公司（简称"云南建投集团"）的海外投资平台，云南海投与老挝万象市政府共同出资开发老挝万象赛色塔综合开发区。
+                </div>
+                <div class="timeline-item">
+                    <strong>2016年：</strong>
+                    随着云南省建设投资控股集团有限公司的重组成立，云南海投在海外市场建设中开启了"投融资+工程"双轮驱动模式。
+                </div>
+                <div class="timeline-item">
+                    <strong>"走出去"战略：</strong>
+                    云南海投是云南省委省政府全力支持"走出去"的重要投融资平台，积极服务和融入国家"一带一路"建设及云南省辐射中心建设。
+                </div>
+                
+                <h4>注册信息概览：</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>信息类别</th>
+                            <th>内容</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>公司名称</td>
+                            <td>云南省海外投资有限公司（简称：云南海投）</td>
+                        </tr>
+                        <tr>
+                            <td>成立时间</td>
+                            <td>2009年10月/11月16日</td>
+                        </tr>
+                        <tr>
+                            <td>公司性质</td>
+                            <td>国有独资有限责任公司</td>
+                        </tr>
+                        <tr>
+                            <td>注册资本</td>
+                            <td>10亿元人民币（实缴资本10亿元人民币）</td>
+                        </tr>
+                        <tr>
+                            <td>注册地址</td>
+                            <td>云南省昆明市官渡区（另有信息显示：云南省昆明市经济技术开发区信息产业基地林溪路188号）</td>
+                        </tr>
+                        <tr>
+                            <td>经营状态</td>
+                            <td>存续/开业</td>
+                        </tr>
+                        <tr>
+                            <td>经营范围</td>
+                            <td>境内外项目投资及对所投资项目进行管理，以及相关外经外贸业务；许可项目包括建设工程施工、建设工程质量检测；一般项目包括对外承包工程、工程管理服务等。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h3>2. 股权结构、隶属关系与管理团队</h3>
+                
+                <h4>股权结构与隶属关系：</h4>
+                <ul>
+                    <li><strong>国有独资：</strong> 云南海投是国有独资的有限责任公司，由云南省人民政府出资。</li>
+                    <li><strong>控股股东：</strong> 云南省人民政府委托云南建工集团有限公司（现为云南省建设投资控股集团有限公司）代为持股。因此，云南海投是云南省建设投资控股集团有限公司的全资子公司。</li>
+                    <li><strong>战略定位：</strong> 作为云南建投集团旗下企业，云南海投是集团实施海外板块"走出去"战略的重要载体和平台，也是云南省对外投资合作的重要组成部分。</li>
+                </ul>
+                
+                <h4>管理团队组成：</h4>
+                <p>根据现有信息，云南省海外投资有限公司的主要管理人员包括：</p>
+                <ul>
+                    <li><strong>法定代表人/董事长：</strong> 周民</li>
+                    <li><strong>总经理：</strong> 孙兴华</li>
+                    <li><strong>董事：</strong> 孙兴华、刘光灿、孙志坚、夏双仁、赵庭进、黄颖</li>
+                    <li><strong>监事会主席：</strong> 刘晓燕</li>
+                    <li><strong>监事：</strong> 陈秀兰、秦承斌</li>
+                </ul>
+                
+                <p>周民于2019年10月至12月期间曾任云南省海外投资有限公司党委书记、副董事长，并于2024年4月14日被任命为公司党委委员、党委副书记、董事、董事长。杨女士自2011年1月起在云南省海外投资有限公司工作，并于2017年4月至2023年1月先后担任综合办公室副主任及主任。</p>
+            </div>
+
+            <div class="section">
+                <h3>3. 资产规模、财务状况与经营业绩</h3>
+                
+                <h4>资产规模与财务状况：</h4>
+                <ul>
+                    <li><strong>注册资本与实缴资本：</strong> 公司的注册资本和实缴资本均为10亿元人民币。</li>
+                    <li><strong>对外投资：</strong> 截至目前，云南省海外投资有限公司已对外投资了9家企业。</li>
+                    <li><strong>招投标项目：</strong> 参与招投标项目54次。</li>
+                    <li><strong>行政许可：</strong> 拥有行政许可6个。</li>
+                </ul>
+                
+                <h4>经营业绩与业务范围：</h4>
+                <ul>
+                    <li><strong>核心业务：</strong> 境内外项目投资及对所投资项目进行管理，以及相关外经外贸业务。</li>
+                    <li><strong>许可项目：</strong> 建设工程施工、建设工程质量检测。</li>
+                    <li><strong>一般项目：</strong> 对外承包工程、工程管理服务。</li>
+                    <li><strong>品牌项目：</strong> 拥有包括"云南海投"在内的企业品牌项目。</li>
+                </ul>
+                
+                <h4>重要项目参与：</h4>
+                <ul>
+                    <li><strong>老挝万象赛色塔综合开发区：</strong> 2010年与老挝万象市政府共同出资开发。</li>
+                    <li><strong>云南田蓬公路口岸改扩建项目：</strong> 与云南建投第二水力水电建设有限公司组建联合体，共同参与该PPP项目。</li>
+                    <li><strong>海外办事处：</strong> 2010年4月1日成立驻柬埔寨办事处，5月1日成立缅甸办事处。</li>
+                    <li><strong>国际工程：</strong> 云南建投集团的国际工程部作为其海外板块"走出去"战略的重要载体和平台，代表集团对外开展国际工程承包业务，并服务集团二级单位"走出去"发展。云南海投作为其全资子公司，在其中发挥重要作用。</li>
+                    <li><strong>援柬埔寨项目：</strong> 云南建投集团承建了援柬埔寨教育环境与设施改善项目和援柬埔寨乡村道路项目二期等工程。</li>
+                </ul>
+                
+                <div class="info-box">
+                    <h4>云南省境外投资整体情况（截至2020年12月）：</h4>
+                    <ul>
+                        <li>云南省设立境外投资企业888家。</li>
+                        <li>累计直接投资121.62亿美元。</li>
+                        <li>涉及61个国家和地区。</li>
+                        <li>2020年新增境外投资企业37家，对全球18个国家和地区实现非金融类直接投资10.17亿美元，在疫情影响下仍实现同比增长。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

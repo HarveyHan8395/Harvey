@@ -1,0 +1,32 @@
+/* reset.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: "微软雅黑", "思源黑体", Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #1A365D;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button, input {
+  font-family: inherit;
+}

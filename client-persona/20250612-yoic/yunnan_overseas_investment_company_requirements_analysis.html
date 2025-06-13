@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>云南省海外投资有限公司 - 境外合规专项 - 服务需求分析报告</title>
+    <script
+        src="https://static-recommend-img.tiangong.cn/router/agent/chart_0c881812ee9d48598f6fe7dbffb2e546.js"></script>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px 40px;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .chart-container {
+            position: relative;
+            margin: 3em auto;
+            max-width: 500px;
+            height: 400px;
+            overflow: visible;
+            aspect-ratio: 7/5;
+        }
+
+        img {
+            display: block;
+            overflow: hidden;
+            max-width: 100%;
+            max-height: 280px;
+            margin: 1em auto;
+            border-radius: 8px;
+        }
+
+        h5 {
+            font-size: 16px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            line-height: 1.8;
+            font-size: 16px;
+            color: #333;
+            background-color: #f9f9f9;
+            margin: 0 24px 0 24px;
+            padding: 0;
+            max-width: None;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: #1a1a1a;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        h1 {
+            font-size: 28px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5em;
+            margin-top: 24px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 22px;
+        }
+
+        h3 {
+            font-size: 20px;
+        }
+
+        h4 {
+            font-size: 18px;
+        }
+
+        p {
+            margin-bottom: 1.2em;
+            text-align: justify;
+        }
+
+        ul,
+        ol {
+            margin-bottom: 1.2em;
+            padding-left: 1.5em;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+
+        blockquote {
+            border-left: 3px solid #007bff;
+            padding-left: 1em;
+            margin-left: 0;
+            margin-right: 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        strong,
+        b {
+            font-weight: 600;
+        }
+
+        .current-date {
+            text-align: right;
+            color: #777;
+            font-size: 0.9em;
+            margin-bottom: 2em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.2em;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 0.8em;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: 600;
+        }
+
+        .key-points {
+            background-color: #eef7ff;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .key-points h4 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+
+        .chart-container canvas {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain;
+        }
+
+        @media only screen and (max-device-width: 768px) {
+            body {
+                padding: 0;
+                margin: 0;
+                font-family: PingFang SC;
+                font-size: 15px;
+                line-height: 1.5;
+            }
+
+            .container {
+                padding: 0;
+                margin: 16px 20px 30px;
+                box-shadow: none;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4 {
+                font-family: PingFang SC;
+            }
+
+            h1 {
+                font-size: 1.87em;
+                line-height: 1.6;
+                margin-bottom: 0.5em;
+                text-align: center;
+            }
+
+            h2 {
+                font-size: 1.6em;
+                font-weight: 600;
+                margin-top: 1.3em;
+                margin-bottom: 0.8em;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 0.5em;
+            }
+
+            h3 {
+                font-size: 1.2em;
+                font-weight: 600;
+                margin-top: 1em;
+                margin-bottom: 0.6em;
+            }
+
+            h4 {
+                font-size: 1.1em;
+                font-weight: 500;
+                margin-top: 1em;
+                margin-bottom: 0.5em;
+                font-style: normal;
+            }
+
+            h5 {
+                font-size: 1em;
+                font-weight: 500;
+                margin-bottom: 1.2em;
+            }
+
+            ul,
+            ol {
+                font-size: 1em;
+                /* Equivalent to 17.6px if base is 16px */
+                font-weight: 400;
+                margin-bottom: 1.2em;
+                line-height: 1.8;
+            }
+
+            p {
+                font-size: 1em;
+                line-height: 1.8;
+                /* Equivalent to 17.6px if base is 16px */
+                font-weight: 400;
+                margin-top: 0.8em;
+                margin-bottom: 0.8em;
+            }
+
+            blockquote {
+                padding: 1em 1.2em;
+
+                p {
+                    margin: 0;
+                }
+            }
+
+            figcaption {
+                margin-top: 0.5em;
+                font-size: 0.8em;
+                /* Equivalent to 17.6px if base is 16px */
+                font-weight: 400;
+                text-align: center;
+                font-style: normal;
+                color: #7F8896;
+            }
+
+            img {
+                display: block;
+                overflow: hidden;
+                max-width: 100%;
+                max-height: 335px;
+                margin: 1em auto;
+                border-radius: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div id="table-of-contents" class="toc-sidebar">
+  <div class="toc-header">目录</div>
+  <ul class="toc-list">
+    <li><a href="#main-title" class="toc-h1">云南省海外投资有限公司 - 境外合规专项 - 服务需求分析报告</a></li>
+    <li><a href="#introduction" class="toc-h2">引言</a></li>
+    <li><a href="#compliance-analysis" class="toc-h2">一、企业合规领域与风险识别</a></li>
+    <li><a href="#service-matching" class="toc-h2">二、律师团队服务能力匹配分析</a></li>
+    <li><a href="#priority-strategy" class="toc-h2">三、重点国别优先推进策略</a></li>
+    <li><a href="#implementation-plan" class="toc-h2">四、实施建议与下一步行动</a></li>
+  </ul>
+  <a href="https://harveyhan.netlify.app/client-persona/20250612-yoic/navigation_home" style="background-color: #702082; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; display: block; margin: 20px auto; text-align: center; width: 150px;">返回首页</a>
+</div>
+
+<div class="main-content">
+    <div class="container">
+        <div style="text-align: left; margin: 10px 0;">
+            <img src="https://dachenglaw.oss-cn-beijing.aliyuncs.com/media/logo/LOGO-%E8%8B%B1-%E7%B4%AB%E8%89%B2-%E9%87%8D%E5%8F%A0%E7%89%88.png" alt="北京大成律师事务所Logo" style="max-height: 60px; max-width: 250px; margin-left: 0;">
+        </div>
+        <div class="current-date">报告生成日期：2025年06月13日</div>
+        <h1>云南省海外投资有限公司 - 境外合规专项 - 服务需求分析报告</h1>
+        <h2>引言</h2>
+        <p><strong>报告目的：</strong>
+            本报告旨在深入分析云南省海外投资有限公司（以下简称“海投公司”）在当前境外合规专项项目中的核心需求，全面识别其在主要海外业务板块及重点国别中面临的关键合规风险，精准匹配我方律师团队的专业服务能力，并提出具有实操性的重点国别优先推进策略，为后续高效制定并执行《境外合规专项服务方案》提供坚实的分析基础与明确的行动指引。
+        </p>
+        <p><strong>核心关注点：</strong></p>
+        <ul>
+            <li>境外业务合规需求与风险精准画像；</li>
+            <li>律师团队服务能力与客户需求的深度匹配；</li>
+            <li>重点国别合规体系建设的优先推进与速效达成。</li>
+        </ul>
+        <h2>一、企业合规领域与风险识别</h2>
+        <p>根据企业提供的信息，海投公司的境外业务以施工总承包或工程总承包类业务为主，同时开展部分投资类业务。结合这些业务特点及通常的合规重点环节，我们分析其合规需求和主要风险点如下：</p>
+        <h3>1.1 境外工程承包业务</h3>
+        <p>境外工程承包业务链条长、环节多、参与方复杂，是合规风险的高发领域。</p>
+        <p><strong>涉及合规重点环节：</strong></p>
+        <ul>
+            <li><strong>项目投标与资质获取：</strong> 涉及市场准入规则、当地承包资质要求、招投标程序的合规性、反不正当竞争（如围标串标、商业贿赂）等。</li>
+            <li><strong>合作伙伴与分包商尽职调查：</strong> 对当地合作伙伴、分包商、重要供应商的背景、资信、合规记录进行调查，特别关注其在反腐败、反洗钱、制裁与出口管制筛查、劳工标准、环境责任等方面的表现。
+            </li>
+            <li><strong>合同谈判与管理：</strong>
+                FIDIC条款或当地标准合同范本的适用与谈判，当地法律强制性规定（如支付保障、工程质量、工期延误责任），履约担保、预付款担保等保函的合规性，外汇管制对合同支付条款的影响。</li>
+            <li><strong>劳工权利保护与用工管理：</strong> 遵守当地劳工法律法规（如最低工资、工时、休假、解雇程序），外籍员工签证与工作许可的获取，薪酬福利的发放，职业健康安全（EHS）体系的建立与执行。
+            </li>
+            <li><strong>环境保护与社区关系：</strong> 项目环境影响评估（EIA）的执行与批准，施工过程中污染物排放控制，废弃物处理，土地使用合规，以及与项目所在地社区的沟通与关系维护。</li>
+            <li><strong>设备物资采购与进出口：</strong> 遵守项目所在国及中国关于设备物资进出口的海关规定、检验检疫要求、进出口管制政策（如军民两用物项）、原产地规则等。</li>
+            <li><strong>项目融资与资金管理：</strong> 项目融资协议的合规性，资金跨境调拨的合规性（外汇管制、反洗钱），税务合规（如增值税、所得税、预提税的申报与缴纳）。</li>
+            <li><strong>数据保护与网络安全：</strong> 项目过程中产生的敏感数据（如工程图纸、技术参数）、员工个人信息、与当地政府或合作伙伴的通讯记录等的保护，跨境数据传输的合规性。</li>
+            <li><strong>廉洁与反腐败：</strong> 在与当地政府官员、审批机构、合作伙伴交往中，严格遵守反腐败法律法规，防范商业贿赂风险。</li>
+            <li><strong>争议解决与撤出机制：</strong> 合同中关于争议解决方式（如仲裁、诉讼地选择）的约定，以及项目完工或提前终止时的清算、撤场等合规安排。</li>
+        </ul>
+        <p><strong>核心合规领域匹配：</strong></p>
+        <ul>
+            <li>反腐败与反贿赂合规（《服务模块介绍》第七、八部分）</li>
+            <li>出口管制与经济制裁合规（《服务模块介绍》第一部分）</li>
+            <li>供应链合规（含强迫劳动及一般劳工合规）（《服务模块介绍》第四部分）</li>
+            <li>网络安全、数据合规及隐私政策（《服务模块介绍》第二部分）</li>
+            <li>环境、社会及公司治理（ESG）合规（尤其关注环境与社会责任部分）（《服务模块介绍》第十部分）</li>
+            <li>海关合规（《服务模块介绍》第六部分）</li>
+            <li>合同法及当地工程建设法规（体现在各专项服务中对法律的解读与应用）</li>
+        </ul>
+        <p><strong>具体合规需求：</strong></p>
+        <ul>
+            <li>建立一套覆盖境外工程承包项目从投标、签约、履约到竣工全生命周期的合规操作指引和流程。</li>
+            <li>完善对当地分包商、供应商的合规尽职调查标准、流程和工具。</li>
+            <li>制定符合各重点国别法律要求的劳工管理制度、薪酬福利政策和职业健康安全（EHS）管理体系框架。</li>
+            <li>系统梳理并动态更新在各重点国别开展工程承包业务所需的关键许可、资质要求及申请流程。</li>
+            <li>建立健全项目资金支付、外汇流转的内部审批流程，并确保符合外部监管要求。</li>
+            <li>加强对项目现场反腐败、数据保护等高风险领域的培训和监控。</li>
+        </ul>
+        <p><strong>主要风险点：</strong></p>
+        <ul>
+            <li>因对东道国法律法规（特别是劳工、环保、税务、海关等领域）不熟悉或理解偏差导致的无意违规。</li>
+            <li>合作伙伴或分包商的违规行为（如腐败、使用强迫劳动、环境污染、工程质量问题）带来的连带法律责任和声誉损害风险。</li>
+            <li>东道国政治经济环境变化（如政权更迭、法律修订、外汇政策调整）带来的合同履约风险和投资安全风险。</li>
+            <li>项目数据、员工个人信息跨境传输或处理不当，违反当地数据保护法规，引发高额罚款和业务中断风险。</li>
+            <li>未能有效管理当地劳工关系（如劳资纠纷、罢工）和社区关系（如征地拆迁补偿、社区发展诉求），可能引发工期延误、项目受阻甚至社会冲突。</li>
+            <li>在招投标或项目执行过程中，未能有效防范商业贿赂风险，可能触犯中国及项目所在国甚至美国《反海外腐败法》（FCPA）等域外法律，面临刑事处罚和巨额罚款。</li>
+        </ul>
+        <div class="chart-container">
+            <canvas id="engineeringRiskChart"></canvas>
+        </div>
+        <p class="chart-caption" style="text-align:center; font-size:0.9em; color:#555;">图1: 境外工程承包业务主要合规风险领域关注度示意图</p>
+        <h3>1.2 境外投资业务</h3>
+        <p>境外投资业务，特别是并购类投资，涉及复杂的法律尽职调查、交易结构设计和投后整合，合规风险贯穿始终。</p>
+        <p><strong>涉及合规重点环节：</strong></p>
+        <ul>
+            <li><strong>投资目标筛选与尽职调查：</strong>
+                对目标公司/项目进行全面的法律、财务、商业和合规尽职调查，特别关注目标公司在反腐败、反洗钱、制裁合规、数据保护、劳工、环保等方面的历史合规状况和潜在风险。</li>
+            <li><strong>市场准入与审批：</strong>
+                研究东道国外商投资法律法规，识别是否存在市场准入负面清单、行业特定许可要求；履行中国国资委、发改委、商务部等主管部门的境外投资审批或备案程序，以及东道国政府的必要审批。</li>
+            <li><strong>交易结构设计与税务筹划：</strong> 设计既符合商业目的又具有税务效率的投资结构，遵守东道国及国际税法（如BEPS规则），合理利用税收协定避免双重征税。</li>
+            <li><strong>融资与并购协议谈判：</strong> 参与融资协议、股权/资产购买协议、股东协议等交易文件的谈判，关注其中的陈述与保证、交割条件、交割后义务、公司治理安排、争议解决等条款的合规性。</li>
+            <li><strong>反垄断申报与国家安全审查：</strong> 根据交易规模和行业敏感性，判断是否需要在相关司法管辖区进行反垄断申报；评估交易是否可能触发东道国的国家安全审查，并按要求履行申报程序。</li>
+            <li><strong>投后管理与整合：</strong> 对被投企业实施有效的投后管理，包括公司治理机制的完善、合规管理体系的对接与提升、财务报告与内部控制的规范、企业文化的融合等。</li>
+            <li><strong>知识产权保护与技术转让：</strong> 关注投资过程中涉及的知识产权归属、许可、保护问题，以及技术转让是否符合相关法律规定。</li>
+            <li><strong>退出机制安排：</strong> 在投资初期即考虑并规划未来可能的退出路径（如股权转让、IPO、管理层回购等），并关注各种退出方式的合规性要求。</li>
+            <li><strong>外汇管制：</strong> 投资款项的跨境汇出入、利润分配、股息汇回、资本撤回等环节均需遵守中国及东道国的外汇管理规定。</li>
+            <li><strong>数据保护与网络安全：</strong> 在对科技型、数据密集型企业进行投资时，尤其需要关注目标公司数据处理活动的合规性，以及并购后数据整合可能带来的风险。</li>
+        </ul>
+        <p><strong>核心合规领域匹配：</strong></p>
+        <ul>
+            <li>反腐败与反贿赂合规（《服务模块介绍》第七、八部分）</li>
+            <li>反洗钱合规（《服务模块介绍》第八部分，白领犯罪中提及）</li>
+            <li>出口管制与经济制裁合规（特别是在敏感行业或受制裁地区的投资）（《服务模块介绍》第一部分）</li>
+            <li>数据合规（企业上市、投融资及并购数据合规尽职调查）（《服务模块介绍》第二部分（二）4）</li>
+            <li>网络安全审查应对咨询（《服务模块介绍》第二部分（一）1）</li>
+            <li>ESG合规体系搭建/完善（负责任投资原则的体现）（《服务模块介绍》第十部分）</li>
+            <li>国际投资法与东道国投资法规</li>
+            <li>税法与外汇管理法规</li>
+        </ul>
+        <p><strong>具体合规需求：</strong></p>
+        <ul>
+            <li>建立一套标准化的境外投资项目合规尽职调查清单、流程和风险评估模型。</li>
+            <li>系统梳理重点投资国别的市场准入要求、外商投资负面清单、行业监管政策及相关审批流程。</li>
+            <li>制定投后合规管理指引，明确对被投企业的合规期望、监控机制和整合方案。</li>
+            <li>完善境外投资相关的内部决策流程和风险评估机制，确保重大投资决策的合规性。</li>
+            <li>加强对交易文件中合规条款（如陈述与保证、赔偿）的审核。</li>
+        </ul>
+        <p><strong>主要风险点：</strong></p>
+        <ul>
+            <li>尽职调查不充分或存在疏漏，导致“带病投资”，承接目标公司历史上遗留的重大合规风险（如巨额罚款、诉讼）。</li>
+            <li>违反东道国关于外商投资的准入限制、股权比例要求或国家安全审查规定，导致投资失败或被迫剥离。</li>
+            <li>因税务筹划不当、关联交易定价不合理或违反外汇管理规定，引发税务稽查、罚款或资金跨境流动受阻。</li>
+            <li>投后整合不力，未能有效管控被投企业的运营风险和合规风险，导致投资收益不及预期甚至亏损。</li>
+            <li>在并购或合资过程中，对涉及的知识产权、数据资产等处理不当，引发侵权纠纷或数据泄露风险。</li>
+        </ul>
+        <h3>1.3 境外日常经营与子公司管理（通用）</h3>
+        <p>对于已设立的境外子公司或办事处，其日常运营同样面临诸多合规挑战。</p>
+        <p><strong>涉及合规重点环节：</strong></p>
+        <ul>
+            <li><strong>公司注册与治理：</strong> 确保境外实体的设立、登记、年检等符合当地公司法要求；建立健全公司治理结构，明确董事、监事、高级管理人员的职责与义务。</li>
+            <li><strong>财务与税务管理：</strong> 遵守当地会计准则和税务法规，按时准确申报纳税；规范关联交易和转移定价行为。</li>
+            <li><strong>人力资源管理：</strong> 员工的招聘、劳动合同签订、薪酬福利发放、绩效考核、解雇等环节均需符合当地劳动法律法规；保护员工个人信息。</li>
+            <li><strong>日常合同审查与管理：</strong> 对采购合同、销售合同、服务合同等日常经营合同进行合规审查，防范合同风险。</li>
+            <li><strong>知识产权保护：</strong> 在当地申请和维护商标、专利等知识产权，防范商业秘密泄露。</li>
+            <li><strong>数据保护与隐私政策：</strong> 在处理客户数据、员工数据等个人信息时，遵守当地数据保护法规，制定并执行隐私政策。</li>
+            <li><strong>反腐败与商业道德：</strong> 建立并执行关于礼品、招待、捐赠、赞助等行为的内部规范，防范利益冲突和商业贿赂。</li>
+            <li><strong>突发事件应对与危机管理：</strong> 制定应对自然灾害、安全事故、法律诉讼等突发事件的应急预案。</li>
+        </ul>
+        <p><strong>核心合规领域匹配：</strong></p>
+        <ul>
+            <li>日常合规性判断（合规专题咨询、业务合规可行性分析）（《服务模块介绍》第十一部分）</li>
+            <li>网络安全、数据合规及隐私政策（《服务模块介绍》第二部分）</li>
+            <li>反贿赂/反腐败（《服务模块介绍》第七部分）</li>
+            <li>劳动法合规（体现在供应链合规、ESG等模块中对劳工权益的关注）</li>
+            <li>税法合规</li>
+            <li>公司法与公司治理</li>
+        </ul>
+        <p><strong>具体合规需求：</strong></p>
+        <ul>
+            <li>为境外子公司/办事处提供一套标准化的日常运营合规手册模板，涵盖主要合规领域。</li>
+            <li>建立对境外子公司关键合规指标（如财务报告、劳动合同签订率、安全生产事故等）的监控和定期报告机制。</li>
+            <li>定期对境外机构负责人和关键岗位人员进行合规意识和技能培训。</li>
+            <li>建立畅通的合规咨询和问题上报渠道。</li>
+        </ul>
+        <p><strong>主要风险点：</strong></p>
+        <ul>
+            <li>因对当地劳动法、税法、消费者保护法等基础性法律法规不熟悉，导致日常运营中出现违规行为。</li>
+            <li>境外子公司内部控制薄弱，财务管理不规范，容易滋生员工舞弊或腐败行为。</li>
+            <li>未能妥善处理客户或员工的个人信息，引发数据泄露事件，面临监管处罚和声誉损失。</li>
+            <li>与当地供应商、客户或社区发生纠纷，处理不当可能升级为法律诉讼或群体性事件。</li>
+        </ul>
+        <h2>二、我们团队的服务能力匹配</h2>
+        <p>根据《沟通要点》中海投公司提出的重点服务需求，结合我们团队实际的服务能力，我们梳理了能够提供的具体合规服务如下：</p>
+        <h3>2.1 针对“制定境外业务专项合规指引（试行）”</h3>
+        <p>此项需求旨在为海投公司的核心境外业务（如工程承包、投资）提供一套标准化的内部合规操作规范。</p>
+        <p><strong>我方可提供的核心服务模块：</strong></p>
+        <ul>
+            <li><strong>央国企整体合规体系（“大合规体系”）建设及37301 合规体系认证：</strong>
+                其中的“合规制度体系搭建”部分，可为专项指引的顶层设计和框架结构提供方法论指导。（见《服务模块介绍》第九部分（一）2）</li>
+            <li><strong>出口管制与经济制裁合规：</strong>
+                其中的“出口管制合规指引制定”、“经济制裁合规指引制定”模块，可直接应用于专项指引中涉及相关风险的章节。（见《服务模块介绍》第一部分（一）4、（二）4）</li>
+            <li><strong>网络安全、数据合规及隐私政策：</strong> 其中的“撰写内外部数据合规文件”模块，可支持专项指引中数据保护、网络安全相关内容的撰写。（见《服务模块介绍》第二部分（四）3（3））</li>
+            <li><strong>反贿赂/反腐败：ISO 37001：2016：</strong>
+                其中的“企业内部反商业贿赂/反腐败合规指引修订”模块，可为专项指引中的反腐败章节提供具体内容。（见《服务模块介绍》第七部分（四））</li>
+            <li><strong>供应链强迫劳动：</strong> 其中的“劳动合规政策的健全和完善”模块，可为专项指引中关于劳工权益保护、供应链合规管理的部分提供支持。（见《服务模块介绍》第四部分（一）3）</li>
+            <li><strong>ICTS 交易审查：</strong> 若业务涉及，其中的“标准合规协议/条款制定”等可供参考。（见《服务模块介绍》第五部分（五））</li>
+            <li><strong>日常合规性判断：</strong> 其中的“业务合规可行性分析及合规建议”的思路，有助于确保专项指引的实用性和可操作性。（见《服务模块介绍》第十一部分（二））</li>
+        </ul>
+        <p><strong>具体服务内容及预期成果：</strong></p>
+        <ul>
+            <li><strong>服务内容：</strong>
+                <ol>
+                    <li>深入调研海投公司境外工程承包、投资等核心业务板块的现有流程、管理制度及痛点。</li>
+                    <li>结合国际良好实践（如ISO合规管理体系标准）、相关国际条约及中国对外投资合作的监管要求，梳理各业务流程中的关键合规控制点。</li>
+                    <li>起草《境外业务专项合规指引（试行）》，内容将系统覆盖但不限于：境外业务合规管理的基本原则与目标、组织职责与分工、尽职调查（商业伙伴、投资目标）、合同谈判与管理、项目执行（劳工、EHS、质量安全）、财务与税务、数据保护与网络安全、反腐败与商业道德、知识产权保护、危机应对与争议解决等核心领域。
+                    </li>
+                    <li>指引将明确各环节的操作规程、审批权限、禁止性行为清单、报告与处理机制，并提供配套的表单、清单和合同条款模板（如合规承诺函、尽职调查问卷模板、标准保密条款等）。</li>
+                </ol>
+            </li>
+            <li><strong>预期成果：</strong>
+                交付一套具有高度针对性、实用性和可操作性的《境外业务专项合规指引（试行）》文件。该指引将作为海投公司境外业务合规运营的内部“宪章”，为各级员工提供清晰的行为规范和行动指南，有效降低合规风险，并助力其满足国资委对制度体系建设的考核要求。
+            </li>
+        </ul>
+        <h3>2.2 针对“制定境外国别合规指引（暂行）”</h3>
+        <p>此项需求旨在为海投公司在重点国别开展业务提供本地化的法律合规参考。</p>
+        <p><strong>我方可提供的核心服务模块：</strong></p>
+        <ul>
+            <li><strong>企业出海数据合规：</strong> 其中的“设计问卷调研清单”、“撰写调研报告”等方法论，可借鉴用于进行全面的国别法律环境调研。（见《服务模块介绍》第二部分（三））</li>
+            <li><strong>出口管制与经济制裁合规：</strong> 其中的“出口管制法律法规汇编”、“经济制裁法律法规汇编”模块，可直接形成国别指引中相关法律的概述。（见《服务模块介绍》第一部分（一）2、（二）2）
+            </li>
+            <li><strong>网络安全、数据合规及隐私政策：</strong>
+                其中的“参与政策文件制定和法律动态研究”、“数据合规资讯跟踪”服务，有助于获取和分析国别最新的法律动态。（见《服务模块介绍》第二部分（二）7、（四）7）</li>
+            <li><strong>日常合规性判断：</strong> 其中的“合规专题咨询”、“合规资讯跟踪”服务，是国别指引动态更新和针对性解答的基础。（见《服务模块介绍》第十一部分（一）、（三））</li>
+            <li><strong>各专项合规服务模块中均包含对相关法律法规的梳理和风险识别能力，</strong> 例如反腐败、劳工、环保等领域的国别法律规定，均可纳入国别指引的范畴。</li>
+        </ul>
+        <p><strong>具体服务内容及预期成果（针对重点国别：老挝、柬埔寨、贝宁、哈萨克斯坦、马来西亚、印尼）：</strong></p>
+        <ul>
+            <li><strong>服务内容：</strong>
+                <ol>
+                    <li>针对每个重点国别，系统性调研、收集并整理与海投公司当前及潜在业务（工程承包、投资等）密切相关的法律法规体系。调研范围将包括但不限于：外商投资法、公司法、劳动法、合同法、税法、工程建筑法、环境保护法、土地法、反腐败法、数据保护法、外汇管理规定、海关条例、争议解决机制等。
+                    </li>
+                    <li>分析各国（地区）的监管架构、主要监管机构、执法重点、处罚标准及近年来的典型执法案例和司法判例。</li>
+                    <li>识别在这些国家开展业务所面临的主要法律风险、合规义务、禁止性行为以及特殊的商业习惯和文化因素。</li>
+                    <li>结合海投公司的业务特点，提炼各国别合规操作的关键要点和风险防范建议。</li>
+                </ol>
+            </li>
+            <li><strong>预期成果：</strong>
+                为每个重点国别分别产出一份《[国别名称]国别合规指引（暂行）》。每份指引将清晰、简明地概述该国关键法律领域的核心规定、企业必须履行的主要合规义务、需要特别警惕的法律风险点、以及实用的合规操作建议和最佳实践。这些国别指引将为海投公司在特定国家的业务决策、项目执行和日常管理提供本地化的、实操性强的法律合规参考，有效降低因不熟悉当地法律而产生的风险。
+            </li>
+        </ul>
+        <h3>2.3 针对“健全境外风险识别、评估、预警、处置等管控机制内容”（重点是完善风险三张清单）</h3>
+        <p>此项需求的核心是建立一套系统化的境外合规风险管理工具，即“风险识别清单、岗位合规职责清单、流程管控清单”。</p>
+        <p><strong>我方可提供的核心服务模块：</strong></p>
+        <ul>
+            <li><strong>央国企整体合规体系（“大合规体系”）建设：</strong>
+                其中的“合规运行机制建设”，特别是“建立合规运行机制抓手的‘三张清单’”：风险识别清单、岗位合规职责清单、流程管控清单，这是与海投公司需求直接对应的核心服务。（见《服务模块介绍》第九部分（一）3）</li>
+            <li><strong>各专项合规风险排查服务：</strong> 如“出口管制合规风险排查”、“经济制裁合规风险排查”、“供应链强迫劳动风险排查”、“反贿赂反腐败合规风险排查”、“ICTS
+                供应链合规风险排查”、“ESG风险识别”等，这些模块中积累的风险识别方法、问卷清单、案例分析等，都可为“风险识别清单”的制定提供丰富的内容输入和方法论支持。（见《服务模块介绍》各专项部分）</li>
+            <li><strong>项目合规风险前置性评估：</strong>
+                该服务可用于对新项目或新业务模式进行专项风险识别与评估，其成果可直接纳入“风险识别清单”和“流程管控清单”。（见《服务模块介绍》各专项部分的末尾，如第一部分（一）13）</li>
+            <li><strong>应急预案制定服务：</strong> 如“出口管制领域的应急预案制定”、“经济制裁领域的应急预案制定”、“网络安全事件应对”、“供应链劳动合规应急预案”、“ICTS
+                交易审查领域的应急预案制定”、“黎明突袭预案”等，这些应急预案的制定逻辑和内容，是“流程管控清单”中风险处置机制的重要组成部分。（见《服务模块介绍》各专项部分）</li>
+        </ul>
+        <p><strong>具体服务内容及预期成果：</strong></p>
+        <ul>
+            <li><strong>服务内容：</strong>
+                <ol>
+                    <li><strong>协助编制《境外业务合规风险识别清单》：</strong>
+                        <ul>
+                            <li>全面梳理海投公司境外业务（工程承包、投资等）从项目获取、决策、执行到退出的全生命周期。</li>
+                            <li>结合行业特点、重点国别法律环境以及国际合规趋势，系统识别在市场准入、合同履约、劳工管理、财务税务、数据处理、反腐败、环境保护、安全生产等各环节可能存在的内外部合规风险点。
+                            </li>
+                            <li>对识别出的风险点进行分类、描述，并初步评估其发生的可能性和潜在影响，形成动态更新的风险库。</li>
+                        </ul>
+                    </li>
+                    <li><strong>协助编制《境外业务岗位合规职责清单》：</strong>
+                        <ul>
+                            <li>基于已识别的合规风险点，并结合海投公司现有的组织架构（集团总部、国际部（海投公司）、各境外项目部/子公司等）。</li>
+                            <li>清晰界定各层级、各部门、各关键岗位在境外合规管理中的具体职责和权限。</li>
+                            <li>确保每个重要的合规风险点都有明确的责任主体（第一道防线、第二道防线、第三道防线），避免职责交叉或遗漏，形成权责明确的合规责任体系。</li>
+                        </ul>
+                    </li>
+                    <li><strong>协助编制《境外业务流程管控清单》（含风险应对策略）：</strong>
+                        <ul>
+                            <li>针对《境外业务合规风险识别清单》中的关键风险点，特别是高风险领域。</li>
+                            <li>协助设计或优化现有的业务流程，在关键节点嵌入合规审核、审批要求和必要的管控措施（如“合规审查前置”）。</li>
+                            <li>制定风险评估标准（如风险矩阵）和预警指标（如触发条件）。</li>
+                            <li>明确不同等级风险的报告路径、升级机制、以及相应的处置流程和应急预案（如调查程序、补救措施、责任追究等）。</li>
+                        </ul>
+                    </li>
+                </ol>
+            </li>
+            <li><strong>预期成果：</strong>
+                交付一套完整且相互关联的“风险三张清单”（《境外业务合规风险识别清单》、《境外业务岗位合规职责清单》、《境外业务流程管控清单》）及其配套的编制说明、使用指南和培训材料。这套清单将构成海投公司境外合规风险管控机制的核心工具，有助于实现对境外合规风险的系统识别、责任的明确落实、流程的有效管控和应对措施的及时到位。这将为海投公司建立健全“不敢违规、不能违规、不想违规”的有效机制提供有力支撑，并满足国资委对风险管控机制建设的考核要求。
+            </li>
+        </ul>
+        <h2>三、重点国别优先推进策略 (助力2025年12月31日前完成境外合规组织体系和制度体系搭建核心目标)</h2>
+        <p>根据《沟通要点》，海投公司希望在2025年12月31日前完成境外合规制度体系建设工作，并选取易推进、易取得进展成果的国别、板块开展工作，以点带面。以下针对第一阶段重点国别（老挝、柬埔寨、贝宁、哈萨克斯坦）及第二阶段可先期启动调研的国别（马来西亚、印尼）提出优先推进策略：
+        </p>
+        <div class="key-points">
+            <h4>优先推进总体思路</h4>
+            <p>聚焦基础性、高频性、高风险性的合规领域，快速形成制度性成果（如简版指引、核心风险清单、标准合同模板等），为整体合规体系的搭建提供实质性内容和实践经验，确保在时限内达成国资委考核目标。</p>
+        </div>
+        <h3>3.1 老挝</h3>
+        <ul>
+            <li><strong>优先推进的合规板块/领域：</strong>
+                <ol>
+                    <li><strong>投资与公司设立合规基础：</strong> 梳理外商投资准入政策、公司注册流程、最低资本要求、股权结构限制等。</li>
+                    <li><strong>工程承包资质与许可核心要求：</strong> 明确获取主要建筑承包资质的条件与流程，以及特定项目（如基础设施）可能需要的特殊许可。</li>
+                    <li><strong>劳动用工基础合规框架：</strong> 制定符合当地劳动法的标准劳动合同模板（中老双语）、工时与休假管理基本办法、薪酬支付与社保缴纳规范。</li>
+                    <li><strong>基础反腐败行为准则（本地化）：</strong> 针对与当地政府部门及商业伙伴交往，制定清晰的礼品、招待、便利费等行为规范，强调禁止商业贿赂。</li>
+                </ol>
+            </li>
+            <li><strong>选择理由 (效率导向/风险导向)：</strong>
+                <ul>
+                    <li>老挝是“一带一路”倡议的重要沿线国家，中资企业投资和工程承包项目较多，相关法律信息相对易于获取，已有一定实践经验可供借鉴，推进效率较高。</li>
+                    <li>工程承包是海投公司主营业务，资质许可是项目开展的前提，劳工问题是高频风险点，反腐败是央企出海的红线。从这些基础且关键的领域入手，能快速解决实际问题。</li>
+                </ul>
+            </li>
+            <li><strong>预期短期成果 (助力体系搭建)：</strong>
+                <ul>
+                    <li>产出《老挝投资与工程承包准入合规要点（初稿）》。</li>
+                    <li>形成《老挝劳动用工合规指引（简版）》及配套劳动合同模板。</li>
+                    <li>起草《老挝业务反腐败行为准则提示》。</li>
+                    <li>上述成果将为《老挝国别合规指引（暂行）》和风险三张清单中涉及老挝的部分提供核心内容支撑。</li>
+                </ul>
+            </li>
+        </ul>
+        <h3>3.2 柬埔寨</h3>
+        <ul>
+            <li><strong>优先推进的合规板块/领域：</strong>
+                <ol>
+                    <li><strong>土地使用与不动产合规要点：</strong> 柬埔寨土地所有权制度对外国人有严格限制，需明确工程项目用地（租赁、特许经营等）的合规路径及风险。</li>
+                    <li><strong>税务合规基础框架：</strong> 梳理主要税种（如增值税、企业所得税、预提税、最低税）、申报缴纳流程及常见税务风险点（如关联交易、常设机构认定）。</li>
+                    <li><strong>合同法律适用与争议解决机制概述：</strong> 了解当地合同法的基本原则、法律适用规则，以及商事仲裁和诉讼体系概况，为合同谈判提供支持。</li>
+                    <li><strong>供应链与分包商管理初步合规要求：</strong> 针对当地分包商的选任，提出初步的合规审查关注点（如资质、劳工标准）。</li>
+                </ol>
+            </li>
+            <li><strong>选择理由 (风险导向/业务关联)：</strong>
+                <ul>
+                    <li>柬埔寨建筑市场活跃，但法律体系仍在发展和完善中，土地、税务等领域的合规风险较高，需重点关注。</li>
+                    <li>合同管理和供应链管理是工程承包业务的核心环节，早期规范有助于防范后期风险。</li>
+                </ul>
+            </li>
+            <li><strong>预期短期成果 (助力体系搭建)：</strong>
+                <ul>
+                    <li>形成《柬埔寨工程项目土地使用与税务合规关注点备忘录》。</li>
+                    <li>起草《柬埔寨合同管理与争议解决风险提示清单》。</li>
+                    <li>为《柬埔寨国别合规指引（暂行）》和风险三张清单中涉及柬埔寨的部分提供关键输入。</li>
+                </ul>
+            </li>
+        </ul>
+        <h3>3.3 贝宁</h3>
+        <ul>
+            <li><strong>优先推进的合规板块/领域：</strong>
+                <ol>
+                    <li><strong>OHADA商法框架下的公司运营基础：</strong>
+                        贝宁是OHADA（非洲商法统一组织）成员国，其公司法、会计法等遵循统一框架，需梳理在此框架下的公司设立、运营、财报等基本合规要求。</li>
+                    <li><strong>外汇管制与资金跨境转移规定：</strong> 非洲国家外汇管制通常较为严格，需明确投资款汇入、利润汇出、工程款支付等环节的申报、审批流程和限制。</li>
+                    <li><strong>劳工本地化与社区关系管理初步指引：</strong> 关注当地关于雇佣本地员工比例的要求，以及与当地社区建立良好关系的必要性及初步沟通策略。</li>
+                    <li><strong>海关与物流清关主要流程与风险：</strong> 工程项目涉及大量设备物资进出口，需了解贝宁海关的主要规定、清关流程及常见延误风险。</li>
+                </ol>
+            </li>
+            <li><strong>选择理由 (国别特性/风险预防)：</strong>
+                <ul>
+                    <li>OHADA法律体系为部分合规工作提供了相对统一的参照标准，有助于快速建立基础认知，但具体到贝宁的实施细则和实践仍需关注。</li>
+                    <li>外汇管制、劳工本地化、社区关系是中资企业在非洲开展业务时普遍面临的挑战和风险点，早期介入有助于预防。</li>
+                </ul>
+            </li>
+            <li><strong>预期短期成果 (助力体系搭建)：</strong>
+                <ul>
+                    <li>产出《贝宁（OHADA框架）公司运营与外汇管理合规要点（初稿）》。</li>
+                    <li>制定《贝宁项目劳工本地化与社区沟通初步指引》。</li>
+                    <li>为《贝宁国别合规指引（暂行）》和风险三张清单中涉及贝宁的部分奠定基础。</li>
+                </ul>
+            </li>
+        </ul>
+        <h3>3.4 哈萨克斯坦</h3>
+        <ul>
+            <li><strong>优先推进的合规板块/领域：</strong>
+                <ol>
+                    <li><strong>资源与能源项目特殊合规（如海投业务涉及）：</strong> 哈萨克斯坦资源丰富，若项目涉及石油、天然气、矿产等领域，需关注其特殊的行业许可、环保要求、本地含量等规定。
+                    </li>
+                    <li><strong>技术标准与认证要求：</strong> 工程项目可能需遵守哈萨克斯坦国家技术标准（GOST标准体系的延续），部分设备材料可能需要当地认证。</li>
+                    <li><strong>数据本地化与信息安全初步调研：</strong> 关注当地是否有关于特定类型数据（如个人数据、关键信息基础设施数据）必须在境内存储或处理的要求。</li>
+                    <li><strong>俄语区合同习惯与法律文化特点：</strong> 了解当地商业习惯对合同解释和履行的影响，以及法律体系中与大陆法系或英美法系的异同。</li>
+                </ol>
+            </li>
+            <li><strong>选择理由 (行业特点/区域共性)：</strong>
+                <ul>
+                    <li>哈萨克斯坦是中亚地区的重要经济体，其法律环境对在该区域开展业务具有一定代表性。</li>
+                    <li>技术标准、数据合规是当前国际工程和投资中日益重要的合规领域。若海投业务涉及资源能源，则该领域合规至关重要。</li>
+                </ul>
+            </li>
+            <li><strong>预期短期成果 (助力体系搭建)：</strong>
+                <ul>
+                    <li>形成《哈萨克斯坦工程项目技术标准与数据合规初步调研报告》。</li>
+                    <li>梳理《哈萨克斯坦投资与工程承包主要法律风险点清单》。</li>
+                    <li>为《哈萨克斯坦国别合规指引（暂行）》和风险三张清单的制定提供专业视角和初步材料。</li>
+                </ul>
+            </li>
+        </ul>
+        <h3>3.5 马来西亚 (作为第二阶段，可先期启动基础调研)</h3>
+        <ul>
+            <li><strong>优先推进的合规板块/领域（基础调研）：</strong>
+                <ol>
+                    <li><strong>《2009年反腐败委员会法案》（MACC Act 2009）项下的企业责任：</strong>
+                        特别是第17A条关于商业组织因关联人员的腐败行为承担连带责任的规定，以及“充分程序”抗辩。</li>
+                    <li><strong>《2010年个人数据保护法》（PDPA 2010）核心要求：</strong> 了解个人数据的收集、使用、存储、披露等方面的七项原则及跨境传输规则。</li>
+                    <li><strong>建筑行业发展局（CIDB）主要法规：</strong> 针对工程承包商的注册、资质等级、项目申报、安全标准等要求。</li>
+                </ol>
+            </li>
+            <li><strong>选择理由 (法律成熟度/风险明确)：</strong>
+                <ul>
+                    <li>马来西亚法律体系相对成熟和完善，上述领域的法律规定明确，执法实践也较多，易于识别具体的合规要求和风险点。</li>
+                    <li>企业反腐败合规（特别是第三方风险管理）和数据保护是当前全球合规的热点和重点，对提升企业整体合规水平有标杆意义。</li>
+                </ul>
+            </li>
+            <li><strong>预期短期成果 (助力体系搭建)：</strong>
+                <ul>
+                    <li>产出《马来西亚核心合规领域（反腐败、数据保护、工程资质）法律要点解读与风险提示》。</li>
+                    <li>为后续深入制定《马来西亚国别合规指引（暂行）》和进行详细风险评估打下坚实基础。</li>
+                </ul>
+            </li>
+        </ul>
+        <h3>3.6 印度尼西亚 (作为第二阶段，可先期启动基础调研)</h3>
+        <ul>
+            <li><strong>优先推进的合规板块/领域（基础调研）：</strong>
+                <ol>
+                    <li><strong>投资负面清单（DNI）与许可制度：</strong> 了解印尼对外商投资在不同行业的准入限制、禁止领域以及所需的营业执照和特定许可。</li>
+                    <li><strong>《劳动法》（Manpower Law No. 13 of 2003及其修订）核心规定：</strong>
+                        印尼劳动法规定较为复杂，尤其在雇佣合同、工时、解雇补偿、工会权利等方面，劳资关系也相对敏感。</li>
+                    <li><strong>清真认证要求（如海投业务涉及食品、消费品、医药、服务等）：</strong> 特定产品或服务进入印尼市场可能需要强制性清真认证。</li>
+                </ol>
+            </li>
+            <li><strong>选择理由 (市场潜力/合规复杂性)：</strong>
+                <ul>
+                    <li>印尼是东南亚最大的经济体，市场潜力巨大，但其官僚体系和法律环境相对复杂，合规挑战较多，早期识别关键风险领域有助于业务稳健发展。</li>
+                    <li>劳动法是外商在印尼投资运营中普遍面临的重点和难点问题。</li>
+                </ul>
+            </li>
+            <li><strong>预期短期成果 (助力体系搭建)：</strong>
+                <ul>
+                    <li>形成《印度尼西亚投资准入与劳动合规初步风险提示与关注事项》。</li>
+                    <li>为后续系统性开展《印度尼西亚国别合规指引（暂行）》的制定工作提供明确方向和重点。</li>
+                </ul>
+            </li>
+        </ul>
+        <h2>四、总结与后续步骤建议</h2>
+        <p><strong>核心需求与风险总结：</strong>
+            海投公司当前的核心需求是在2025年12月31日前快速搭建起符合国资委要求的境外合规制度体系和风险管控机制，并切实提升境外业务的实际风险控制能力。其境外工程承包和投资业务面临的主要合规风险集中在对东道国法律法规（尤其是劳工、环保、税务、数据保护、反腐败等领域）的不熟悉、对商业伙伴（分包商、供应商、合资方）的合规管理不足、以及在复杂多变的国际政治经济环境下的履约和投资安全风险。这些风险因业务遍布不同法律体系和发展阶段的国家而呈现出显著的多样性和复杂性。
+        </p>
+        <p><strong>我方核心服务价值：</strong>
+            我方律师团队凭借在央国企合规管理体系建设（包括“三张清单”的制定与实施）、多法域跨境合规服务（特别是针对“一带一路”沿线国家）以及在反腐败、数据合规、工程与投资、ESG等具体专项领域的丰富经验和专业能力，能够为海投公司提供从顶层制度设计（如《境外业务专项合规指引》）到具体国别指引落地（如《[国别名称]国别合规指引》），再到风险管控机制健全（如“三张清单”的完善）的一站式、定制化、可落地的综合性法律服务。我们将致力于有效支持海投公司短期考核目标的实现，并为其构建可持续的长期合规管理能力。
+        </p>
+        <p><strong>优先推进策略概要：</strong>
+            建议聚焦第一阶段重点国别（老挝、柬埔寨、贝宁、哈萨克斯坦），在每个国家选取2-3个基础性强、风险突出且易于在短期内形成制度性成果的合规板块优先推进。通过快速形成国别合规指引的初稿核心内容和风险清单的框架性要素，以点带面，为2025年底前完成整体制度体系的搭建奠定坚实基础，并积累实践经验。
+        </p>
+        <p><strong>后续工作建议：</strong></p>
+        <ol>
+            <li><strong>召开项目启动会：</strong>
+                建议尽快组织召开由海投公司国际部（海投公司）领导、法务风控部门及相关业务部门负责人，与我方项目团队共同参与的项目启动会。会上，双方可就本《服务需求分析报告》的内容进行深入研讨，进一步澄清和确认海投公司的具体需求细节、期望成果、工作范围边界以及双方的职责分工。
+            </li>
+            <li><strong>细化并确认服务方案：</strong>
+                在启动会研讨成果的基础上，我方将进一步细化并与贵司共同确认《境外合规专项服务方案》，该方案将包括更详细的工作计划、各阶段明确的时间节点、具体的交付成果清单、项目团队成员及分工、以及最终的服务报价。</li>
+            <li><strong>组建专项服务团队并启动工作：</strong>
+                服务方案确认后，我方将迅速组建由经验丰富的合伙人及律师组成的专项服务团队，并立即启动第一阶段重点国别的信息收集、法律法规调研、以及相关指引和清单的起草工作。</li>
+            <li><strong>建立常态化沟通与汇报机制：</strong>
+                项目执行期间，建议建立双方项目负责人之间的周例会或双周例会等常态化沟通机制，定期向贵司汇报项目进展情况、阶段性成果、遇到的问题及建议解决方案，确保项目高效、透明、协同推进。</li>
+        </ol>
+    </div>
+    <script>
+        const engineeringRiskCtx = document.getElementById('engineeringRiskChart').getContext('2d');
+        const engineeringRiskChart = new Chart(engineeringRiskCtx, {
+            type: 'bar',
+            data: {
+                labels: ['劳工与EHS', '反腐败与贿赂', '合同与履约', '数据与网络安全', '环境合规', '当地法律法规适应', '供应链与分包商'],
+                datasets: [{
+                    label: '风险关注度指数 (示例)',
+                    data: [85, 90, 80, 75, 70, 88, 78], // 示例数据，非真实统计
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(153, 102, 255, 0.7)',
+                        'rgba(255, 159, 64, 0.7)',
+                        'rgba(199, 199, 199, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(199, 199, 199, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: '关注度指数 (0-100)'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: '境外工程承包业务主要合规风险领域关注度',
+                        font: {
+                            size: 16
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+    <style>
+        /* 目录样式 */
+        .toc-sidebar {
+            position: fixed;
+            left: 20px;
+            top: 120px;
+            width: 260px;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            font-size: 13px;
+        }
+
+        .toc-header {
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #007bff;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-list li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .toc-list a {
+            display: block;
+            padding: 8px 12px;
+            text-decoration: none;
+            color: #495057;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            line-height: 1.4;
+        }
+
+        .toc-list a:hover {
+            background-color: #e9ecef;
+            color: #007bff;
+        }
+
+        .toc-list a.active {
+            font-weight: bold;
+        }
+
+        .toc-h1 {
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .toc-h2 {
+            font-size: 14px;
+            padding-left: 20px !important;
+        }
+
+        /* 主内容区域调整 */
+        .main-content {
+            margin-left: 0;
+            padding-right: 20px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1400px) {
+            .toc-sidebar {
+                width: 220px;
+                font-size: 12px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .toc-sidebar {
+                width: 200px;
+                left: 10px;
+                font-size: 11px;
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .toc-sidebar {
+                display: none;
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+        }
+
+        /* 滚动条样式 */
+        .toc-sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .toc-sidebar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+
+        .toc-sidebar::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 3px;
+        }
+
+        .toc-sidebar::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+    </style>
+
+    <script>
+        // 目录功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为标题添加ID
+            const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+            headings.forEach((heading, index) => {
+                if (!heading.id) {
+                    const text = heading.textContent.trim();
+                    if (text.includes('云南省海外投资有限公司')) {
+                        heading.id = 'main-title';
+                    } else if (text.includes('引言')) {
+                        heading.id = 'introduction';
+                    } else if (text.includes('企业合规领域与风险识别')) {
+                        heading.id = 'compliance-analysis';
+                    } else if (text.includes('我们团队的服务能力匹配')) {
+                        heading.id = 'service-matching';
+                    } else if (text.includes('重点国别优先推进策略')) {
+                        heading.id = 'priority-strategy';
+                    } else if (text.includes('总结与后续步骤建议')) {
+                        heading.id = 'implementation-plan';
+                    } else if (text.includes('结论')) {
+                        heading.id = 'conclusion';
+                    } else {
+                        heading.id = 'heading-' + index;
+                    }
+                }
+            });
+
+            // 平滑滚动
+            const tocLinks = document.querySelectorAll('.toc-list a');
+            
+            tocLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // 高亮当前章节
+            function highlightCurrentSection() {
+                const sections = document.querySelectorAll('section[id], h1[id]');
+                const tocLinks = document.querySelectorAll('.toc-list a');
+                
+                let currentSection = null;
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // 找到当前可见的章节
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 100) {
+                        currentSection = section;
+                    }
+                });
+                
+                // 移除所有active类
+                tocLinks.forEach(link => link.classList.remove('active'));
+                
+                // 为当前章节添加active类
+                if (currentSection) {
+                    const currentLink = document.querySelector(`a[href="#${currentSection.id}"]`);
+                    if (currentLink) {
+                        currentLink.classList.add('active');
+                    }
+                }
+            }
+            
+            // 监听滚动事件
+            let ticking = false;
+            function requestTick() {
+                if (!ticking) {
+                    requestAnimationFrame(highlightCurrentSection);
+                    ticking = true;
+                    setTimeout(() => { ticking = false; }, 10);
+                }
+            }
+            
+            window.addEventListener('scroll', requestTick);
+            
+            // 初始化高亮
+            highlightCurrentSection();
+        });
+     </script>
+</div>
+ </body>
+
+</html>
