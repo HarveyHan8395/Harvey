@@ -829,11 +829,24 @@
 
         // 打开客户详情
         function openClient(clientId) {
-            // 这里可以连接到实际的文档链接
-            alert(`正在打开客户画像文档: ${clientId}\n\n在实际使用中，这里会跳转到相应的文档链接。`);
-            
-            // 示例：实际使用时可以这样跳转
-            // window.open(`/clients/${clientId}`, '_blank');
+            const clientLinks = {
+                'avnet': 'https://harveyhan.netlify.app/client-persona/20250617-avent/avnet_company_report.html',
+                'yoic': 'https://harveyhan.netlify.app/client-persona/20250612-yoic/navigation_home',
+                'foxconn': 'https://harveyhan.netlify.app/client-persona/others_persona/foxconn_client_persona.html',
+                'thundersoft': 'https://harveyhan.netlify.app/client-persona/others_persona/thundersoft_persona.html',
+                'glodon': 'https://harveyhan.netlify.app/client-persona/others_persona/guanglianda_persona.html',
+                'dxc-technology': 'https://harveyhan.netlify.app/client-persona/others_persona/dxc_technology_client_persona.html', // 假设的路径，请根据实际情况修改
+                'sgcc-international': 'https://harveyhan.netlify.app/client-persona/others_persona/SGCC_persona.html',
+                'cmcc-international': 'https://harveyhan.netlify.app/client-persona/others_persona/CMCC_persona.html' // 假设的路径，请根据实际情况修改
+            };
+
+            const url = clientLinks[clientId];
+
+            if (url) {
+                window.open(url, '_blank');
+            } else {
+                alert(`客户 ${clientId} 的文档链接未配置。`);
+            }
         }
 
         // 数字动画效果
