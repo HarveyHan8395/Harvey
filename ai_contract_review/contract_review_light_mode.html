@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI合同审查 - 智能法律服务平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-purple: rgb(112, 32, 130);
+            --light-purple: rgba(112, 32, 130, 0.1);
+            --medium-purple: rgba(112, 32, 130, 0.3);
+            --dark-purple: rgb(80, 20, 100);
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --background: #fafafa;
+            --white: #ffffff;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--background) 0%, #f0f0f5 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-purple);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo::before {
+            content: "⚖️";
+            font-size: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-purple);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--light-purple) 0%, transparent 100%);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary-purple);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+        }
+
+        .review-form {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(112, 32, 130, 0.08);
+            border: 1px solid rgba(112, 32, 130, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .form-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-purple);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: "";
+            width: 4px;
+            height: 20px;
+            background: var(--primary-purple);
+            border-radius: 2px;
+        }
+
+        /* File Upload */
+        .file-upload {
+            border: 2px dashed var(--medium-purple);
+            border-radius: 15px;
+            padding: 60px 30px;
+            text-align: center;
+            background: var(--light-purple);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .file-upload:hover {
+            border-color: var(--primary-purple);
+            background: rgba(112, 32, 130, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .file-upload.drag-over {
+            border-color: var(--primary-purple);
+            background: rgba(112, 32, 130, 0.2);
+            transform: scale(1.02);
+        }
+
+        .upload-icon {
+            font-size: 48px;
+            color: var(--primary-purple);
+            margin-bottom: 20px;
+        }
+
+        .upload-text {
+            font-size: 18px;
+            color: var(--primary-purple);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .upload-hint {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .file-input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-name {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: var(--primary-purple);
+            color: white;
+            border-radius: 25px;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        /* Position Selection */
+        .position-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .position-option {
+            position: relative;
+            width: 100%;
+        }
+
+        .position-radio {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .position-card {
+            background: var(--white);
+            border: 2px solid var(--border);
+            border-radius: 15px;
+            padding: 25px 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 160px;
+            position: relative;
+            user-select: none;
+        }
+
+        .position-card:hover {
+            border-color: var(--medium-purple);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(112, 32, 130, 0.15);
+        }
+
+        .position-radio:checked + .position-card {
+            border-color: var(--primary-purple);
+            background: var(--light-purple);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(112, 32, 130, 0.2);
+        }
+
+        .position-radio:checked + .position-card::after {
+            content: "✓";
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            width: 25px;
+            height: 25px;
+            background: var(--primary-purple);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .position-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .position-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-purple);
+            margin-bottom: 8px;
+        }
+
+        .position-description {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        /* Custom Position Special Styling */
+        .custom-input {
+            width: 100%;
+            padding: 10px 15px;
+            margin-top: 10px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .custom-input:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 2px rgba(112, 32, 130, 0.1);
+        }
+
+        .position-radio:checked + .position-card .custom-input {
+            display: block;
+        }
+
+        /* Text Input */
+        .special-requirements {
+            width: 100%;
+            min-height: 120px;
+            padding: 20px;
+            border: 2px solid var(--border);
+            border-radius: 15px;
+            font-size: 16px;
+            font-family: inherit;
+            resize: vertical;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .special-requirements:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 3px rgba(112, 32, 130, 0.1);
+        }
+
+        .special-requirements::placeholder {
+            color: var(--text-light);
+        }
+
+        /* Submit Button */
+        .submit-section {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--dark-purple) 100%);
+            color: white;
+            border: none;
+            padding: 18px 60px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(112, 32, 130, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(112, 32, 130, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 15px;
+            background: var(--light-purple);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary-purple);
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .review-form {
+                padding: 30px 20px;
+                margin: 0 20px;
+            }
+
+            .form-title {
+                font-size: 24px;
+            }
+
+            .position-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">AI合同审查</a>
+                <ul class="nav-links">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#features">功能</a></li>
+                    <li><a href="#about">关于</a></li>
+                    <li><a href="#contact">联系</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>智能合同审查</h1>
+            <p>运用人工智能技术，为您提供专业、高效、精准的合同审查服务</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <form class="review-form" id="contractForm">
+                <h2 class="form-title">开始审查您的合同</h2>
+
+                <!-- File Upload Section -->
+                <div class="form-section">
+                    <h3 class="section-title">📄 上传合同文件</h3>
+                    <div class="file-upload" id="fileUpload">
+                        <input type="file" class="file-input" id="fileInput" accept=".pdf,.doc,.docx,.txt">
+                        <div class="upload-icon">📁</div>
+                        <div class="upload-text">点击上传或拖拽文件至此</div>
+                        <div class="upload-hint">支持 PDF、Word、TXT 格式文件</div>
+                        <div class="file-name" id="fileName" style="display: none;"></div>
+                    </div>
+                </div>
+
+                <!-- Position Selection -->
+                <div class="form-section">
+                    <h3 class="section-title">⚖️ 选择审查立场</h3>
+                    <div class="position-grid">
+                        <div class="position-option">
+                            <input type="radio" name="position" value="fair" id="fair" class="position-radio">
+                            <label for="fair" class="position-card">
+                                <span class="position-icon">⚖️</span>
+                                <div class="position-title">公平立场</div>
+                                <div class="position-description">从中立角度审查合同，平衡双方利益，确保合同条款公平合理</div>
+                            </label>
+                        </div>
+                        <div class="position-option">
+                            <input type="radio" name="position" value="party-a" id="partyA" class="position-radio">
+                            <label for="partyA" class="position-card">
+                                <span class="position-icon">🏢</span>
+                                <div class="position-title">甲方立场</div>
+                                <div class="position-description">从甲方角度审查合同，重点关注甲方权益保护和风险防范</div>
+                            </label>
+                        </div>
+                        <div class="position-option">
+                            <input type="radio" name="position" value="party-b" id="partyB" class="position-radio">
+                            <label for="partyB" class="position-card">
+                                <span class="position-icon">👤</span>
+                                <div class="position-title">乙方立场</div>
+                                <div class="position-description">从乙方角度审查合同，关注乙方利益最大化和义务合理性</div>
+                            </label>
+                        </div>
+                        <div class="position-option">
+                            <input type="radio" name="position" value="custom" id="custom" class="position-radio">
+                            <label for="custom" class="position-card">
+                                <span class="position-icon">🎯</span>
+                                <div class="position-title">自定义立场</div>
+                                <div class="position-description">根据您的具体需求定制审查角度和重点</div>
+                                <input type="text" class="custom-input" id="customPosition" placeholder="请描述您的自定义立场..." onclick="event.stopPropagation();">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Special Requirements -->
+                <div class="form-section">
+                    <h3 class="section-title">📝 特殊审核要求</h3>
+                    <textarea 
+                        class="special-requirements" 
+                        id="specialRequirements"
+                        placeholder="请详细描述您的特殊审核要求，例如：重点关注某些条款、特定的法律风险、行业特殊要求等..."
+                    ></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="submit-section">
+                    <button type="submit" class="submit-btn">开始AI审查</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 36px; color: var(--primary-purple); margin-bottom: 20px;">为什么选择我们</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🧠</span>
+                    <h3 class="feature-title">AI智能分析</h3>
+                    <p class="feature-description">运用先进的人工智能技术，深度解析合同条款，识别潜在风险和问题</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h3 class="feature-title">高效便捷</h3>
+                    <p class="feature-description">几分钟内完成专业级合同审查，大幅提升工作效率，节省时间成本</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h3 class="feature-title">安全保密</h3>
+                    <p class="feature-description">采用企业级加密技术，确保您的合同信息绝对安全，严格保护商业机密</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // File upload functionality
+        const fileUpload = document.getElementById('fileUpload');
+        const fileInput = document.getElementById('fileInput');
+        const fileName = document.getElementById('fileName');
+
+        // Drag and drop events
+        fileUpload.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            fileUpload.classList.add('drag-over');
+        });
+
+        fileUpload.addEventListener('dragleave', () => {
+            fileUpload.classList.remove('drag-over');
+        });
+
+        fileUpload.addEventListener('drop', (e) => {
+            e.preventDefault();
+            fileUpload.classList.remove('drag-over');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFileSelect(files[0]);
+            }
+        });
+
+        // File input change
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFileSelect(e.target.files[0]);
+            }
+        });
+
+        function handleFileSelect(file) {
+            fileName.textContent = file.name;
+            fileName.style.display = 'inline-block';
+        }
+
+        // Form submission
+        document.getElementById('contractForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData();
+            const file = fileInput.files[0];
+            const position = document.querySelector('input[name="position"]:checked');
+            const requirements = document.getElementById('specialRequirements').value;
+
+            if (!file) {
+                alert('请先上传合同文件');
+                return;
+            }
+
+            if (!position) {
+                alert('请选择审查立场');
+                return;
+            }
+
+            // Here you would typically send the data to your backend
+            alert('合同上传成功！AI正在为您审查中...');
+        });
+
+        // Smooth animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .form-section').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
