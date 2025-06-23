@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>跨境合规视角：深圳8大未来产业头部企业全景解析</title>
-<script src="https://static-recommend-img.tiangong.cn/router/agent/chart_0c881812ee9d48598f6fe7dbffb2e546.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>.container {
     max-width: 800px;
     margin: 0 auto;
@@ -333,6 +333,98 @@ figcaption {
 <div class="chart-container">
 <canvas id="shenzhenFutureIndustryTargetsChart"></canvas>
 </div>
+<script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const ctx = document.getElementById('shenzhenFutureIndustryTargetsChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: [
+                            '合成生物',
+                            '光载信息',
+                            '智能机器人',
+                            '细胞与基因',
+                            '脑科学与脑机工程',
+                            '深地深海',
+                            '量子信息',
+                            '前沿新材料'
+                        ],
+                        datasets: [{
+                            label: '预计成为新兴产业中坚力量年限 (年)',
+                            data: [10, 10, 10, 10, 15, 15, 15, 15],
+                            backgroundColor: [
+                                'rgba(54, 162, 235, 0.6)',
+                                'rgba(54, 162, 235, 0.6)',
+                                'rgba(54, 162, 235, 0.6)',
+                                'rgba(54, 162, 235, 0.6)',
+                                'rgba(255, 159, 64, 0.6)',
+                                'rgba(255, 159, 64, 0.6)',
+                                'rgba(255, 159, 64, 0.6)',
+                                'rgba(255, 159, 64, 0.6)'
+                            ],
+                            borderColor: [
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: '深圳八大未来产业发展梯队与时间表',
+                                font: {
+                                    size: 16
+                                }
+                            },
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.x !== null) {
+                                            const years = context.parsed.x;
+                                            if (years <= 10) {
+                                                label += '5-10年内（第一梯队）';
+                                            } else {
+                                                label += '10-15年内（第二梯队）';
+                                            }
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: '发展年限'
+                                },
+                                ticks: {
+                                    stepSize: 5
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+        </script>
 <p>作为跨境合规律师，我们敏锐地洞察到，这8大未来产业的蓬勃发展，将催生大量且复杂的合规需求。这些产业的技术前沿性使其产品和技术极易触及各国出口管制和技术转让的敏感区域；其在全球产业链中的深度嵌入，也使其面临日益严峻的国际经济制裁与地缘政治风险。因此，深入理解这些产业的政策导向、识别其中的头部企业、并精准评估其潜在的跨境合规风险与业务需求，对于我们拓展业务、服务实体经济具有至关重要的战略意义。</p>
 <p>本文旨在聚焦深圳重点发展的8大未来产业，从跨境合规律师的专业视角，系统梳理相关的国家及地方政策中与出口管制、经济制裁相关的核心要点，识别各产业集群中的头部企业，并对其面临的主要合规挑战、潜在的合规服务需求以及业务拓展潜力进行深度剖析，为合规法律服务行业的同仁提供参考。</p>
 </section>
