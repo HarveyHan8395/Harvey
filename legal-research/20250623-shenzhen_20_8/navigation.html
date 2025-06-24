@@ -75,9 +75,24 @@
         
         .navigation-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: 
+                "compliance compliance"
+                "strategic future";
             gap: 40px;
             margin-top: 60px;
+        }
+        
+        .nav-card.compliance {
+            grid-area: compliance;
+        }
+        
+        .nav-card:not(.compliance):nth-of-type(1) {
+            grid-area: strategic;
+        }
+        
+        .nav-card:not(.compliance):nth-of-type(2) {
+            grid-area: future;
         }
         
         .nav-card {
@@ -132,6 +147,10 @@
         
         .nav-card.future .card-type {
             background: linear-gradient(45deg, #4ecdc4, #44a08d);
+        }
+        
+        .nav-card.compliance .card-type {
+            background: linear-gradient(45deg, #f093fb, #f5576c);
         }
         
         .nav-card p {
@@ -194,6 +213,13 @@
         }
         
         @media (max-width: 768px) {
+            .navigation-cards {
+                grid-template-columns: 1fr;
+                grid-template-areas: 
+                    "compliance"
+                    "strategic"
+                    "future";
+            }
             .header h1 {
                 font-size: 2.5rem;
             }
@@ -306,6 +332,15 @@
         </div>
         
         <div class="navigation-cards">
+            <div class="nav-card compliance" onclick="openDocument('compliance')">
+                <div class="card-type">共性合规需求</div>
+                <h2>头部企业的跨境合规共性问题</h2>
+                <p>深度剖析深圳"20+8"战略企业在国际化进程中面临的核心合规挑战，聚焦出口管制与经济制裁、数据与AI合规、供应链与反商业贿赂等关键领域，为跨境合规律师提供精准的业务拓展机遇。</p>
+                <button class="nav-button">
+                    查看《共性合规需求分析》
+                </button>
+            </div>
+            
             <div class="nav-card" onclick="openDocument('strategic')">
                 <div class="card-type">战略性新兴产业</div>
                 <h2>20个战略性新兴产业集群</h2>
@@ -336,6 +371,8 @@
                 window.open('https://harveyhan.netlify.app/legal-research/20250623-shenzhen_20_8/20_new_industry.html', '_blank');
             } else if (type === 'future') {
                 window.open('https://harveyhan.netlify.app/legal-research/20250623-shenzhen_20_8/8_future_industry.html', '_blank');
+            } else if (type === 'compliance') {
+                window.open('https://harveyhan.netlify.app/legal-research/20250623-shenzhen_20_8/common-needs.html', '_blank');
             }
         }
         
