@@ -248,7 +248,7 @@ li {
             border-radius: 8px;
         }
         }</style>
-<script src="https://static-recommend-img.tiangong.cn/router/agent/chart_0c881812ee9d48598f6fe7dbffb2e546.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body><div class="container">
 <main>
@@ -354,70 +354,39 @@ li {
 <script>
             const ctx = document.getElementById('marketPerformanceChart').getContext('2d');
             new Chart(ctx, {
-                type: 'bar',
+                type: 'doughnut',
                 data: {
                     labels: ['智能手机', '可穿戴设备', '智能家居', '笔记本/平板', '电动汽车'],
                     datasets: [{
-                        label: '小米在美国市场表现评估 (截至2025年中)',
-                        data: [0.5, 7, 5, 1, 0], // 评分基于1-10，0.5代表几乎为零，7代表有一定竞争力，5代表小众市场，1代表影响力微弱，0代表未进入
+                        label: '美国市场表现 (满分10)',
+                        data: [1, 7, 6, 2, 0],
                         backgroundColor: [
-                            'rgba(255, 99, 132, 0.6)',
-                            'rgba(75, 192, 192, 0.6)',
-                            'rgba(54, 162, 235, 0.6)',
-                            'rgba(255, 206, 86, 0.6)',
-                            'rgba(153, 102, 255, 0.6)'
+                            'rgba(255, 99, 132, 0.7)',
+                            'rgba(54, 162, 235, 0.7)',
+                            'rgba(255, 206, 86, 0.7)',
+                            'rgba(75, 192, 192, 0.7)',
+                            'rgba(153, 102, 255, 0.7)'
                         ],
                         borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(153, 102, 255, 1)'
+                            'rgba(255, 255, 255, 1)'
                         ],
-                        borderWidth: 1
+                        borderWidth: 2
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    indexAxis: 'y',
-                    scales: {
-                        x: {
-                            beginAtZero: true,
-                            max: 10,
-                            title: {
-                                display: true,
-                                text: '市场表现评分 (10分制)'
-                            }
-                        }
-                    },
                     plugins: {
                         title: {
                             display: true,
-                            text: '小米各产品线在美国市场表现评估',
+                            text: '小米各产品线在美国市场表现评估 (截至2025年中)',
                             font: {
-                                size: 18
+                                size: 16
                             }
                         },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) {
-                                        label += ': ';
-                                    }
-                                    const value = context.raw;
-                                    let interpretation = '';
-                                    switch(context.label) {
-                                        case '智能手机': interpretation = '几乎为零，仅存灰色市场'; break;
-                                        case '可穿戴设备': interpretation = '具备性价比竞争力'; break;
-                                        case '智能家居': interpretation = '在小众市场有一定吸引力'; break;
-                                        case '笔记本/平板': interpretation = '影响力微弱'; break;
-                                        case '电动汽车': interpretation = '未进入市场'; break;
-                                    }
-                                    return `${label}${value}分 - ${interpretation}`;
-                                }
-                            }
+                        legend: {
+                            display: true,
+                            position: 'top',
                         }
                     }
                 }
