@@ -251,7 +251,7 @@ figcaption {
             border-radius: 8px;
         }
         }</style>
-<script src="https://static-recommend-img.tiangong.cn/router/agent/chart_0c881812ee9d48598f6fe7dbffb2e546.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 <div class="container">
@@ -405,27 +405,22 @@ figcaption {
         document.addEventListener('DOMContentLoaded', function () {
             const ctx = document.getElementById('smartphoneMarketShareChart').getContext('2d');
             new Chart(ctx, {
-                type: 'bar',
+                type: 'doughnut',
                 data: {
-                    labels: ['三星 (Samsung)', '苹果 (Apple)', '小米 (Xiaomi)', '摩托罗拉 (Motorola)', '谷歌 (Google)'],
+                    labels: ['三星 (Samsung)', '苹果 (Apple)', '小米 (Xiaomi)', '摩托罗拉 (Motorola)', '谷歌 (Google)', '其他'],
                     datasets: [{
-                        label: '2025年第一季度欧洲智能手机出货量 (百万台)',
-                        data: [12.2, 8.0, 5.3, 1.7, 0.9],
+                        label: '市场份额',
+                        data: [37.7, 24.7, 16.4, 5.2, 2.8, 13.2],
                         backgroundColor: [
-                            'rgba(25, 99, 132, 0.7)',
-                            'rgba(201, 203, 207, 0.7)',
-                            'rgba(255, 159, 64, 0.7)',
-                            'rgba(75, 192, 192, 0.7)',
-                            'rgba(54, 162, 235, 0.7)'
+                            'rgba(0, 122, 255, 0.8)',
+                            'rgba(200, 200, 200, 0.8)',
+                            'rgba(255, 107, 0, 0.8)',
+                            'rgba(90, 200, 250, 0.8)',
+                            'rgba(52, 168, 83, 0.8)',
+                            'rgba(210, 210, 210, 0.8)'
                         ],
-                        borderColor: [
-                            'rgb(25, 99, 132)',
-                            'rgb(201, 203, 207)',
-                            'rgb(255, 159, 64)',
-                            'rgb(75, 192, 192)',
-                            'rgb(54, 162, 235)'
-                        ],
-                        borderWidth: 1
+                        borderColor: '#ffffff',
+                        borderWidth: 2
                     }]
                 },
                 options: {
@@ -434,7 +429,7 @@ figcaption {
                     plugins: {
                         title: {
                             display: true,
-                            text: '2025年Q1欧洲智能手机市场主要厂商出货量',
+                            text: '2025年Q1欧洲智能手机市场份额',
                             font: {
                                 size: 18,
                                 family: 'Georgia, serif'
@@ -454,27 +449,21 @@ figcaption {
                                 bottom: 10
                             }
                         },
+                        legend: {
+                            position: 'top',
+                        },
                         tooltip: {
                             callbacks: {
                                 label: function(context) {
-                                    let label = context.dataset.label || '';
+                                    let label = context.label || '';
                                     if (label) {
                                         label += ': ';
                                     }
-                                    if (context.parsed.y !== null) {
-                                        label += context.parsed.y + ' 百万台';
+                                    if (context.parsed !== null) {
+                                        label += context.parsed + '%';
                                     }
                                     return label;
                                 }
-                            }
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: '出货量 (百万台)'
                             }
                         }
                     }
