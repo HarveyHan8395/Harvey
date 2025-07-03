@@ -467,6 +467,42 @@
         <!-- 客户卡片网格 -->
         <div class="client-grid" id="clientGrid">
             <!-- 真实客户卡片 - 按日期排序，最新的在前 -->
+            <div class="client-card" data-industry="tech" onclick="openClient('360')">
+                <div class="client-icon">🛡️</div>
+                <div class="client-meta">
+                    <span class="client-date">2025.07.04</span>
+                    <span class="client-status status-active">活跃</span>
+                </div>
+                <h3 class="client-name">360集团</h3>
+                <p class="client-industry">互联网安全·人工智能</p>
+                <p class="client-description">中国数字安全领军企业，互联网免费安全服务的倡导者。业务覆盖互联网安全技术研发、产品推广，以及基于安全产品的广告、增值服务、智能硬件等商业化服务，重点布局“AI+安全”双主线发展战略。</p>
+                <div class="client-tags">
+                    <span class="tag">互联网安全</span>
+                    <span class="tag">人工智能</span>
+                    <span class="tag">大模型</span>
+                    <span class="tag">数字安全运营</span>
+                    <span class="tag">网络安全保障</span>
+                </div>
+            </div>
+
+            <div class="client-card" data-industry="tech" onclick="openClient('xiaomi')">
+                <div class="client-icon">📱</div>
+                <div class="client-meta">
+                    <span class="client-date">2025.07.02</span>
+                    <span class="client-status status-active">活跃</span>
+                </div>
+                <h3 class="client-name">小米</h3>
+                <p class="client-industry">智能科技 · 消费电子</p>
+                <p class="client-description">全球领先的智能科技企业，业务覆盖智能手机、智能硬件、IoT生态平台，重点布局高端化战略、汽车制造、AIoT全场景融合，智能手机全球出货量稳居前三，智能家居与汽车业务成为增长新引擎。</p>
+                <div class="client-tags">
+                    <span class="tag">智能手机</span>
+                    <span class="tag">智能硬件</span>
+                    <span class="tag">IoT</span>
+                    <span class="tag">汽车</span>
+                    <span class="tag">AIoT</span>
+                </div>
+            </div>
+
             <div class="client-card" data-industry="tech" onclick="openClient('avnet')">
                 <div class="client-icon">🔌</div>
                 <div class="client-meta">
@@ -830,14 +866,16 @@
         // 打开客户详情
         function openClient(clientId) {
             const clientLinks = {
-                'avnet': 'https://harveyhan.netlify.app/client-persona/20250617-avent/avnet_company_report.html',
-                'yoic': 'https://harveyhan.netlify.app/client-persona/20250612-yoic/navigation_home',
-                'foxconn': 'https://harveyhan.netlify.app/client-persona/others_persona/foxconn_client_persona.html',
-                'thundersoft': 'https://harveyhan.netlify.app/client-persona/others_persona/thundersoft_persona.html',
-                'glodon': 'https://harveyhan.netlify.app/client-persona/others_persona/guanglianda_persona.html',
-                'dxc-technology': 'https://harveyhan.netlify.app/client-persona/others_persona/dxc_technology_client_persona.html', // 假设的路径，请根据实际情况修改
-                'sgcc-international': 'https://harveyhan.netlify.app/client-persona/others_persona/SGCC_persona.html',
-                'china-mobile': 'https://harveyhan.netlify.app/client-persona/others_persona/CMCC_persona.html' // 假设的路径，请根据实际情况修改
+                '360': 'https://harveyhan.netlify.app/client-persona/360_group_compliance_analysis.html',
+                'xiaomi': 'https://harveyhan.netlify.app/client-persona/xiaomi_us_market_report.html',
+                'avnet': './20250617-avent/avnet_company_report.html',
+                'yoic': './20250612-yoic/navigation_home',
+                'foxconn': './others_persona/foxconn_client_persona.html',
+                'thundersoft': './others_persona/thundersoft_persona.html',
+                'glodon': './others_persona/guanglianda_persona.html',
+                'dxc-technology': './others_persona/dxc_technology_client_persona.html',
+                'sgcc-international': './others_persona/SGCC_persona.html',
+                'china-mobile': './others_persona/CMCC_persona.html'
             };
 
             const url = clientLinks[clientId];
