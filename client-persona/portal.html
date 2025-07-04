@@ -485,6 +485,24 @@
                 </div>
             </div>
 
+            <div class="client-card" data-industry="tech" onclick="openClient('oppo')">
+                <div class="client-icon">📱</div>
+                <div class="client-meta">
+                    <span class="client-date">2025.07.03</span>
+                    <span class="client-status status-active">活跃</span>
+                </div>
+                <h3 class="client-name">OPPO</h3>
+                <p class="client-industry">智能终端·移动互联网服务</p>
+                <p class="client-description">全球知名的智能终端制造商与移动互联网服务提供商，业务广泛覆盖智能手机、智能硬件、IoT生态等领域。其产品畅销全球超70个国家和地区，凭借卓越的产品品质和时尚的设计，深受消费者青睐。</p>
+                <div class="client-tags">
+                    <span class="tag">智能手机</span>
+                    <span class="tag">智能硬件</span>
+                    <span class="tag">IoT生态</span>
+                    <span class="tag">影像技术</span>
+                    <span class="tag">快充科技</span>
+                </div>
+            </div>
+
             <div class="client-card" data-industry="tech" onclick="openClient('xiaomi')">
                 <div class="client-icon">📱</div>
                 <div class="client-meta">
@@ -866,16 +884,17 @@
         // 打开客户详情
         function openClient(clientId) {
             const clientLinks = {
-                '360': 'https://harveyhan.netlify.app/client-persona/360_group_compliance_analysis.html',
-                'xiaomi': 'https://harveyhan.netlify.app/client-persona/xiaomi_us_market_report.html',
-                'avnet': './20250617-avent/avnet_company_report.html',
-                'yoic': './20250612-yoic/navigation_home',
-                'foxconn': './others_persona/foxconn_client_persona.html',
-                'thundersoft': './others_persona/thundersoft_persona.html',
-                'glodon': './others_persona/guanglianda_persona.html',
-                'dxc-technology': './others_persona/dxc_technology_client_persona.html',
-                'sgcc-international': './others_persona/SGCC_persona.html',
-                'china-mobile': './others_persona/CMCC_persona.html'
+                '360': 'https://harveyhan.netlify.app/client-persona/20250704-360/360_group_compliance_analysis.html',
+                'oppo': 'https://harveyhan.netlify.app/client-persona/20250703-oppo/oppo_europe_us_market_analysis.html',
+                'xiaomi': 'https://harveyhan.netlify.app/client-persona/20250702-xiaomi/xiaomi_us_market_report.html',
+                'avnet': 'https://harveyhan.netlify.app/client-persona/20250617-avent/avnet_company_report.html',
+                'yoic': 'https://harveyhan.netlify.app/client-persona/20250612-yoic/navigation_home.html',
+                'foxconn': 'https://harveyhan.netlify.app/client-persona/others_persona/foxconn_client_persona.html',
+                'thundersoft': 'https://harveyhan.netlify.app/client-persona/others_persona/thundersoft_persona.html',
+                'glodon': 'https://harveyhan.netlify.app/client-persona/others_persona/guanglianda_persona.html',
+                'dxc-technology': 'https://harveyhan.netlify.app/client-persona/others_persona/dxc_technology_client_persona.html',
+                'sgcc-international': 'https://harveyhan.netlify.app/client-persona/others_persona/SGCC_persona.html',
+                'china-mobile': 'https://harveyhan.netlify.app/client-persona/others_persona/CMCC_persona.html'
             };
 
             const url = clientLinks[clientId];
