@@ -35,31 +35,25 @@ function updateThumbnails() {
 
 // 全屏控制
 function toggleFullscreen() {
-    const elem = document.documentElement;
     if (!isFullscreen) {
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-        } else if (elem.webkitRequestFullscreen) {
-            elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) {
-            elem.msRequestFullscreen();
-        }
-        isFullscreen = true;
-        document.body.style.overflow = 'hidden';
-        showFullscreenControls();
+        document.documentElement.requestFullscreen();
     } else {
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) {
-            document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) {
-            document.msExitFullscreen();
-        }
-        isFullscreen = false;
-        document.body.style.overflow = '';
-        hideFullscreenControls();
+        document.exitFullscreen();
     }
 }
+
+document.addEventListener('fullscreenchange', () => {
+    isFullscreen = !!document.fullscreenElement;
+    if (isFullscreen) {
+        document.getElementById('main-content').classList.add('fullscreen');
+        updatePreview();
+        showFullscreenControls();
+    } else {
+        document.getElementById('main-content').classList.remove('fullscreen');
+        updatePreview();
+        hideFullscreenControls();
+    }
+});
 
 // 显示/隐藏全屏控制按钮
 function showFullscreenControls() {

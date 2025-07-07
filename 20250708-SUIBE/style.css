@@ -112,3 +112,21 @@ body {
     background: rgba(255, 183, 0, 0.8);
     transform: scale(1.1);
 }
+
+
+
+#main-content.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    background: #000;
+}
+
+#main-content.fullscreen #preview iframe {
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+}
