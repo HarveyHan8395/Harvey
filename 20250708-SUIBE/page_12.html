@@ -1,0 +1,374 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>校企联动机制：实践赋能与沉浸式体验</title>
+<link href="https://picture-search.tiangong.cn/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://picture-search.tiangong.cn/npm/@tailwindcss/browser@4"></script><script src="https://picture-search.tiangong.cn/npm/@tailwindcss/browser@4"></script><style>
+        body {width: 1280px; min-height: 720px; margin: 0;
+            padding: 0;}
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #0a2e5c 0%, #184785 100%);
+        }
+        .accent-line {
+            background: linear-gradient(90deg, #ff7e00, #ffb700);
+            height: 4px;
+            width: 60px;
+        }
+        .practice-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .practice-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        .card-1 {
+            border-left-color: #ff7e00;
+        }
+        .card-2 {
+            border-left-color: #4299e1;
+        }
+        .card-3 {
+            border-left-color: #48bb78;
+        }
+        .icon-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .icon-circle-1 {
+            background: rgba(255, 126, 0, 0.2);
+        }
+        .icon-circle-2 {
+            background: rgba(66, 153, 225, 0.2);
+        }
+        .icon-circle-3 {
+            background: rgba(72, 187, 120, 0.2);
+        }
+        .connection-line {
+            position: absolute;
+            border-top: 2px dashed rgba(255, 255, 255, 0.2);
+            width: 100px;
+            top: 50%;
+        }
+        #immersive-experience {
+            width: 100%;
+            height: 220px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<div class="slide gradient-bg relative overflow-hidden">
+<!-- Content container -->
+<div class="relative z-10 flex flex-col h-full p-10">
+<!-- Header section -->
+<div class="mb-6">
+<h1 class="text-4xl font-bold text-white mb-2">校企联动机制：实践赋能与沉浸式体验</h1>
+<div class="accent-line"></div>
+</div>
+<!-- Main content -->
+<div class="flex-grow">
+<!-- Introduction text -->
+<p class="text-gray-300 mb-6">通过真实场景与沉浸式体验，缩短学生从校园到职场的适应周期，提升人才质量与企业需求匹配度。</p>
+<!-- Practice empowerment cards -->
+<div class="flex justify-between items-start mb-6">
+<!-- Card 1: Joint Internship -->
+<div class="practice-card card-1 p-4 w-1/3 mr-5">
+<div class="flex items-start">
+<div class="icon-circle icon-circle-1 mr-3 flex-shrink-0">
+<i class="fas fa-building text-orange-400 text-xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-white mb-2">共建实习基地/项目</h3>
+<ul class="text-gray-300 space-y-1 text-sm">
+<li class="flex items-start">
+<i class="fas fa-check-circle text-orange-400 mt-1 mr-2"></i>
+<span>企业开放真实合规项目，提供实际案例</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check-circle text-orange-400 mt-1 mr-2"></i>
+<span>学生参与风险评估、尽职调查环节</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check-circle text-orange-400 mt-1 mr-2"></i>
+<span>参与合规方案设计与实施</span>
+</li>
+</ul>
+<div class="mt-3 bg-blue-900 bg-opacity-30 p-2 rounded">
+<p class="text-gray-200 text-xs"><i class="fas fa-lightbulb text-yellow-400 mr-2"></i>预期效果：缩短成长周期，提升实际操作能力</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: Joint Research -->
+<div class="practice-card card-2 p-4 w-1/3 mr-5">
+<div class="flex items-start">
+<div class="icon-circle icon-circle-2 mr-3 flex-shrink-0">
+<i class="fas fa-search text-blue-400 text-xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-white mb-2">课题联合研究</h3>
+<ul class="text-gray-300 space-y-1 text-sm">
+<li class="flex items-start">
+<i class="fas fa-check-circle text-blue-400 mt-1 mr-2"></i>
+<span>参与企业或律所的真实合规课题研究</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check-circle text-blue-400 mt-1 mr-2"></i>
+<span>产出实际研究成果与分析报告</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check-circle text-blue-400 mt-1 mr-2"></i>
+<span>定期举办研究成果分享会与专家点评</span>
+</li>
+</ul>
+<div class="mt-3 bg-blue-900 bg-opacity-30 p-2 rounded">
+<p class="text-gray-200 text-xs"><i class="fas fa-lightbulb text-yellow-400 mr-2"></i>预期效果：培养独立研究能力，提升专业深度</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3: Role Simulation -->
+<div class="practice-card card-3 p-4 w-1/3">
+<div class="flex items-start">
+<div class="icon-circle icon-circle-3 mr-3 flex-shrink-0">
+<i class="fas fa-users-cog text-green-400 text-xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-white mb-2">角色模拟与场景体验</h3>
+<ul class="text-gray-300 space-y-1 text-sm">
+<li class="flex items-start">
+<i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+<span>模拟企业合规、技术、监管等多类角色</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+<span>仿真处理真实场景与决策情境</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check-circle text-green-400 mt-1 mr-2"></i>
+<span>开展跨部门协作与沟通演练</span>
+</li>
+</ul>
+<div class="mt-3 bg-blue-900 bg-opacity-30 p-2 rounded">
+<p class="text-gray-200 text-xs"><i class="fas fa-lightbulb text-yellow-400 mr-2"></i>预期效果：增强跨域协同能力，提升风险判断力</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Immersive experience visualization -->
+<div class="relative mt-4">
+<h3 class="text-xl font-semibold text-white mb-3 text-center">沉浸式体验模型</h3>
+<div class="w-full" id="immersive-experience"></div>
+</div>
+</div>
+<!-- Footer with page number -->
+<div class="mt-4 flex justify-between items-center">
+<div class="text-gray-400 text-sm">出口管制高层次人才培养机制创新研讨会</div>
+<div class="text-gray-400 text-sm">12/15</div>
+</div>
+</div>
+</div>
+<!-- Fallback visualization in case D3.js doesn't load properly -->
+<div class="hidden" id="fallback-visualization">
+<div class="w-full flex justify-center items-center" style="height: 220px;">
+<div class="relative">
+<!-- Central circle -->
+<div class="absolute" style="left: 50%; top: 50%; transform: translate(-50%, -50%);">
+<div style="width: 100px; height: 100px; border-radius: 50%; background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(255, 126, 0, 0.5); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+<i class="fas fa-users text-orange-400 text-2xl mb-2"></i>
+<span class="text-white font-bold">沉浸式体验</span>
+</div>
+</div>
+<!-- Surrounding elements -->
+<div class="absolute" style="width: 300px; height: 300px; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+<!-- Legal -->
+<div class="absolute" style="left: 0; top: 50%; transform: translate(-50%, -50%);">
+<div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.05); border: 2px solid #ff7e00; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+<i class="fas fa-gavel text-orange-400"></i>
+<span class="text-white text-xs mt-1">法律</span>
+</div>
+</div>
+<!-- Technical -->
+<div class="absolute" style="left: 25%; top: 10%; transform: translate(-50%, -50%);">
+<div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.05); border: 2px solid #4299e1; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+<i class="fas fa-microchip text-blue-400"></i>
+<span class="text-white text-xs mt-1">技术</span>
+</div>
+</div>
+<!-- Compliance -->
+<div class="absolute" style="left: 75%; top: 10%; transform: translate(-50%, -50%);">
+<div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.05); border: 2px solid #48bb78; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+<i class="fas fa-check-circle text-green-400"></i>
+<span class="text-white text-xs mt-1">合规</span>
+</div>
+</div>
+<!-- Risk -->
+<div class="absolute" style="right: 0; top: 50%; transform: translate(50%, -50%);">
+<div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.05); border: 2px solid #f56565; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+<i class="fas fa-exclamation-triangle text-red-400"></i>
+<span class="text-white text-xs mt-1">风险</span>
+</div>
+</div>
+<!-- Communication -->
+<div class="absolute" style="left: 25%; bottom: 10%; transform: translate(-50%, 50%);">
+<div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.05); border: 2px solid #9f7aea; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+<i class="fas fa-comments text-purple-400"></i>
+<span class="text-white text-xs mt-1">沟通</span>
+</div>
+</div>
+<!-- Decision -->
+<div class="absolute" style="left: 75%; bottom: 10%; transform: translate(-50%, 50%);">
+<div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.05); border: 2px solid #ecc94b; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+<i class="fas fa-sitemap text-yellow-400"></i>
+<span class="text-white text-xs mt-1">决策</span>
+</div>
+</div>
+</div>
+</div>
+<p class="text-gray-400 text-sm text-center mt-2">通过多维度角色扮演，让学生在仿真环境中体验真实工作场景</p>
+</div>
+</div>
+<script>
+// D3.js visualization for immersive experience
+document.addEventListener('DOMContentLoaded', function() {
+    try {
+        // Check if D3 is loaded
+        if (typeof d3 === 'undefined') {
+            throw new Error('D3 not loaded');
+        }
+        
+        const width = 700;
+        const height = 220;
+        
+        const svg = d3.select("#immersive-experience")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("viewBox", `0 0 ${width} ${height}`)
+            .attr("preserveAspectRatio", "xMidYMid meet");
+        
+        // Create a group for the visualization
+        const g = svg.append("g")
+            .attr("transform", `translate(${width/2}, ${height/2})`);
+        
+        // Create a circular background
+        g.append("circle")
+            .attr("r", 50)
+            .attr("fill", "rgba(255, 255, 255, 0.05)")
+            .attr("stroke", "rgba(255, 126, 0, 0.5)")
+            .attr("stroke-width", 2);
+        
+        // Add central icon
+        g.append("text")
+            .attr("text-anchor", "middle")
+            .attr("dominant-baseline", "central")
+            .attr("font-family", "FontAwesome")
+            .attr("font-size", "24px")
+            .attr("fill", "#ff7e00")
+            .attr("y", -10)
+            .text("\uf0c0"); // users icon
+        
+        // Add central text
+        g.append("text")
+            .attr("text-anchor", "middle")
+            .attr("dominant-baseline", "central")
+            .attr("y", 15)
+            .attr("fill", "#fff")
+            .attr("font-weight", "bold")
+            .text("沉浸式体验");
+        
+        // Create connecting elements
+        const numElements = 6;
+        const radius = 100;
+        const categories = ["法律", "技术", "合规", "风险", "沟通", "决策"];
+        const colors = ["#ff7e00", "#4299e1", "#48bb78", "#f56565", "#9f7aea", "#ecc94b"];
+        const icons = ["\uf0e3", "\uf1eb", "\uf058", "\uf06a", "\uf4ad", "\uf277"];
+        
+        // Add connecting lines and elements
+        for (let i = 0; i < numElements; i++) {
+            const angle = (i / numElements) * Math.PI * 2;
+            const x = Math.cos(angle) * radius;
+            const y = Math.sin(angle) * radius;
+            
+            // Add connecting line
+            g.append("line")
+                .attr("x1", 0)
+                .attr("y1", 0)
+                .attr("x2", x)
+                .attr("y2", y)
+                .attr("stroke", colors[i])
+                .attr("stroke-width", 1.5)
+                .attr("stroke-dasharray", "4,4");
+            
+            // Add circle for each element
+            g.append("circle")
+                .attr("cx", x)
+                .attr("cy", y)
+                .attr("r", 18)
+                .attr("fill", "rgba(255, 255, 255, 0.05)")
+                .attr("stroke", colors[i])
+                .attr("stroke-width", 1.5);
+            
+            // Add icon
+            g.append("text")
+                .attr("x", x)
+                .attr("y", y - 4)
+                .attr("text-anchor", "middle")
+                .attr("dominant-baseline", "central")
+                .attr("font-family", "FontAwesome")
+                .attr("font-size", "12px")
+                .attr("fill", colors[i])
+                .text(icons[i]);
+            
+            // Add category text
+            g.append("text")
+                .attr("x", x)
+                .attr("y", y + 12)
+                .attr("text-anchor", "middle")
+                .attr("dominant-baseline", "central")
+                .attr("fill", "#fff")
+                .attr("font-size", "10px")
+                .text(categories[i]);
+        }
+        
+        // Add outer ring
+        g.append("circle")
+            .attr("r", radius + 10)
+            .attr("fill", "none")
+            .attr("stroke", "rgba(255, 255, 255, 0.2)")
+            .attr("stroke-width", 1)
+            .attr("stroke-dasharray", "8,8");
+        
+        // Add explanation text
+        svg.append("text")
+            .attr("x", width/2)
+            .attr("y", height - 10)
+            .attr("text-anchor", "middle")
+            .attr("fill", "#aaa")
+            .attr("font-size", "12px")
+            .text("通过多维度角色扮演，让学生在仿真环境中体验真实工作场景");
+    } catch (e) {
+        console.error("Error in D3 visualization:", e);
+        // Show fallback visualization
+        document.getElementById('immersive-experience').style.display = 'none';
+        document.getElementById('fallback-visualization').classList.remove('hidden');
+    }
+});
+</script>
+</body></html>

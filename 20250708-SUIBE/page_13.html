@@ -1,0 +1,400 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>校企联动效果评估</title>
+<link href="https://picture-search.tiangong.cn/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://picture-search.tiangong.cn/npm/@tailwindcss/browser@4"></script><script src="https://picture-search.tiangong.cn/npm/@tailwindcss/browser@4"></script><style>
+        body {width: 1280px; min-height: 880px; margin: 0;
+            padding: 0;}
+        .slide {
+            width: 1280px;
+            min-height: 880px;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #0a2e5c 0%, #184785 100%);
+        }
+        .accent-line {
+            background: linear-gradient(90deg, #ff7e00, #ffb700);
+            height: 4px;
+            width: 60px;
+        }
+        .evaluation-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #ff7e00;
+            transition: all 0.3s ease;
+        }
+        .evaluation-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 126, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .connector {
+            height: 2px;
+            background: rgba(255, 126, 0, 0.5);
+        }
+        #evaluation-process {
+            width: 100%;
+            height: 180px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .process-node {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #ff7e00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .process-label {
+            position: absolute;
+            width: 80px;
+            text-align: center;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: white;
+        }
+        .process-arrow {
+            position: absolute;
+            border-top: 2px dashed #4299e1;
+            width: 60px;
+            transform-origin: left center;
+        }
+        .process-dot {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #4299e1;
+        }
+    </style>
+</head>
+<body>
+<div class="slide gradient-bg relative overflow-hidden">
+<!-- Content container -->
+<div class="relative z-10 flex flex-col h-full p-12">
+<!-- Header section -->
+<div class="mb-6">
+<h1 class="text-4xl font-bold text-white mb-3">校企联动效果评估</h1>
+<div class="accent-line"></div>
+</div>
+<!-- Main content -->
+<div class="flex-grow flex flex-col">
+<!-- Introduction text -->
+<div class="mb-6">
+<p class="text-gray-300 text-lg">校企联动机制的实施效果评估应从以下三个维度进行，以确保人才培养的质量与社会适应性：</p>
+</div>
+<!-- Evaluation Framework Visualization -->
+<div class="flex justify-center mb-8">
+<div class="bg-blue-800 bg-opacity-40 rounded-lg p-4 w-3/4">
+<div class="flex justify-between items-center">
+<div class="text-center px-6 py-3 bg-blue-700 bg-opacity-50 rounded-lg">
+<i class="fas fa-graduation-cap text-white text-2xl mb-2"></i>
+<p class="text-white font-semibold">课程创新</p>
+</div>
+<div class="connector w-16"></div>
+<div class="text-center px-6 py-3 bg-blue-700 bg-opacity-50 rounded-lg">
+<i class="fas fa-users text-white text-2xl mb-2"></i>
+<p class="text-white font-semibold">师资融合</p>
+</div>
+<div class="connector w-16"></div>
+<div class="text-center px-6 py-3 bg-blue-700 bg-opacity-50 rounded-lg">
+<i class="fas fa-hands-helping text-white text-2xl mb-2"></i>
+<p class="text-white font-semibold">实践赋能</p>
+</div>
+<div class="connector w-16"></div>
+<div class="text-center px-6 py-3 bg-orange-500 bg-opacity-70 rounded-lg">
+<i class="fas fa-chart-line text-white text-2xl mb-2"></i>
+<p class="text-white font-semibold">人才培养效果</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Evaluation Dimensions -->
+<div class="grid grid-cols-3 gap-6 mb-8">
+<!-- Dimension 1 -->
+<div class="evaluation-card p-6 rounded-lg">
+<div class="flex items-start">
+<div class="icon-circle mr-4 flex-shrink-0">
+<i class="fas fa-lightbulb text-orange-400 text-2xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold text-white mb-3">知识前沿性</h3>
+<ul class="text-gray-300 space-y-2">
+<li><i class="fas fa-check text-orange-400 mr-2"></i>课程内容与最新管制案例、政策解读紧密跟踪</li>
+<li><i class="fas fa-check text-orange-400 mr-2"></i>前沿技术（AI、半导体等）知识体系保持更新</li>
+<li><i class="fas fa-check text-orange-400 mr-2"></i>扫清技术理解障碍，实现知识紧贴前沿</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Dimension 2 -->
+<div class="evaluation-card p-6 rounded-lg">
+<div class="flex items-start">
+<div class="icon-circle mr-4 flex-shrink-0">
+<i class="fas fa-handshake text-orange-400 text-2xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold text-white mb-3">理论实践融合度</h3>
+<ul class="text-gray-300 space-y-2">
+<li><i class="fas fa-check text-orange-400 mr-2"></i>校内导师与校外导师形成有效互补</li>
+<li><i class="fas fa-check text-orange-400 mr-2"></i>企业专家讲座与实务案例分析常态化</li>
+<li><i class="fas fa-check text-orange-400 mr-2"></i>理论框架与实践应用的双向转化能力提升</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Dimension 3 -->
+<div class="evaluation-card p-6 rounded-lg">
+<div class="flex items-start">
+<div class="icon-circle mr-4 flex-shrink-0">
+<i class="fas fa-rocket text-orange-400 text-2xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-semibold text-white mb-3">能力落地程度</h3>
+<ul class="text-gray-300 space-y-2">
+<li><i class="fas fa-check text-orange-400 mr-2"></i>实习基地项目参与度与质量评估</li>
+<li><i class="fas fa-check text-orange-400 mr-2"></i>课题研究产出实际成果与应用价值</li>
+<li><i class="fas fa-check text-orange-400 mr-2"></i>缩短人才成长周期，提升解决复杂问题能力</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Circular Evaluation Process Visualization -->
+<div class="flex justify-center mb-6">
+<div class="w-3/4">
+<h3 class="text-xl font-semibold text-white mb-4 text-center">校企联动评估循环模型</h3>
+<div class="w-full" id="evaluation-process"></div>
+</div>
+</div>
+<!-- Fallback visualization in case D3.js doesn't load properly -->
+<div class="hidden w-3/4 mx-auto mb-6" id="fallback-visualization">
+<div class="relative h-44 flex justify-center items-center">
+<!-- Central circle -->
+<div class="absolute" style="left: 50%; top: 50%; transform: translate(-50%, -50%);">
+<div style="width: 140px; height: 140px; border-radius: 50%; border: 2px dashed rgba(255, 126, 0, 0.3);"></div>
+</div>
+<!-- Step 1: Planning -->
+<div class="absolute" style="left: 50%; top: 20%; transform: translate(-50%, -50%);">
+<div class="process-node">
+<i class="fas fa-calendar text-orange-400"></i>
+<div class="process-label">规划目标</div>
+</div>
+</div>
+<!-- Step 2: Implementation -->
+<div class="absolute" style="left: 75%; top: 35%; transform: translate(-50%, -50%);">
+<div class="process-node">
+<i class="fas fa-play text-orange-400"></i>
+<div class="process-label">实施举措</div>
+</div>
+</div>
+<!-- Step 3: Data Collection -->
+<div class="absolute" style="left: 75%; top: 65%; transform: translate(-50%, -50%);">
+<div class="process-node">
+<i class="fas fa-chart-bar text-orange-400"></i>
+<div class="process-label">数据收集</div>
+</div>
+</div>
+<!-- Step 4: Analysis -->
+<div class="absolute" style="left: 50%; top: 80%; transform: translate(-50%, -50%);">
+<div class="process-node">
+<i class="fas fa-chart-line text-orange-400"></i>
+<div class="process-label">分析评估</div>
+</div>
+</div>
+<!-- Step 5: Optimization -->
+<div class="absolute" style="left: 25%; top: 65%; transform: translate(-50%, -50%);">
+<div class="process-node">
+<i class="fas fa-sync text-orange-400"></i>
+<div class="process-label">优化调整</div>
+</div>
+</div>
+<!-- Step 6: Back to Planning -->
+<div class="absolute" style="left: 25%; top: 35%; transform: translate(-50%, -50%);">
+<div class="process-node">
+<i class="fas fa-arrow-up text-orange-400"></i>
+<div class="process-label">循环迭代</div>
+</div>
+</div>
+<!-- Connecting arrows -->
+<div class="process-arrow" style="width: 70px; top: 22%; left: 55%; transform: rotate(45deg);"></div>
+<div class="process-arrow" style="width: 70px; top: 50%; left: 75%; transform: rotate(90deg);"></div>
+<div class="process-arrow" style="width: 70px; top: 78%; left: 55%; transform: rotate(135deg);"></div>
+<div class="process-arrow" style="width: 70px; top: 78%; left: 45%; transform: rotate(225deg);"></div>
+<div class="process-arrow" style="width: 70px; top: 50%; left: 25%; transform: rotate(270deg);"></div>
+<div class="process-arrow" style="width: 70px; top: 22%; left: 45%; transform: rotate(315deg);"></div>
+<!-- Dots on arrows -->
+<div class="process-dot" style="top: 30%; left: 62%;"></div>
+<div class="process-dot" style="top: 50%; left: 70%;"></div>
+<div class="process-dot" style="top: 70%; left: 62%;"></div>
+<div class="process-dot" style="top: 70%; left: 38%;"></div>
+<div class="process-dot" style="top: 50%; left: 30%;"></div>
+<div class="process-dot" style="top: 30%; left: 38%;"></div>
+</div>
+</div>
+<!-- Conclusion statement -->
+<div class="bg-blue-800 bg-opacity-50 p-4 rounded-lg border-l-4 border-orange-400 mt-auto">
+<div class="flex items-center">
+<i class="fas fa-clipboard-check text-orange-400 text-xl mr-4"></i>
+<p class="text-white">定期评估校企联动机制实施效果，动态调整优化举措，确保人才培养质量与企业需求持续匹配，是出口管制人才培养机制创新的关键。</p>
+</div>
+</div>
+</div>
+<!-- Footer with page number -->
+<div class="mt-6 flex justify-between items-center">
+<div class="text-gray-400 text-sm">出口管制高层次人才培养机制创新研讨会</div>
+<div class="text-gray-400 text-sm">13/15</div>
+</div>
+</div>
+</div>
+<script>
+// D3.js visualization for circular evaluation process
+document.addEventListener('DOMContentLoaded', function() {
+    try {
+        // Check if D3 is loaded
+        if (typeof d3 === 'undefined') {
+            throw new Error('D3 not loaded');
+        }
+        
+        const width = 800;
+        const height = 180;
+        
+        const svg = d3.select("#evaluation-process")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("viewBox", `0 0 ${width} ${height}`)
+            .attr("preserveAspectRatio", "xMidYMid meet");
+        
+        // Create a group for the visualization
+        const g = svg.append("g")
+            .attr("transform", `translate(${width/2}, ${height/2})`);
+        
+        // Define the steps in the evaluation cycle
+        const steps = [
+            { name: "规划目标", icon: "\uf073" }, // calendar
+            { name: "实施举措", icon: "\uf04b" }, // play
+            { name: "数据收集", icon: "\uf080" }, // chart-bar
+            { name: "分析评估", icon: "\uf201" }, // chart-line
+            { name: "优化调整", icon: "\uf021" }  // sync
+        ];
+        
+        const radius = 70;
+        
+        // Draw connecting circle
+        g.append("circle")
+            .attr("r", radius)
+            .attr("fill", "none")
+            .attr("stroke", "rgba(255, 126, 0, 0.3)")
+            .attr("stroke-width", 2)
+            .attr("stroke-dasharray", "5,5");
+        
+        // Calculate positions around the circle
+        const angleStep = (2 * Math.PI) / steps.length;
+        
+        // Draw nodes and labels
+        steps.forEach((step, i) => {
+            const angle = i * angleStep - Math.PI / 2; // Start from top
+            const x = radius * Math.cos(angle);
+            const y = radius * Math.sin(angle);
+            
+            // Node circle
+            g.append("circle")
+                .attr("cx", x)
+                .attr("cy", y)
+                .attr("r", 25)
+                .attr("fill", "rgba(255, 255, 255, 0.1)")
+                .attr("stroke", "#ff7e00")
+                .attr("stroke-width", 2);
+            
+            // Icon
+            g.append("text")
+                .attr("x", x)
+                .attr("y", y)
+                .attr("text-anchor", "middle")
+                .attr("dominant-baseline", "central")
+                .attr("font-family", "FontAwesome")
+                .attr("font-size", "16px")
+                .attr("fill", "#ff7e00")
+                .text(step.icon);
+            
+            // Label
+            g.append("text")
+                .attr("x", x)
+                .attr("y", y + 40)
+                .attr("text-anchor", "middle")
+                .attr("fill", "#fff")
+                .attr("font-size", "12px")
+                .text(step.name);
+            
+            // Arrow to next step
+            const nextI = (i + 1) % steps.length;
+            const nextAngle = nextI * angleStep - Math.PI / 2;
+            const nextX = radius * Math.cos(nextAngle);
+            const nextY = radius * Math.sin(nextAngle);
+            
+            // Calculate control points for curved path
+            const midAngle = (angle + nextAngle) / 2;
+            const controlRadius = radius * 1.3;
+            const controlX = controlRadius * Math.cos(midAngle);
+            const controlY = controlRadius * Math.sin(midAngle);
+            
+            // Draw curved arrow path
+            const path = g.append("path")
+                .attr("d", `M ${x} ${y} Q ${controlX} ${controlY} ${nextX} ${nextY}`)
+                .attr("fill", "none")
+                .attr("stroke", "#4299e1")
+                .attr("stroke-width", 1.5)
+                .attr("marker-end", "url(#arrow)");
+            
+            // Add small circles along the path for visual effect
+            const pathLength = path.node().getTotalLength();
+            for (let j = 1; j <= 3; j++) {
+                const point = path.node().getPointAtLength(pathLength * j / 4);
+                g.append("circle")
+                    .attr("cx", point.x)
+                    .attr("cy", point.y)
+                    .attr("r", 2)
+                    .attr("fill", "#4299e1");
+            }
+        });
+        
+        // Define arrow marker
+        svg.append("defs").append("marker")
+            .attr("id", "arrow")
+            .attr("viewBox", "0 -5 10 10")
+            .attr("refX", 8)
+            .attr("refY", 0)
+            .attr("markerWidth", 6)
+            .attr("markerHeight", 6)
+            .attr("orient", "auto")
+            .append("path")
+            .attr("d", "M0,-5L10,0L0,5")
+            .attr("fill", "#4299e1");
+            
+    } catch (e) {
+        console.error("Error in D3 visualization:", e);
+        // Show fallback visualization
+        document.getElementById('evaluation-process').style.display = 'none';
+        document.getElementById('fallback-visualization').classList.remove('hidden');
+    }
+});
+</script>
+</body></html>

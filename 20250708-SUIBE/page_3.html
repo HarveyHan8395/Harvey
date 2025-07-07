@@ -1,0 +1,363 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>出口管制人才市场需求分析</title>
+<link href="https://picture-search.tiangong.cn/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://picture-search.tiangong.cn/npm/@tailwindcss/browser@4"></script><script src="https://picture-search.tiangong.cn/npm/@tailwindcss/browser@4"></script><script src="https://picture-search.tiangong.cn/npm/@tailwindcss/browser@4"></script><script src="https://picture-search.tiangong.cn/npm/@tailwindcss/browser@4"></script><script src="https://picture-search.tiangong.cn/npm/@tailwindcss/browser@4"></script><style>
+        body {width: 1280px; min-height: 824px; margin: 0;
+            padding: 0;}
+        .slide {
+            width: 1280px;
+            min-height: 824px;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #0a2e5c 0%, #184785 100%);
+        }
+        .accent-line {
+            background: linear-gradient(90deg, #ff7e00, #ffb700);
+            height: 4px;
+            width: 60px;
+        }
+        .highlight-box {
+            background: rgba(255, 126, 0, 0.1);
+            border-left: 4px solid #ff7e00;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        .icon-bg {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 126, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<div class="slide gradient-bg relative overflow-hidden">
+<!-- Content container -->
+<div class="relative z-10 flex flex-col h-full p-12">
+<!-- Header section -->
+<div class="mb-6">
+<h1 class="text-4xl font-bold text-white mb-3">出口管制人才市场需求分析</h1>
+<div class="accent-line"></div>
+</div>
+<!-- Main content -->
+<div class="flex-grow grid grid-cols-5 gap-6">
+<!-- Left column - Policy drivers -->
+<div class="col-span-2">
+<div class="highlight-box p-5 rounded-lg mb-6">
+<h3 class="text-xl font-semibold text-white mb-3 flex items-center">
+<i class="fas fa-gavel text-orange-400 mr-3"></i>
+                            政策驱动需求爆发
+                        </h3>
+<ul class="text-gray-300 space-y-3">
+<li class="flex items-start">
+<i class="fas fa-check-circle text-orange-400 mt-1 mr-2"></i>
+<span>全球范围内，尤其在半导体、人工智能等高科技领域，出口管制相关立法密集出台</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check-circle text-orange-400 mt-1 mr-2"></i>
+<span>执法趋于常态化，全球安全优先级提升</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check-circle text-orange-400 mt-1 mr-2"></i>
+<span>地缘政治变化加速了出口管制措施的调整与升级</span>
+</li>
+</ul>
+</div>
+<!-- Policy impact visualization -->
+<div class="card rounded-lg p-4 h-64">
+<h4 class="text-lg font-medium text-white mb-3">政策驱动因素对比</h4>
+<div class="w-full h-48" id="policy-impact-chart"></div>
+</div>
+</div>
+<!-- Right column - Market gap -->
+<div class="col-span-3">
+<div class="card rounded-lg p-6 mb-6">
+<h3 class="text-xl font-semibold text-white mb-4">行业缺口持续扩大</h3>
+<!-- Market gap visualization -->
+<div class="w-full h-52 mb-4" id="market-gap-chart"></div>
+<div class="text-gray-300 mt-2">
+<p class="italic text-sm">数据表明：市场对出口管制合规人才的需求呈爆发式增长，但人才供给严重滞后，行业缺口不断扩大。</p>
+</div>
+</div>
+<!-- Key challenges -->
+<div class="grid grid-cols-2 gap-4">
+<div class="card rounded-lg p-4">
+<div class="flex items-center mb-3">
+<div class="icon-bg mr-3">
+<i class="fas fa-sync-alt text-orange-400"></i>
+</div>
+<h4 class="text-lg font-medium text-white">规则动态变化快</h4>
+</div>
+<p class="text-gray-300 text-sm">法规更新迭代速度极快，知识体系需持续刷新</p>
+</div>
+<div class="card rounded-lg p-4">
+<div class="flex items-center mb-3">
+<div class="icon-bg mr-3">
+<i class="fas fa-microchip text-orange-400"></i>
+</div>
+<h4 class="text-lg font-medium text-white">技术迭代加速</h4>
+</div>
+<p class="text-gray-300 text-sm">AI、量子计算等前沿技术日新月异，合规要求需紧跟技术发展</p>
+</div>
+<div class="card rounded-lg p-4">
+<div class="flex items-center mb-3">
+<div class="icon-bg mr-3">
+<i class="fas fa-book text-orange-400"></i>
+</div>
+<h4 class="text-lg font-medium text-white">教材与实务脱节</h4>
+</div>
+<p class="text-gray-300 text-sm">课堂知识滞后于监管动态和技术前沿</p>
+</div>
+<div class="card rounded-lg p-4">
+<div class="flex items-center mb-3">
+<div class="icon-bg mr-3">
+<i class="fas fa-users-cog text-orange-400"></i>
+</div>
+<h4 class="text-lg font-medium text-white">实训场景缺失</h4>
+</div>
+<p class="text-gray-300 text-sm">学生缺乏真实复杂环境下的实操机会</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer with page number -->
+<div class="mt-6 flex justify-between items-center">
+<div class="text-gray-400 text-sm">出口管制高层次人才培养机制创新研讨会</div>
+<div class="text-gray-400 text-sm">3/15</div>
+</div>
+</div>
+</div>
+<script>
+        // Policy impact chart
+        document.addEventListener('DOMContentLoaded', function() {
+            const policyWidth = document.getElementById('policy-impact-chart').clientWidth;
+            const policyHeight = document.getElementById('policy-impact-chart').clientHeight;
+            const policyMargin = {top: 20, right: 30, bottom: 40, left: 40};
+            
+            const policySvg = d3.select("#policy-impact-chart")
+                .append("svg")
+                .attr("width", policyWidth)
+                .attr("height", policyHeight)
+                .append("g")
+                .attr("transform", `translate(${policyMargin.left},${policyMargin.top})`);
+            
+            // Policy impact data (conceptual representation)
+            const policyData = [
+                {factor: "立法密集", impact: 85},
+                {factor: "执法常态化", impact: 70},
+                {factor: "全球安全优先", impact: 90},
+                {factor: "技术变革", impact: 65}
+            ];
+            
+            // X axis
+            const policyX = d3.scaleBand()
+                .domain(policyData.map(d => d.factor))
+                .range([0, policyWidth - policyMargin.left - policyMargin.right])
+                .padding(0.3);
+            
+            policySvg.append("g")
+                .attr("transform", `translate(0,${policyHeight - policyMargin.top - policyMargin.bottom})`)
+                .call(d3.axisBottom(policyX))
+                .selectAll("text")
+                .style("fill", "#aaa")
+                .style("font-size", "12px");
+            
+            // Y axis
+            const policyY = d3.scaleLinear()
+                .domain([0, 100])
+                .range([policyHeight - policyMargin.top - policyMargin.bottom, 0]);
+            
+            policySvg.append("g")
+                .call(d3.axisLeft(policyY).ticks(5))
+                .selectAll("text")
+                .style("fill", "#aaa")
+                .style("font-size", "12px");
+            
+            // Add bars
+            policySvg.selectAll(".bar")
+                .data(policyData)
+                .enter()
+                .append("rect")
+                .attr("class", "bar")
+                .attr("x", d => policyX(d.factor))
+                .attr("y", d => policyY(d.impact))
+                .attr("width", policyX.bandwidth())
+                .attr("height", d => policyHeight - policyMargin.top - policyMargin.bottom - policyY(d.impact))
+                .attr("fill", "#ff7e00")
+                .attr("opacity", 0.8);
+            
+            // Add value labels
+            policySvg.selectAll(".label")
+                .data(policyData)
+                .enter()
+                .append("text")
+                .attr("class", "label")
+                .attr("x", d => policyX(d.factor) + policyX.bandwidth()/2)
+                .attr("y", d => policyY(d.impact) - 5)
+                .attr("text-anchor", "middle")
+                .style("fill", "#fff")
+                .style("font-size", "12px")
+                .text(d => d.impact + "%");
+            
+            // Market gap chart
+            const marketWidth = document.getElementById('market-gap-chart').clientWidth;
+            const marketHeight = document.getElementById('market-gap-chart').clientHeight;
+            const marketMargin = {top: 20, right: 30, bottom: 40, left: 50};
+            
+            const marketSvg = d3.select("#market-gap-chart")
+                .append("svg")
+                .attr("width", marketWidth)
+                .attr("height", marketHeight)
+                .append("g")
+                .attr("transform", `translate(${marketMargin.left},${marketMargin.top})`);
+            
+            // Market gap data (conceptual representation showing growing gap)
+            const marketData = [
+                {year: "2020", demand: 20, supply: 15},
+                {year: "2021", demand: 28, supply: 16},
+                {year: "2022", demand: 35, supply: 18},
+                {year: "2023", demand: 47, supply: 20},
+                {year: "2024", demand: 65, supply: 22},
+                {year: "2025", demand: 85, supply: 25}
+            ];
+            
+            // X axis
+            const marketX = d3.scaleBand()
+                .domain(marketData.map(d => d.year))
+                .range([0, marketWidth - marketMargin.left - marketMargin.right])
+                .padding(0.3);
+            
+            marketSvg.append("g")
+                .attr("transform", `translate(0,${marketHeight - marketMargin.top - marketMargin.bottom})`)
+                .call(d3.axisBottom(marketX))
+                .selectAll("text")
+                .style("fill", "#aaa")
+                .style("font-size", "12px");
+            
+            // Y axis
+            const marketY = d3.scaleLinear()
+                .domain([0, 100])
+                .range([marketHeight - marketMargin.top - marketMargin.bottom, 0]);
+            
+            marketSvg.append("g")
+                .call(d3.axisLeft(marketY).ticks(5))
+                .selectAll("text")
+                .style("fill", "#aaa")
+                .style("font-size", "12px");
+            
+            // Add demand line
+            marketSvg.append("path")
+                .datum(marketData)
+                .attr("fill", "none")
+                .attr("stroke", "#ff7e00")
+                .attr("stroke-width", 3)
+                .attr("d", d3.line()
+                    .x(d => marketX(d.year) + marketX.bandwidth()/2)
+                    .y(d => marketY(d.demand))
+                );
+            
+            // Add supply line
+            marketSvg.append("path")
+                .datum(marketData)
+                .attr("fill", "none")
+                .attr("stroke", "#4299e1")
+                .attr("stroke-width", 3)
+                .attr("d", d3.line()
+                    .x(d => marketX(d.year) + marketX.bandwidth()/2)
+                    .y(d => marketY(d.supply))
+                );
+            
+            // Add dots for demand
+            marketSvg.selectAll(".dot-demand")
+                .data(marketData)
+                .enter()
+                .append("circle")
+                .attr("class", "dot-demand")
+                .attr("cx", d => marketX(d.year) + marketX.bandwidth()/2)
+                .attr("cy", d => marketY(d.demand))
+                .attr("r", 5)
+                .attr("fill", "#ff7e00");
+            
+            // Add dots for supply
+            marketSvg.selectAll(".dot-supply")
+                .data(marketData)
+                .enter()
+                .append("circle")
+                .attr("class", "dot-supply")
+                .attr("cx", d => marketX(d.year) + marketX.bandwidth()/2)
+                .attr("cy", d => marketY(d.supply))
+                .attr("r", 5)
+                .attr("fill", "#4299e1");
+            
+            // Add legend
+            const marketLegend = marketSvg.append("g")
+                .attr("transform", `translate(${marketWidth - marketMargin.left - marketMargin.right - 100}, 0)`);
+            
+            marketLegend.append("rect")
+                .attr("width", 15)
+                .attr("height", 2)
+                .attr("fill", "#ff7e00");
+            
+            marketLegend.append("text")
+                .attr("x", 20)
+                .attr("y", 5)
+                .text("需求")
+                .style("font-size", "12px")
+                .style("fill", "#fff");
+            
+            marketLegend.append("rect")
+                .attr("width", 15)
+                .attr("height", 2)
+                .attr("y", 15)
+                .attr("fill", "#4299e1");
+            
+            marketLegend.append("text")
+                .attr("x", 20)
+                .attr("y", 20)
+                .text("供给")
+                .style("font-size", "12px")
+                .style("fill", "#fff");
+            
+            // Add title
+            marketSvg.append("text")
+                .attr("x", (marketWidth - marketMargin.left - marketMargin.right) / 2)
+                .attr("y", 0)
+                .attr("text-anchor", "middle")
+                .style("font-size", "14px")
+                .style("fill", "#fff")
+                .text("出口管制人才供需变化趋势");
+            
+            // Add gap indicator
+            marketSvg.append("path")
+                .datum(marketData)
+                .attr("fill", "none")
+                .attr("stroke", "#a0aec0")
+                .attr("stroke-width", 1)
+                .attr("stroke-dasharray", "5,5")
+                .attr("d", d3.line()
+                    .x(d => marketX(d.year) + marketX.bandwidth()/2)
+                    .y(d => marketY(d.gap = d.demand - d.supply))
+                );
+            
+            marketSvg.append("text")
+                .attr("x", marketX("2025") + marketX.bandwidth()/2 + 10)
+                .attr("y", marketY(60))
+                .text("缺口")
+                .style("font-size", "12px")
+                .style("fill", "#a0aec0");
+        });
+    </script>
+</body></html>

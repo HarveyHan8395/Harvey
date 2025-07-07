@@ -1,0 +1,212 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>校企联动机制：总体框架</title>
+<link href="https://picture-search.tiangong.cn/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://picture-search.tiangong.cn/npm/@tailwindcss/browser@4"></script><script src="https://picture-search.tiangong.cn/npm/@tailwindcss/browser@4"></script><script src="https://picture-search.tiangong.cn/npm/@tailwindcss/browser@4"></script><script src="https://picture-search.tiangong.cn/npm/@tailwindcss/browser@4"></script><style>
+        body {width: 1280px; min-height: 894px; margin: 0;
+            padding: 0;}
+        .slide {
+            width: 1280px;
+            min-height: 894px;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #0a2e5c 0%, #184785 100%);
+        }
+        .accent-line {
+            background: linear-gradient(90deg, #ff7e00, #ffb700);
+            height: 4px;
+            width: 60px;
+        }
+        .framework-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .framework-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(255, 126, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem auto;
+        }
+        .connector-line {
+            position: absolute;
+            height: 3px;
+            background: rgba(255, 126, 0, 0.5);
+            z-index: 0;
+        }
+        .central-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255, 126, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+<div class="slide gradient-bg relative overflow-hidden">
+<!-- Content container -->
+<div class="relative z-10 flex flex-col h-full p-12">
+<!-- Header section -->
+<div class="mb-8">
+<h1 class="text-4xl font-bold text-white mb-3">校企联动机制：总体框架</h1>
+<div class="accent-line"></div>
+</div>
+<!-- Main content -->
+<div class="flex-grow flex flex-col justify-center items-center relative">
+<!-- Central circle -->
+<div class="central-circle mb-8">
+<i class="fas fa-handshake text-orange-400 text-3xl mb-2"></i>
+<span class="text-white font-bold text-center">校企联动<br/>人才培养机制</span>
+</div>
+<!-- Framework cards -->
+<div class="grid grid-cols-3 gap-8 w-full z-10">
+<!-- Card 1: Curriculum Innovation -->
+<div class="framework-card p-6 flex flex-col">
+<div class="icon-circle">
+<i class="fas fa-book-open text-orange-400 text-3xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-white mb-4 text-center">课程设置创新</h3>
+<ul class="text-gray-300 space-y-3 flex-grow">
+<li class="flex items-start">
+<i class="fas fa-check-circle text-orange-400 mt-1 mr-2"></i>
+<span>与行业实践痛点同频共振，课程内容紧密跟踪最新管制案例、执法动态</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check-circle text-orange-400 mt-1 mr-2"></i>
+<span>融合半导体原理、AI基础、密码学等技术通识内容</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check-circle text-orange-400 mt-1 mr-2"></i>
+<span>企业合规案例进课堂，采用真实或高度仿真的案例教学</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check-circle text-orange-400 mt-1 mr-2"></i>
+<span>建立动态调整机制，确保教学内容与合规实践同步</span>
+</li>
+</ul>
+</div>
+<!-- Card 2: Dual Mentor System -->
+<div class="framework-card p-6 flex flex-col">
+<div class="icon-circle">
+<i class="fas fa-user-graduate text-orange-400 text-3xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-white mb-4 text-center">师资注入与双导师制</h3>
+<ul class="text-gray-300 space-y-3 flex-grow">
+<li class="flex items-start">
+<i class="fas fa-check-circle text-orange-400 mt-1 mr-2"></i>
+<span>校内导师：侧重理论研究与法学思维培养</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check-circle text-orange-400 mt-1 mr-2"></i>
+<span>校外导师（企业合规官、资深律师等）：带入一线经验、行业动态</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check-circle text-orange-400 mt-1 mr-2"></i>
+<span>理论与实践的有机结合，弥补传统单一学科培养模式的不足</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check-circle text-orange-400 mt-1 mr-2"></i>
+<span>实务专家经验进课堂，形成多元化教学体系</span>
+</li>
+</ul>
+</div>
+<!-- Card 3: Practical Empowerment -->
+<div class="framework-card p-6 flex flex-col">
+<div class="icon-circle">
+<i class="fas fa-briefcase text-orange-400 text-3xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-white mb-4 text-center">实践赋能与沉浸式体验</h3>
+<ul class="text-gray-300 space-y-3 flex-grow">
+<li class="flex items-start">
+<i class="fas fa-check-circle text-orange-400 mt-1 mr-2"></i>
+<span>共建实习基地/项目：企业开放真实合规项目，学生参与风险评估、尽职调查等环节</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check-circle text-orange-400 mt-1 mr-2"></i>
+<span>课题联合研究：学生参与企业或律所的真实合规课题研究，产出实际成果</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check-circle text-orange-400 mt-1 mr-2"></i>
+<span>角色模拟与场景体验：模拟企业合规、技术、监管等多类角色，仿真处理真实场景</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check-circle text-orange-400 mt-1 mr-2"></i>
+<span>能力落地，缩短成长周期，提升解决复杂问题的能力</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Conclusion statement -->
+<div class="mt-10 bg-blue-800 bg-opacity-50 p-5 rounded-lg border-l-4 border-orange-400 w-full">
+<div class="flex items-center">
+<i class="fas fa-lightbulb text-orange-400 text-2xl mr-4"></i>
+<p class="text-white text-lg">校企联动机制通过课程、师资、实践三位一体的创新，实现出口管制人才的高质量共育，有效缩短成长周期，提升人才质量。</p>
+</div>
+</div>
+</div>
+<!-- Footer with page number -->
+<div class="mt-6 flex justify-between items-center">
+<div class="text-gray-400 text-sm">出口管制高层次人才培养机制创新研讨会</div>
+<div class="text-gray-400 text-sm">9/15</div>
+</div>
+</div>
+</div>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // D3.js to create connecting lines between central circle and framework cards
+            const svg = d3.select("body")
+                .append("svg")
+                .attr("width", 1280)
+                .attr("height", 720)
+                .style("position", "absolute")
+                .style("top", 0)
+                .style("left", 0)
+                .style("z-index", 5)
+                .style("pointer-events", "none");
+            
+            // Get positions after DOM is fully loaded
+            setTimeout(() => {
+                const centralCircle = {
+                    x: 640,
+                    y: 240
+                };
+                
+                const cards = document.querySelectorAll(".framework-card");
+                
+                // Draw lines from central circle to each card
+                cards.forEach((card, index) => {
+                    const rect = card.getBoundingClientRect();
+                    const cardCenterX = rect.left + rect.width / 2;
+                    const cardCenterY = rect.top + 80; // Connect to top of card
+                    
+                    svg.append("line")
+                        .attr("x1", centralCircle.x)
+                        .attr("y1", centralCircle.y)
+                        .attr("x2", cardCenterX)
+                        .attr("y2", cardCenterY)
+                        .attr("stroke", "rgba(255, 126, 0, 0.5)")
+                        .attr("stroke-width", 3)
+                        .attr("stroke-dasharray", "5,5");
+                });
+            }, 100);
+        });
+    </script>
+</body></html>

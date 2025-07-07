@@ -1,0 +1,163 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>结语：合力锻造出口管制合规精英</title>
+<link href="https://picture-search.tiangong.cn/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://picture-search.tiangong.cn/npm/@tailwindcss/browser@4"></script><style>
+        body {width: 1280px; min-height: 720px; margin: 0;
+            padding: 0;}
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #0a2e5c 0%, #184785 100%);
+        }
+        .accent-line {
+            background: linear-gradient(90deg, #ff7e00, #ffb700);
+            height: 4px;
+            width: 60px;
+        }
+        .highlight-box {
+            background: rgba(255, 126, 0, 0.1);
+            border-left: 4px solid #ff7e00;
+            transition: all 0.3s ease;
+        }
+        .highlight-box:hover {
+            background: rgba(255, 126, 0, 0.15);
+        }
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        .connector {
+            position: absolute;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.2);
+            top: 50%;
+            z-index: 0;
+        }
+        .connector-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ff7e00;
+            top: -3px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide gradient-bg relative overflow-hidden">
+<!-- Content container -->
+<div class="relative z-10 flex flex-col h-full p-12">
+<!-- Header section -->
+<div class="mb-8">
+<h1 class="text-4xl font-bold text-white mb-3">结语：合力锻造出口管制合规精英</h1>
+<div class="accent-line"></div>
+</div>
+<!-- Main content -->
+<div class="flex-grow flex flex-col justify-center">
+<!-- Key message -->
+<div class="highlight-box p-6 rounded-lg mb-10">
+<div class="flex items-center">
+<i class="fas fa-quote-left text-orange-400 text-3xl mr-4"></i>
+<p class="text-white text-xl font-semibold">出口管制人才是企业参与全球竞争、保障国家安全的核心资源</p>
+</div>
+</div>
+<!-- Collaboration diagram -->
+<div class="relative flex justify-center items-center mb-12">
+<div class="connector w-1/2 left-1/4"></div>
+<!-- University icon -->
+<div class="flex flex-col items-center z-10 mr-32">
+<div class="icon-circle">
+<i class="fas fa-university text-orange-400 text-3xl"></i>
+</div>
+<h3 class="text-white text-xl font-semibold">高校</h3>
+</div>
+<!-- Enterprise icon -->
+<div class="flex flex-col items-center z-10 mx-32">
+<div class="icon-circle">
+<i class="fas fa-building text-orange-400 text-3xl"></i>
+</div>
+<h3 class="text-white text-xl font-semibold">企业</h3>
+</div>
+<!-- Lawyer icon -->
+<div class="flex flex-col items-center z-10 ml-32">
+<div class="icon-circle">
+<i class="fas fa-balance-scale text-orange-400 text-3xl"></i>
+</div>
+<h3 class="text-white text-xl font-semibold">律师</h3>
+</div>
+</div>
+<!-- Final message -->
+<div class="bg-blue-800 bg-opacity-50 p-6 rounded-lg border-l-4 border-orange-400 mb-8">
+<p class="text-white text-lg">校企共育，合力锻造精通法律、洞悉技术、善于沟通的合规精英，为中国企业在全球变局中行稳致远提供坚实保障。</p>
+</div>
+<!-- Key takeaways -->
+<div class="grid grid-cols-3 gap-6">
+<div class="bg-white bg-opacity-5 p-4 rounded-lg">
+<div class="flex items-center mb-2">
+<i class="fas fa-globe text-orange-400 mr-3"></i>
+<h3 class="text-white font-semibold">全球竞争力</h3>
+</div>
+<p class="text-gray-300 text-sm">培养国际化视野，提升企业全球合规能力</p>
+</div>
+<div class="bg-white bg-opacity-5 p-4 rounded-lg">
+<div class="flex items-center mb-2">
+<i class="fas fa-shield-alt text-orange-400 mr-3"></i>
+<h3 class="text-white font-semibold">国家安全</h3>
+</div>
+<p class="text-gray-300 text-sm">筑牢国家安全防线，保障关键技术安全</p>
+</div>
+<div class="bg-white bg-opacity-5 p-4 rounded-lg">
+<div class="flex items-center mb-2">
+<i class="fas fa-handshake text-orange-400 mr-3"></i>
+<h3 class="text-white font-semibold">校企共赢</h3>
+</div>
+<p class="text-gray-300 text-sm">构建产学研一体化人才培养新模式</p>
+</div>
+</div>
+</div>
+<!-- Footer with page number -->
+<div class="mt-6 flex justify-between items-center">
+<div class="text-gray-400 text-sm">出口管制高层次人才培养机制创新研讨会</div>
+<div class="text-gray-400 text-sm">15/15</div>
+</div>
+</div>
+</div>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add connector dots
+            const connector = document.querySelector('.connector');
+            const numDots = 6;
+            
+            for (let i = 0; i < numDots; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'connector-dot';
+                dot.style.left = `${(i + 1) * (100 / (numDots + 1))}%`;
+                connector.appendChild(dot);
+            }
+            
+            // Animate dots
+            const dots = document.querySelectorAll('.connector-dot');
+            dots.forEach((dot, index) => {
+                setInterval(() => {
+                    dot.style.transform = 'scale(1.5)';
+                    setTimeout(() => {
+                        dot.style.transform = 'scale(1)';
+                    }, 300);
+                }, 1000 + (index * 200));
+            });
+        });
+    </script>
+
+</body></html>
