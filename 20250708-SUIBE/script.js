@@ -3,24 +3,34 @@ let currentSlide = 1;
 let isFullscreen = false;
 let mouseTimer;
 
-// 初始化侧边栏和预览区域
+// 生成缩略图
 const sidebar = document.getElementById('sidebar');
 const preview = document.getElementById('preview');
 
-// 创建当前页码显示
-const currentPageDisplay = document.createElement('div');
-currentPageDisplay.className = 'thumbnail active';
-currentPageDisplay.innerHTML = `第 ${currentSlide} 页`;
-sidebar.appendChild(currentPageDisplay);
+for (let i = 1; i <= totalSlides; i++) {
+    const thumb = document.createElement('div');
+    thumb.innerHTML = `第 ${i} 页`;
+    thumb.className = 'thumbnail';
+    thumb.setAttribute('data-slide', i);
+    sidebar.appendChild(thumb);
+
+    thumb.addEventListener('click', () => {
+        currentSlide = i;
+        updatePreview();
+        updateThumbnails();
+    });
+}
 
 // 初始化预览
 function updatePreview() {
     preview.innerHTML = `<iframe src="page_${currentSlide}.html"></iframe>`;
 }
 
-// 更新页码显示
+// 更新缩略图状态
 function updateThumbnails() {
-    currentPageDisplay.innerHTML = `第 ${currentSlide} 页`;
+    document.querySelectorAll('.thumbnail').forEach(thumb => {
+        thumb.classList.toggle('active', parseInt(thumb.getAttribute('data-slide')) === currentSlide);
+    });
 }
 
 // 全屏控制
