@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>审查结果 - AI合同审查 | 北京大成（杭州）律师事务所</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-purple: rgb(112, 32, 130);
+            --light-purple: rgba(112, 32, 130, 0.1);
+            --medium-purple: rgba(112, 32, 130, 0.3);
+            --dark-purple: rgb(80, 20, 100);
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --background: #fafafa;
+            --white: #ffffff;
+            --border: #e0e0e0;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        /* Dark mode variables */
+        [data-theme="dark"] {
+            --primary-purple: rgb(0, 209, 255);
+            --light-purple: rgba(0, 209, 255, 0.15);
+            --medium-purple: rgba(0, 209, 255, 0.4);
+            --dark-purple: rgb(0, 255, 136);
+            --text-dark: #f0f0f0;
+            --text-light: #b0b0b0;
+            --background: #0a0a0a;
+            --white: #1a1a1a;
+            --border: #2a2a2a;
+            --tech-gradient: linear-gradient(135deg, rgb(0, 209, 255) 0%, rgb(0, 255, 136) 100%);
+            --tech-gradient-soft: linear-gradient(135deg, rgba(0, 209, 255, 0.2) 0%, rgba(0, 255, 136, 0.2) 100%);
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #f87171;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--background) 0%, var(--white) 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .header {
+            box-shadow: 0 2px 20px rgba(0, 209, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 209, 255, 0.2);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-purple);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo::before {
+            content: "⚖️";
+            font-size: 24px;
+        }
+
+        [data-theme="dark"] .logo {
+            background: var(--tech-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-purple);
+        }
+
+        [data-theme="dark"] .nav-links a:hover {
+            color: rgb(0, 255, 136);
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            position: relative;
+            width: 50px;
+            height: 26px;
+            background: var(--border);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .theme-toggle::before {
+            content: "";
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            background: var(--white);
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        [data-theme="dark"] .theme-toggle {
+            background: rgb(0, 209, 255);
+        }
+
+        [data-theme="dark"] .theme-toggle::before {
+            transform: translateX(24px);
+        }
+
+        .theme-icon {
+            position: absolute;
+            top: 4px;
+            font-size: 16px;
+            transition: opacity 0.3s ease;
+        }
+
+        .sun-icon {
+            left: 6px;
+            opacity: 1;
+        }
+
+        .moon-icon {
+            right: 6px;
+            opacity: 0;
+        }
+
+        [data-theme="dark"] .sun-icon {
+            opacity: 0;
+        }
+
+        [data-theme="dark"] .moon-icon {
+            opacity: 1;
+        }
+
+        /* Results Header */
+        .results-header {
+            padding: 60px 0 40px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--light-purple) 0%, transparent 100%);
+        }
+
+        [data-theme="dark"] .results-header {
+            background: var(--tech-gradient-soft);
+        }
+
+        .results-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--primary-purple);
+            margin-bottom: 20px;
+        }
+
+        [data-theme="dark"] .results-title {
+            background: var(--tech-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .results-subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Summary Cards */
+        .summary-section {
+            padding: 40px 0;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .summary-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        [data-theme="dark"] .summary-card {
+            box-shadow: 0 10px 30px rgba(0, 209, 255, 0.1);
+            border-color: rgba(0, 209, 255, 0.2);
+        }
+
+        .summary-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(112, 32, 130, 0.1);
+        }
+
+        [data-theme="dark"] .summary-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.2);
+            border-color: rgba(0, 255, 136, 0.3);
+        }
+
+        .summary-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .icon-success {
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--success);
+        }
+
+        .icon-warning {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+        }
+
+        .icon-danger {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+        }
+
+        [data-theme="dark"] .summary-icon {
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+
+        .summary-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .summary-label {
+            font-size: 16px;
+            color: var(--text-light);
+        }
+
+        /* Report Tabs */
+        .report-section {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(112, 32, 130, 0.08);
+            border: 1px solid rgba(112, 32, 130, 0.1);
+            margin-bottom: 40px;
+        }
+
+        [data-theme="dark"] .report-section {
+            box-shadow: 0 20px 60px rgba(0, 209, 255, 0.1);
+            border-color: rgba(0, 209, 255, 0.2);
+        }
+
+        .tabs-header {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border);
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            padding: 15px 30px;
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab-button:hover {
+            color: var(--primary-purple);
+        }
+
+        .tab-button.active {
+            color: var(--primary-purple);
+        }
+
+        .tab-button.active::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary-purple);
+            border-radius: 3px 3px 0 0;
+        }
+
+        [data-theme="dark"] .tab-button.active {
+            color: rgb(0, 209, 255);
+        }
+
+        [data-theme="dark"] .tab-button.active::after {
+            background: var(--tech-gradient);
+            box-shadow: 0 0 10px rgba(0, 209, 255, 0.5);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid transparent;
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--dark-purple) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(112, 32, 130, 0.3);
+        }
+
+        [data-theme="dark"] .btn-download {
+            background: var(--tech-gradient);
+            box-shadow: 0 4px 20px rgba(0, 209, 255, 0.4);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(112, 32, 130, 0.4);
+        }
+
+        [data-theme="dark"] .btn-download:hover {
+            box-shadow: 0 6px 30px rgba(0, 255, 136, 0.6);
+        }
+
+        .btn-feishu {
+            background: var(--white);
+            color: var(--primary-purple);
+            border-color: var(--primary-purple);
+        }
+
+        [data-theme="dark"] .btn-feishu {
+            background: var(--white);
+            color: rgb(0, 209, 255);
+            border-color: rgb(0, 209, 255);
+        }
+
+        .btn-feishu:hover {
+            background: var(--light-purple);
+            transform: translateY(-2px);
+        }
+
+        [data-theme="dark"] .btn-feishu:hover {
+            background: rgba(0, 209, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 209, 255, 0.3);
+        }
+
+        /* Report Content */
+        .report-content {
+            background: var(--background);
+            border-radius: 15px;
+            padding: 30px;
+            max-height: 600px;
+            overflow-y: auto;
+            border: 1px solid var(--border);
+        }
+
+        [data-theme="dark"] .report-content {
+            border-color: rgba(0, 209, 255, 0.2);
+        }
+
+        .report-content h3 {
+            color: var(--primary-purple);
+            font-size: 20px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        [data-theme="dark"] .report-content h3 {
+            color: rgb(0, 255, 136);
+            border-bottom-color: rgba(0, 255, 136, 0.3);
+        }
+
+        .report-content h4 {
+            color: var(--text-dark);
+            font-size: 18px;
+            margin: 20px 0 10px;
+        }
+
+        .report-content p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .report-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .report-content li {
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        /* Risk Items */
+        .risk-item {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--danger);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .risk-item {
+            background: var(--white);
+            border-left-color: var(--danger);
+        }
+
+        .risk-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.1);
+        }
+
+        .risk-level {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .risk-high {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+        }
+
+        .risk-medium {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+        }
+
+        .risk-low {
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--success);
+        }
+
+        /* Redline Styles */
+        .redline-added {
+            background: rgba(34, 197, 94, 0.2);
+            color: var(--success);
+            padding: 2px 4px;
+            border-radius: 3px;
+            text-decoration: underline;
+        }
+
+        .redline-deleted {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+            padding: 2px 4px;
+            border-radius: 3px;
+            text-decoration: line-through;
+        }
+
+        .redline-comment {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 3px solid var(--warning);
+            padding: 10px 15px;
+            margin: 10px 0;
+            font-style: italic;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--light-purple);
+            color: var(--text-dark);
+            padding: 40px 0;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            border-top: 2px solid var(--border);
+            margin-top: 80px;
+        }
+
+        [data-theme="dark"] .footer {
+            background: linear-gradient(180deg, var(--white) 0%, #0f0f0f 100%);
+            color: white;
+            border-top: 2px solid rgb(0, 209, 255);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-purple);
+        }
+
+        [data-theme="dark"] .footer-links a {
+            color: rgba(255,255,255,0.8);
+        }
+
+        [data-theme="dark"] .footer-links a:hover {
+            color: rgb(0, 255, 136);
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+
+        .copyright {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        [data-theme="dark"] .copyright {
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Loading State */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid var(--border);
+            border-top-color: var(--primary-purple);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .results-title {
+                font-size: 32px;
+            }
+
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .report-section {
+                padding: 20px;
+            }
+
+            .tabs-header {
+                gap: 10px;
+            }
+
+            .tab-button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .action-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Smooth Scrollbar */
+        .report-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .report-content::-webkit-scrollbar-track {
+            background: var(--background);
+            border-radius: 4px;
+        }
+
+        .report-content::-webkit-scrollbar-thumb {
+            background: var(--medium-purple);
+            border-radius: 4px;
+        }
+
+        .report-content::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-purple);
+        }
+
+        [data-theme="dark"] .report-content::-webkit-scrollbar-thumb {
+            background: rgba(0, 209, 255, 0.5);
+        }
+
+        [data-theme="dark"] .report-content::-webkit-scrollbar-thumb:hover {
+            background: rgb(0, 209, 255);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-left">
+                    <a href="index.html" class="logo">AI合同审查</a>
+                    <ul class="nav-links">
+                        <li><a href="index.html#home">首页</a></li>
+                        <li><a href="index.html#features">功能</a></li>
+                        <li><a href="index.html#process">流程</a></li>
+                        <li><a href="index.html#testimonials">客户评价</a></li>
+                        <li><a href="index.html#about">关于律师</a></li>
+                    </ul>
+                </div>
+                <div class="nav-right">
+                    <!-- Dark Mode Toggle -->
+                    <div class="theme-toggle" id="themeToggle">
+                        <span class="theme-icon sun-icon">☀️</span>
+                        <span class="theme-icon moon-icon">🌙</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Results Header -->
+    <section class="results-header">
+        <div class="container">
+            <h1 class="results-title">合同审查完成</h1>
+            <p class="results-subtitle">AI已完成对您合同的全面审查，以下是详细的审查结果和建议</p>
+        </div>
+    </section>
+
+    <!-- Summary Section -->
+    <section class="summary-section">
+        <div class="container">
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <div class="summary-icon icon-danger">
+                        <span>⚠️</span>
+                    </div>
+                    <div class="summary-value">12</div>
+                    <div class="summary-label">高风险条款</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon icon-warning">
+                        <span>📋</span>
+                    </div>
+                    <div class="summary-value">8</div>
+                    <div class="summary-label">建议修改条款</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon icon-success">
+                        <span>✅</span>
+                    </div>
+                    <div class="summary-value">95%</div>
+                    <div class="summary-label">合规性评分</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon icon-success">
+                        <span>⏱️</span>
+                    </div>
+                    <div class="summary-value">3分钟</div>
+                    <div class="summary-label">审查用时</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Report Section -->
+    <section class="report-section-wrapper">
+        <div class="container">
+            <div class="report-section">
+                <!-- Tabs -->
+                <div class="tabs-header">
+                    <button class="tab-button active" data-tab="complete">完整版</button>
+                    <button class="tab-button" data-tab="risk">风险版/精简版</button>
+                    <button class="tab-button" data-tab="redline">红线版</button>
+                </div>
+
+                <!-- Complete Version -->
+                <div class="tab-content active" id="complete">
+                    <div class="action-buttons">
+                        <a href="#" class="action-btn btn-download">
+                            <span>📥</span>
+                            下载完整审查报告
+                        </a>
+                        <a href="#" class="action-btn btn-feishu">
+                            <span>📄</span>
+                            飞书在线文档查看
+                        </a>
+                    </div>
+                    
+                    <div class="report-content">
+                        <h3>合同审查报告 - 完整版</h3>
+                        
+                        <h4>一、合同主体资格审查</h4>
+                        <p>经核查，甲方（北京某某科技有限公司）具备完整的签约资格，企业信用良好，无失信记录。乙方（杭州某某信息技术有限公司）资质齐全，符合本合同签订要求。双方均具备履行合同的能力。</p>
+                        
+                        <h4>二、合同条款完整性分析</h4>
+                        <p>本合同包含了以下基本条款：</p>
+                        <ul>
+                            <li>当事人名称和住所</li>
+                            <li>合同标的及数量</li>
+                            <li>质量标准</li>
+                            <li>价款及支付方式</li>
+                            <li>履行期限、地点和方式</li>
+                            <li>违约责任</li>
+                            <li>争议解决方法</li>
+                        </ul>
+                        <p>但缺少以下重要条款，建议补充：</p>
+                        <ul>
+                            <li>知识产权归属条款</li>
+                            <li>保密条款</li>
+                            <li>不可抗力条款</li>
+                        </ul>
+                        
+                        <h4>三、法律合规性检查</h4>
+                        <p>合同整体符合《中华人民共和国民法典》及相关法律法规要求。引用的技术标准均为现行有效版本。但发现第5.3条关于违约金的约定可能存在过高风险，根据司法实践，建议将违约金比例调整至合同总价款的20%以内。</p>
+                        
+                        <h4>四、风险评估与建议</h4>
+                        <p>1. <strong>付款条款风险：</strong>目前约定的预付款比例过高（70%），建议调整为30%-50%，并增加阶段性付款条款。</p>
+                        <p>2. <strong>交付验收风险：</strong>缺少明确的验收标准和程序，建议补充详细的验收条款，包括验收期限、验收标准等。</p>
+                        <p>3. <strong>违约责任不对等：</strong>甲方违约责任明显轻于乙方，建议平衡双方违约责任。</p>
+                        
+                        <h4>五、特别提示</h4>
+                        <p>作为技术服务合同，强烈建议增加以下条款：</p>
+                        <ul>
+                            <li>技术成果的知识产权归属</li>
+                            <li>源代码交付和使用权限</li>
+                            <li>技术保密和竞业限制</li>
+                            <li>技术支持和维护责任</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Risk Version -->
+                <div class="tab-content" id="risk">
+                    <div class="action-buttons">
+                        <a href="#" class="action-btn btn-download">
+                            <span>📥</span>
+                            下载风险审查报告
+                        </a>
+                        <a href="#" class="action-btn btn-feishu">
+                            <span>📄</span>
+                            飞书在线文档查看
+                        </a>
+                    </div>
+                    
+                    <div class="report-content">
+                        <h3>合同审查报告 - 风险版/精简版</h3>
+                        
+                        <div class="risk-item">
+                            <span class="risk-level risk-high">高风险</span>
+                            <h4>付款条款存在重大风险</h4>
+                            <p>预付款比例高达70%，远超行业惯例。如乙方未能履约，甲方将面临重大经济损失。</p>
+                            <p><strong>建议：</strong>将预付款降至30%，增加阶段性付款，如"签订合同30%、交付验收40%、运行稳定30%"。</p>
+                        </div>
+
+                        <div class="risk-item">
+                            <span class="risk-level risk-high">高风险</span>
+                            <h4>缺少知识产权条款</h4>
+                            <p>合同未明确技术成果的知识产权归属，可能引发权属纠纷。</p>
+                            <p><strong>建议：</strong>明确约定"乙方为甲方定制开发的技术成果，其知识产权归甲方所有"。</p>
+                        </div>
+
+                        <div class="risk-item">
+                            <span class="risk-level risk-medium">中风险</span>
+                            <h4>验收标准不明确</h4>
+                            <p>仅约定"甲方验收合格"，缺少具体验收标准和程序。</p>
+                            <p><strong>建议：</strong>制定详细的验收标准清单，约定验收期限（如7个工作日），逾期未提出异议视为验收合格。</p>
+                        </div>
+
+                        <div class="risk-item">
+                            <span class="risk-level risk-medium">中风险</span>
+                            <h4>违约责任不对等</h4>
+                            <p>甲方违约仅承担10%违约金，乙方违约需承担30%违约金。</p>
+                            <p><strong>建议：</strong>统一双方违约金标准为合同总价款的20%。</p>
+                        </div>
+
+                        <div class="risk-item">
+                            <span class="risk-level risk-low">低风险</span>
+                            <h4>争议解决条款可优化</h4>
+                            <p>仅约定诉讼解决，未考虑仲裁等其他方式。</p>
+                            <p><strong>建议：</strong>可选择"提交杭州仲裁委员会仲裁"，仲裁更高效且保密性更好。</p>
+                        </div>
+
+                        <h4>风险防范要点汇总</h4>
+                        <ul>
+                            <li>立即补充知识产权归属条款</li>
+                            <li>调整付款比例和方式</li>
+                            <li>明确验收标准和程序</li>
+                            <li>平衡双方违约责任</li>
+                            <li>增加保密条款</li>
+                            <li>补充不可抗力条款</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Redline Version -->
+                <div class="tab-content" id="redline">
+                    <div class="action-buttons">
+                        <a href="#" class="action-btn btn-download">
+                            <span>📥</span>
+                            下载红线版报告
+                        </a>
+                        <a href="#" class="action-btn btn-feishu">
+                            <span>📄</span>
+                            飞书在线文档查看
+                        </a>
+                    </div>
+                    
+                    <div class="report-content">
+                        <h3>合同审查报告 - 红线版</h3>
+                        
+                        <h4>第二条 合作内容</h4>
+                        <p>甲方委托乙方开发<span class="redline-deleted">软件系统</span><span class="redline-added">XXX管理系统软件V1.0（以下简称"软件"）</span>，乙方按照甲方要求完成开发工作。</p>
+                        <div class="redline-comment">
+                            <strong>修改理由：</strong>明确软件名称和版本，避免歧义。
+                        </div>
+
+                        <h4>第四条 付款方式</h4>
+                        <p>4.1 合同总价款为人民币100万元。</p>
+                        <p>4.2 付款方式：<span class="redline-deleted">签订合同后7日内，甲方支付总价款的70%作为预付款</span><span class="redline-added">合同签订后7日内支付30%（30万元）；软件交付验收合格后7日内支付40%（40万元）；软件稳定运行3个月后7日内支付剩余30%（30万元）</span>。</p>
+                        <div class="redline-comment">
+                            <strong>修改理由：</strong>降低预付款比例，采用阶段付款方式，降低甲方资金风险。
+                        </div>
+
+                        <h4>第五条 知识产权（新增）</h4>
+                        <p class="redline-added">5.1 乙方为甲方定制开发的软件及相关文档资料的知识产权（包括但不限于著作权、专利权等）归甲方所有。</p>
+                        <p class="redline-added">5.2 乙方保证所开发的软件不侵犯任何第三方的知识产权，如因此给甲方造成损失的，乙方应承担全部赔偿责任。</p>
+                        <p class="redline-added">5.3 未经甲方书面同意，乙方不得将本项目的技术成果用于其他项目或对外披露。</p>
+                        <div class="redline-comment">
+                            <strong>新增理由：</strong>明确知识产权归属，保护甲方权益，避免后续纠纷。
+                        </div>
+
+                        <h4>第六条 验收标准（原第五条）</h4>
+                        <p><span class="redline-deleted">5.1 乙方完成开发后通知甲方验收，甲方验收合格后签署验收报告</span><span class="redline-added">6.1 乙方完成开发后应书面通知甲方验收。甲方应在收到通知后7个工作日内组织验收，并根据本合同附件一《软件功能需求说明书》和附件二《验收标准》进行测试</span>。</p>
+                        <p class="redline-added">6.2 验收合格的，甲方应签署《验收合格证明》；验收不合格的，甲方应书面说明不合格的具体内容，乙方应在15日内完成整改并重新提交验收。</p>
+                        <p class="redline-added">6.3 甲方在收到验收通知后7个工作日内未组织验收，也未提出书面异议的，视为验收合格。</p>
+                        <div class="redline-comment">
+                            <strong>修改理由：</strong>明确验收程序、标准和时限，保护双方权益。
+                        </div>
+
+                        <h4>第八条 违约责任（原第六条）</h4>
+                        <p><span class="redline-deleted">6.1 甲方违约应支付合同总价款10%的违约金</span><span class="redline-added">8.1 任何一方违反本合同约定，应向守约方支付合同总价款20%的违约金</span>。</p>
+                        <p><span class="redline-deleted">6.2 乙方违约应支付合同总价款30%的违约金</span><span class="redline-added">8.2 违约金不足以弥补守约方损失的，违约方还应承担赔偿责任</span>。</p>
+                        <div class="redline-comment">
+                            <strong>修改理由：</strong>平衡双方违约责任，体现公平原则。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="index.html#home">首页</a></li>
+                <li><a href="index.html#features">功能</a></li>
+                <li><a href="index.html#process">流程</a></li>
+                <li><a href="index.html#testimonials">客户评价</a></li>
+                <li><a href="index.html#about">关于律师</a></li>
+            </ul>
+            <p class="copyright">© 2025 北京大成（杭州）律师事务所. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const theme = document.documentElement.getAttribute('data-theme');
+            const newTheme = theme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // Tab Switching
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+            });
+        });
+
+        // Download functionality (placeholder)
+        document.querySelectorAll('.btn-download').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                // In a real application, this would trigger a download
+                alert('正在生成报告，请稍候...');
+                
+                // Simulate download preparation
+                btn.innerHTML = '<span class="loading-spinner"></span> 生成中...';
+                setTimeout(() => {
+                    btn.innerHTML = '<span>📥</span> 下载完成';
+                    // Here you would trigger the actual download
+                }, 2000);
+            });
+        });
+
+        // Feishu link functionality (placeholder)
+        document.querySelectorAll('.btn-feishu').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                // In a real application, this would open the Feishu document
+                alert('正在跳转到飞书文档...');
+                // window.open('https://feishu.cn/document/xxxxx', '_blank');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate summary cards on load
+        window.addEventListener('load', () => {
+            const summaryCards = document.querySelectorAll('.summary-card');
+            summaryCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'all 0.6s ease';
+                    
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

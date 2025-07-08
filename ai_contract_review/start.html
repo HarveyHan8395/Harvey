@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI合同审查 - 孙鹏程律师 | 数据安全与隐私保护专业法律服务</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-purple: rgb(112, 32, 130);
+            --light-purple: rgba(112, 32, 130, 0.1);
+            --medium-purple: rgba(112, 32, 130, 0.3);
+            --dark-purple: rgb(80, 20, 100);
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --background: #fafafa;
+            --white: #ffffff;
+            --border: #e0e0e0;
+        }
+
+        /* Dark mode variables */
+        [data-theme="dark"] {
+            --primary-purple: rgb(0, 209, 255);  /* Tech blue */
+            --light-purple: rgba(0, 209, 255, 0.15);
+            --medium-purple: rgba(0, 209, 255, 0.4);
+            --dark-purple: rgb(0, 255, 136);  /* Tech green */
+            --text-dark: #f0f0f0;
+            --text-light: #b0b0b0;
+            --background: #0a0a0a;
+            --white: #1a1a1a;
+            --border: #2a2a2a;
+            --tech-gradient: linear-gradient(135deg, rgb(0, 209, 255) 0%, rgb(0, 255, 136) 100%);
+            --tech-gradient-soft: linear-gradient(135deg, rgba(0, 209, 255, 0.2) 0%, rgba(0, 255, 136, 0.2) 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--background) 0%, var(--white) 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .header {
+            box-shadow: 0 2px 20px rgba(0, 209, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 209, 255, 0.2);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-purple);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo::before {
+            content: "⚖️";
+            font-size: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-purple);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            position: relative;
+            width: 50px;
+            height: 26px;
+            background: var(--border);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .theme-toggle::before {
+            content: "";
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            background: var(--white);
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        [data-theme="dark"] .theme-toggle {
+            background: rgb(0, 209, 255);
+        }
+
+        [data-theme="dark"] .theme-toggle::before {
+            transform: translateX(24px);
+        }
+
+        .theme-icon {
+            position: absolute;
+            top: 4px;
+            font-size: 16px;
+            transition: opacity 0.3s ease;
+        }
+
+        .sun-icon {
+            left: 6px;
+            opacity: 1;
+        }
+
+        .moon-icon {
+            right: 6px;
+            opacity: 0;
+        }
+
+        [data-theme="dark"] .sun-icon {
+            opacity: 0;
+        }
+
+        [data-theme="dark"] .moon-icon {
+            opacity: 1;
+        }
+
+        /* Auth Buttons */
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-login {
+            color: var(--primary-purple);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-login:hover {
+            color: var(--dark-purple);
+        }
+
+        [data-theme="dark"] .btn-login {
+            color: rgb(0, 209, 255);
+        }
+
+        [data-theme="dark"] .btn-login:hover {
+            color: rgb(0, 255, 136);
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+
+        .btn-register {
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--dark-purple) 100%);
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 25px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(112, 32, 130, 0.3);
+        }
+
+        [data-theme="dark"] .btn-register {
+            background: var(--tech-gradient);
+            box-shadow: 0 4px 20px rgba(0, 209, 255, 0.4);
+        }
+
+        .btn-register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(112, 32, 130, 0.4);
+        }
+
+        [data-theme="dark"] .btn-register:hover {
+            box-shadow: 0 6px 30px rgba(0, 255, 136, 0.6);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--light-purple) 0%, transparent 100%);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary-purple);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        [data-theme="dark"] .hero h1 {
+            background: var(--tech-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+        }
+
+        .review-form {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(112, 32, 130, 0.08);
+            border: 1px solid rgba(112, 32, 130, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .review-form {
+            box-shadow: 0 20px 60px rgba(157, 78, 221, 0.15);
+            border-color: rgba(157, 78, 221, 0.2);
+        }
+
+        .form-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-purple);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: "";
+            width: 4px;
+            height: 20px;
+            background: var(--primary-purple);
+            border-radius: 2px;
+        }
+
+        /* File Upload */
+        .file-upload {
+            border: 2px dashed var(--medium-purple);
+            border-radius: 15px;
+            padding: 60px 30px;
+            text-align: center;
+            background: var(--light-purple);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .file-upload:hover {
+            border-color: var(--primary-purple);
+            background: rgba(112, 32, 130, 0.15);
+            transform: translateY(-2px);
+        }
+
+        [data-theme="dark"] .file-upload:hover {
+            background: rgba(157, 78, 221, 0.2);
+        }
+
+        .file-upload.drag-over {
+            border-color: var(--primary-purple);
+            background: rgba(112, 32, 130, 0.2);
+            transform: scale(1.02);
+        }
+
+        .upload-icon {
+            font-size: 48px;
+            color: var(--primary-purple);
+            margin-bottom: 20px;
+        }
+
+        .upload-text {
+            font-size: 18px;
+            color: var(--primary-purple);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .upload-hint {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .file-input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-name {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: var(--primary-purple);
+            color: white;
+            border-radius: 25px;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        /* Position Selection */
+        .position-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .position-option {
+            position: relative;
+            width: 100%;
+        }
+
+        .position-radio {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .position-card {
+            background: var(--white);
+            border: 2px solid var(--border);
+            border-radius: 15px;
+            padding: 25px 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 160px;
+            position: relative;
+            user-select: none;
+        }
+
+        .position-card:hover {
+            border-color: var(--medium-purple);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(112, 32, 130, 0.15);
+        }
+
+        [data-theme="dark"] .position-card:hover {
+            border-color: rgba(0, 209, 255, 0.5);
+            box-shadow: 0 8px 30px rgba(0, 209, 255, 0.2);
+        }
+
+        .position-radio:checked + .position-card {
+            border-color: var(--primary-purple);
+            background: var(--light-purple);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(112, 32, 130, 0.2);
+        }
+
+        [data-theme="dark"] .position-radio:checked + .position-card {
+            box-shadow: 0 12px 30px rgba(157, 78, 221, 0.3);
+        }
+
+        .position-radio:checked + .position-card::after {
+            content: "✓";
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            width: 25px;
+            height: 25px;
+            background: var(--primary-purple);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .position-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .position-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-purple);
+            margin-bottom: 8px;
+        }
+
+        .position-description {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        /* Custom Position Special Styling */
+        .custom-input {
+            width: 100%;
+            padding: 10px 15px;
+            margin-top: 10px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: none;
+            background: var(--white);
+            color: var(--text-dark);
+        }
+
+        .custom-input:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 2px rgba(112, 32, 130, 0.1);
+        }
+
+        .position-radio:checked + .position-card .custom-input {
+            display: block;
+        }
+
+        /* Text Input */
+        .special-requirements {
+            width: 100%;
+            min-height: 120px;
+            padding: 20px;
+            border: 2px solid var(--border);
+            border-radius: 15px;
+            font-size: 16px;
+            font-family: inherit;
+            resize: vertical;
+            transition: all 0.3s ease;
+            background: var(--white);
+            color: var(--text-dark);
+        }
+
+        .special-requirements:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 3px rgba(112, 32, 130, 0.1);
+        }
+
+        .special-requirements::placeholder {
+            color: var(--text-light);
+        }
+
+        /* Submit Button */
+        .submit-section {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--dark-purple) 100%);
+            color: white;
+            border: none;
+            padding: 18px 60px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(112, 32, 130, 0.3);
+        }
+
+        [data-theme="dark"] .submit-btn {
+            background: var(--tech-gradient);
+            box-shadow: 0 10px 40px rgba(0, 209, 255, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(112, 32, 130, 0.4);
+        }
+
+        [data-theme="dark"] .submit-btn:hover {
+            box-shadow: 0 15px 50px rgba(0, 255, 136, 0.6);
+            filter: brightness(1.1);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        [data-theme="dark"] .submit-btn:active {
+            background: linear-gradient(135deg, rgb(0, 255, 136) 0%, rgb(0, 209, 255) 100%);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: var(--white);
+            transition: background-color 0.3s ease;
+        }
+
+        .features-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-purple);
+            margin-bottom: 20px;
+        }
+
+        .features-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 15px;
+            background: var(--light-purple);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary-purple);
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--background) 0%, var(--white) 100%);
+            transition: background 0.3s ease;
+        }
+
+        [data-theme="dark"] .process {
+            background: linear-gradient(135deg, var(--background) 0%, var(--white) 100%);
+        }
+
+        .process-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-purple);
+            margin-bottom: 20px;
+        }
+
+        .process-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            position: relative;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-purple);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0 auto 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .step-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Process Arrow */
+        .process-arrow {
+            position: absolute;
+            top: 40px;
+            left: calc(50% + 80px);
+            width: calc(100% - 160px);
+            height: 2px;
+            background: var(--medium-purple);
+            z-index: 1;
+        }
+
+        .process-arrow::after {
+            content: "";
+            position: absolute;
+            right: -10px;
+            top: -4px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid var(--medium-purple);
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+
+        .process-step:last-child .process-arrow {
+            display: none;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background: var(--white);
+            transition: background-color 0.3s ease;
+        }
+
+        .testimonials-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-purple);
+            margin-bottom: 20px;
+        }
+
+        .testimonials-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        [data-theme="dark"] .testimonial-card {
+            background: var(--white);
+            box-shadow: 0 10px 30px rgba(0, 209, 255, 0.1);
+            border: 1px solid rgba(0, 209, 255, 0.2);
+        }
+
+        [data-theme="dark"] .testimonial-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.2);
+            border-color: rgba(0, 255, 136, 0.3);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-text {
+            color: var(--text-light);
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--light-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary-purple);
+        }
+
+        .author-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 3px;
+        }
+
+        .author-info p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--background) 0%, var(--white) 100%);
+            transition: background 0.3s ease;
+        }
+
+        [data-theme="dark"] .about {
+            background: linear-gradient(135deg, var(--background) 0%, var(--white) 100%);
+        }
+
+        .about-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .about-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-purple);
+            margin-bottom: 50px;
+        }
+
+        .lawyer-profile {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(112, 32, 130, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .lawyer-profile {
+            box-shadow: 0 20px 60px rgba(157, 78, 221, 0.15);
+        }
+
+        .profile-header {
+            display: grid;
+            grid-template-columns: 200px 1fr 200px;
+            gap: 40px;
+            margin-bottom: 50px;
+            align-items: start;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-placeholder,
+        .logo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: var(--light-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-purple);
+            font-weight: 500;
+            text-align: center;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px dashed var(--medium-purple);
+        }
+
+        [data-theme="dark"] .photo-placeholder:hover,
+        [data-theme="dark"] .logo-placeholder:hover {
+            background: rgba(157, 78, 221, 0.2);
+            border-color: var(--primary-purple);
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .lawyer-name {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-purple);
+            margin-bottom: 10px;
+        }
+
+        .lawyer-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .lawyer-honor {
+            font-size: 16px;
+            color: var(--primary-purple);
+            font-weight: 500;
+            margin-bottom: 25px;
+            padding: 8px 16px;
+            background: var(--light-purple);
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .contact-info {
+            font-size: 16px;
+            color: var(--text-light);
+            line-height: 2;
+        }
+
+        .contact-info strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .contact-info a {
+            color: var(--primary-purple);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--dark-purple);
+            text-decoration: underline;
+        }
+
+        .law-firm-logo {
+            width: 200px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .law-firm-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .profile-content {
+            border-top: 2px solid var(--border);
+            padding-top: 40px;
+        }
+
+        .content-section {
+            margin-bottom: 40px;
+        }
+
+        .content-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-section h4 {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary-purple);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-section h4::before {
+            content: "";
+            width: 4px;
+            height: 24px;
+            background: var(--primary-purple);
+            border-radius: 2px;
+        }
+
+        .content-section p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .content-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .qualification-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .qualification-tag {
+            background: var(--light-purple);
+            color: var(--primary-purple);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .qualification-tag:hover {
+            background: var(--primary-purple);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        [data-theme="dark"] .features-title,
+        [data-theme="dark"] .process-title,
+        [data-theme="dark"] .testimonials-title,
+        [data-theme="dark"] .about-title,
+        [data-theme="dark"] .lawyer-name {
+            background: var(--tech-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        [data-theme="dark"] .form-title,
+        [data-theme="dark"] .feature-title,
+        [data-theme="dark"] .position-title {
+            color: rgb(0, 209, 255);
+        }
+
+        [data-theme="dark"] .hero {
+            background: var(--tech-gradient-soft);
+        }
+
+        [data-theme="dark"] .process {
+            background: linear-gradient(135deg, var(--background) 0%, rgba(0, 209, 255, 0.05) 100%);
+        }
+
+        [data-theme="dark"] .about {
+            background: linear-gradient(135deg, var(--background) 0%, rgba(0, 255, 136, 0.05) 100%);
+        }
+
+        [data-theme="dark"] .step-number {
+            background: var(--tech-gradient);
+            box-shadow: 0 5px 20px rgba(0, 209, 255, 0.4);
+        }
+
+        [data-theme="dark"] .lawyer-honor {
+            background: var(--tech-gradient-soft);
+            color: rgb(0, 255, 136);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+        }
+
+        [data-theme="dark"] .qualification-tag {
+            background: rgba(0, 209, 255, 0.2);
+            border: 1px solid rgba(0, 209, 255, 0.3);
+        }
+
+        [data-theme="dark"] .qualification-tag:hover {
+            background: var(--tech-gradient);
+            color: white;
+            border-color: transparent;
+        }
+
+        [data-theme="dark"] .position-list li::before {
+            color: rgb(0, 255, 136);
+        }
+
+        [data-theme="dark"] .content-section h4::before {
+            background: var(--tech-gradient);
+        }
+
+        [data-theme="dark"] .section-title::before {
+            background: var(--tech-gradient);
+        }
+
+        .position-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .position-list li {
+            position: relative;
+            padding-left: 25px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .position-list li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--primary-purple);
+            font-size: 18px;
+        }
+
+        @media (max-width: 1024px) {
+            .profile-header {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-photo {
+                margin: 0 auto;
+            }
+
+            .law-firm-logo {
+                margin: 0 auto;
+            }
+
+            .lawyer-honor {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .lawyer-profile {
+                padding: 30px 20px;
+            }
+
+            .lawyer-name {
+                font-size: 28px;
+            }
+
+            .position-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--light-purple);
+            color: var(--text-dark);
+            padding: 40px 0;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            border-top: 2px solid var(--border);
+        }
+
+        [data-theme="dark"] .footer {
+            background: linear-gradient(180deg, var(--white) 0%, #0f0f0f 100%);
+            color: white;
+            border-top: 2px solid rgb(0, 209, 255);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-purple);
+        }
+
+        [data-theme="dark"] .footer-links a {
+            color: rgba(255,255,255,0.8);
+        }
+
+        [data-theme="dark"] .footer-links a:hover {
+            color: rgb(0, 255, 136);
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+
+        .copyright {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        [data-theme="dark"] .copyright {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .footer .logo {
+            color: var(--primary-purple) !important;
+            font-weight: 700;
+        }
+
+        [data-theme="dark"] .footer .logo {
+            background: var(--tech-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-purple);
+            transition: all 0.3s ease;
+        }
+
+        /* Dark mode glow effects */
+        [data-theme="dark"] .upload-icon {
+            color: rgb(0, 209, 255);
+            filter: drop-shadow(0 0 10px rgba(0, 209, 255, 0.5));
+        }
+
+        [data-theme="dark"] .position-icon {
+            filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.3));
+        }
+
+        [data-theme="dark"] .feature-icon {
+            filter: drop-shadow(0 0 15px rgba(0, 209, 255, 0.4));
+        }
+
+        [data-theme="dark"] .stars {
+            color: rgb(0, 255, 136);
+            filter: drop-shadow(0 0 5px rgba(0, 255, 136, 0.5));
+        }
+
+        [data-theme="dark"] .nav-links a:hover {
+            color: rgb(0, 255, 136);
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+
+        [data-theme="dark"] .process-arrow {
+            background: var(--tech-gradient);
+        }
+
+        /* Dark mode special effects */
+        @keyframes techGlow {
+            0% { box-shadow: 0 0 5px rgba(0, 209, 255, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.8); }
+            100% { box-shadow: 0 0 5px rgba(0, 209, 255, 0.5); }
+        }
+
+        [data-theme="dark"] .lawyer-title {
+            color: rgb(0, 209, 255);
+        }
+
+        [data-theme="dark"] .content-section h4 {
+            color: rgb(0, 255, 136);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .nav-left {
+                gap: 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .review-form {
+                padding: 30px 20px;
+                margin: 0 20px;
+            }
+
+            .form-title {
+                font-size: 24px;
+            }
+
+            .position-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-title,
+            .process-title,
+            .testimonials-title,
+            .about-title {
+                font-size: 28px;
+            }
+
+            .process-arrow {
+                display: none;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .auth-buttons {
+                flex-direction: column;
+                width: 100%;
+                gap: 10px;
+            }
+
+            .btn-login,
+            .btn-register {
+                text-align: center;
+                width: 100%;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Intersection Observer Animation */
+        .observe-element {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .observe-element.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-left">
+                    <a href="#" class="logo">AI合同审查</a>
+                    <ul class="nav-links">
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#features">功能</a></li>
+                        <li><a href="#process">流程</a></li>
+                        <li><a href="#testimonials">客户评价</a></li>
+                        <li><a href="#about">关于律师</a></li>
+                    </ul>
+                    <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <!-- Dark Mode Toggle -->
+                    <div class="theme-toggle" id="themeToggle">
+                        <span class="theme-icon sun-icon">☀️</span>
+                        <span class="theme-icon moon-icon">🌙</span>
+                    </div>
+                    <!-- Auth Buttons -->
+                    <div class="auth-buttons">
+                        <a href="#" class="btn-login">登录</a>
+                        <a href="#" class="btn-register">注册</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1 class="animate-fadeInUp">智能合同审查</h1>
+            <p class="animate-fadeInUp" style="animation-delay: 0.2s">由数据安全与隐私保护专业律师团队打造，基于8大专业审查要点，为您提供全面、高效、精准的合同审查服务</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <form class="review-form observe-element" id="contractForm">
+                <h2 class="form-title">开始审查您的合同</h2>
+
+                <!-- File Upload Section -->
+                <div class="form-section">
+                    <h3 class="section-title">📄 上传合同文件</h3>
+                    <div class="file-upload" id="fileUpload">
+                        <input type="file" class="file-input" id="fileInput" accept=".pdf,.doc,.docx,.txt">
+                        <div class="upload-icon">📁</div>
+                        <div class="upload-text">点击上传或拖拽文件至此</div>
+                        <div class="upload-hint">支持 PDF、Word、TXT 格式文件</div>
+                        <div class="file-name" id="fileName" style="display: none;"></div>
+                    </div>
+                </div>
+
+                <!-- Position Selection -->
+                <div class="form-section">
+                    <h3 class="section-title">⚖️ 选择审查立场</h3>
+                    <div class="position-grid">
+                        <div class="position-option">
+                            <input type="radio" name="position" value="fair" id="fair" class="position-radio">
+                            <label for="fair" class="position-card">
+                                <span class="position-icon">⚖️</span>
+                                <div class="position-title">公平立场</div>
+                                <div class="position-description">从中立角度审查合同，平衡双方利益，确保合同条款公平合理</div>
+                            </label>
+                        </div>
+                        <div class="position-option">
+                            <input type="radio" name="position" value="party-a" id="partyA" class="position-radio">
+                            <label for="partyA" class="position-card">
+                                <span class="position-icon">🏢</span>
+                                <div class="position-title">甲方立场</div>
+                                <div class="position-description">从甲方角度审查合同，重点关注甲方权益保护和风险防范</div>
+                            </label>
+                        </div>
+                        <div class="position-option">
+                            <input type="radio" name="position" value="party-b" id="partyB" class="position-radio">
+                            <label for="partyB" class="position-card">
+                                <span class="position-icon">👤</span>
+                                <div class="position-title">乙方立场</div>
+                                <div class="position-description">从乙方角度审查合同，关注乙方利益最大化和义务合理性</div>
+                            </label>
+                        </div>
+                        <div class="position-option">
+                            <input type="radio" name="position" value="custom" id="custom" class="position-radio">
+                            <label for="custom" class="position-card">
+                                <span class="position-icon">🎯</span>
+                                <div class="position-title">自定义立场</div>
+                                <div class="position-description">根据您的具体需求定制审查角度和重点</div>
+                                <input type="text" class="custom-input" id="customPosition" placeholder="请描述您的自定义立场..." onclick="event.stopPropagation();">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Special Requirements -->
+                <div class="form-section">
+                    <h3 class="section-title">📝 特殊审核要求</h3>
+                    <textarea 
+                        class="special-requirements" 
+                        id="specialRequirements"
+                        placeholder="请详细描述您的特殊审核要求，例如：重点关注某些条款、特定的法律风险、行业特殊要求等..."
+                    ></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="submit-section">
+                    <button type="submit" class="submit-btn">开始AI审查</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="features-title observe-element">八大核心审查功能</h2>
+            <p class="features-subtitle observe-element">基于专业的合同审查标准，我们的 AI 系统从主体资格、合法性、条款完整性等多个维度全面审查您的合同，确保合同的安全性和规范性。</p>
+            <div class="features-grid">
+                <div class="feature-card observe-element">
+                    <span class="feature-icon">🔍</span>
+                    <h3 class="feature-title">主体资格审查</h3>
+                    <p class="feature-description">自动检查合同主体的签约资格，通过企查查等平台进行背景调查，识别失信记录等潜在风险，确保交易安全。</p>
+                </div>
+                <div class="feature-card observe-element">
+                    <span class="feature-icon">⚖️</span>
+                    <h3 class="feature-title">合法性判断</h3>
+                    <p class="feature-description">智能判断交易的合法性和合同有效性，确保合同内容符合法律规定，避免无效合同带来的损失。</p>
+                </div>
+                <div class="feature-card observe-element">
+                    <span class="feature-icon">📚</span>
+                    <h3 class="feature-title">法规版本核验</h3>
+                    <p class="feature-description">自动检查引用的法规和技术规范是否有效、是否为最新版本，确保合同依据的准确性和时效性。</p>
+                </div>
+                <div class="feature-card observe-element">
+                    <span class="feature-icon">📋</span>
+                    <h3 class="feature-title">条款完整性检查</h3>
+                    <p class="feature-description">全面检查合同基本条款的完整性，包括当事人信息、标的、价款、履行方式、违约责任等，自动补充缺失条款。</p>
+                </div>
+                <div class="feature-card observe-element">
+                    <span class="feature-icon">🎯</span>
+                    <h3 class="feature-title">特定合同识别</h3>
+                    <p class="feature-description">智能识别合同类型（如广告类、技术类、委托设计类），自动匹配相应模板，补充知识产权等特定条款。</p>
+                </div>
+                <div class="feature-card observe-element">
+                    <span class="feature-icon">📝</span>
+                    <h3 class="feature-title">格式规范化</h3>
+                    <p class="feature-description">自动调整合同排版格式，解决PDF转Word等格式问题，让合同更加专业规范。</p>
+                </div>
+                <div class="feature-card observe-element">
+                    <span class="feature-icon">✏️</span>
+                    <h3 class="feature-title">智能校对</h3>
+                    <p class="feature-description">使用先进的文本校对技术，自动检测并修正错别字，提高合同文本的准确性。</p>
+                </div>
+                <div class="feature-card observe-element">
+                    <span class="feature-icon">🔗</span>
+                    <h3 class="feature-title">逻辑一致性检查</h3>
+                    <p class="feature-description">深度分析合同内容，检查语言表达和上下文逻辑，确保条款之间没有矛盾和歧义。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <h2 class="process-title observe-element">简单三步，完成审查</h2>
+            <p class="process-subtitle observe-element">使用我们的 AI 合同审查系统，只需三个简单步骤，即可完成专业的8项要点审查，获得详细的分析报告。</p>
+            <div class="process-grid">
+                <div class="process-step observe-element">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">上传合同</h3>
+                    <p class="step-description">上传需要审查的合同文件，支持PDF、Word、TXT格式，系统自动识别合同类型和内容结构。</p>
+                    <div class="process-arrow"></div>
+                </div>
+                <div class="process-step observe-element" style="animation-delay: 0.2s">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">智能分析</h3>
+                    <p class="step-description">AI系统按照8大审查要点进行全面分析，包括主体资格核查、条款完整性检查、格式规范化等。</p>
+                    <div class="process-arrow"></div>
+                </div>
+                <div class="process-step observe-element" style="animation-delay: 0.4s">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">获取报告</h3>
+                    <p class="step-description">生成详细的审查报告，标注问题条款，提供修改建议，并可导出规范化的合同文本。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="testimonials-title observe-element">客户的评价</h2>
+            <p class="testimonials-subtitle observe-element">听听我们的客户如何评价 AI 合同审查系统。</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card observe-element">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"作为汽车行业的企业，我们对数据安全和隐私保护要求极高。孙律师的AI合同审查系统在车联网数据合规、个人信息保护等方面的审查非常专业，完全符合行业最新标准要求。"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">张</div>
+                        <div class="author-info">
+                            <h4>张伟</h4>
+                            <p>某智能汽车公司 合规总监</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card observe-element" style="animation-delay: 0.2s">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"孙律师团队开发的AI合同审查系统不仅体现了深厚的法律功底，还充分考虑了数据安全合规要求。特别是对个人信息保护条款的审查，非常专业和细致，帮助我们避免了很多合规风险。"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">李</div>
+                        <div class="author-info">
+                            <h4>李明</h4>
+                            <p>某互联网公司 法务总监</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card observe-element" style="animation-delay: 0.4s">
+                    <div class="stars">★★★★☆</div>
+                    <p class="testimonial-text">"在电信行业，数据分类分级和跨境数据流动是合同审查的重点。这个系统能够精准识别相关条款并提供专业建议，特别是对个人信息出境的合规审查，为我们节省了大量时间和成本。"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">王</div>
+                        <div class="author-info">
+                            <h4>王芳</h4>
+                            <p>某电信运营商 法律合规部经理</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="about-title observe-element">关于律师</h2>
+                <div class="lawyer-profile observe-element">
+                    <div class="profile-header">
+                        <div class="profile-photo">
+                            <img src="#" alt="孙鹏程律师" id="lawyerPhoto" style="display: none;">
+                            <div class="photo-placeholder">
+                                <div>
+                                    <div style="font-size: 48px; margin-bottom: 10px;">📷</div>
+                                    <span>律师照片</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-info">
+                            <h3 class="lawyer-name">孙鹏程</h3>
+                            <p class="lawyer-title">北京大成（杭州）律师事务所 合伙人</p>
+                            <p class="lawyer-honor">AUTOCS 2024年度优秀智能汽车信息安全领军人物</p>
+                            <div class="contact-info">
+                                <p><strong>邮箱：</strong><a href="mailto:pengcheng.sun@dentons.cn">pengcheng.sun@dentons.cn</a></p>
+                                <p><strong>电话：</strong><a href="tel:0571-85176093">0571-85176093</a></p>
+                                <p><strong>地址：</strong>杭州市上城区钱江路1366号华润大厦A座18、31层</p>
+                            </div>
+                        </div>
+                        <div class="law-firm-logo">
+                            <img src="#" alt="大成律师事务所" id="firmLogo" style="display: none;">
+                            <div class="logo-placeholder">
+                                <div>
+                                    <div style="font-size: 36px; margin-bottom: 10px;">🏢</div>
+                                    <span>律所Logo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-content">
+                        <div class="content-section">
+                            <h4>专业领域</h4>
+                            <p>孙鹏程律师专业领域为数据安全与隐私保护，长期为汽车、电信、互联网、零售和消费品等行业客户提供法律服务，在数据合规、网络安全、个人信息保护等领域具有深厚的理论功底和丰富的实践经验。</p>
+                        </div>
+                        
+                        <div class="content-section">
+                            <h4>专业资质</h4>
+                            <div class="qualification-grid">
+                                <span class="qualification-tag">ISO/IEC 27001内审员</span>
+                                <span class="qualification-tag">ISO/IEC 27701内审员</span>
+                                <span class="qualification-tag">CISP-PIP证书</span>
+                                <span class="qualification-tag">CCRC个人信息保护专业人员证书</span>
+                            </div>
+                        </div>
+                        
+                        <div class="content-section">
+                            <h4>社会职务</h4>
+                            <ul class="position-list">
+                                <li>信通院数据安全共同体计划专家</li>
+                                <li>CCRC-DCO培训课程特约讲师</li>
+                                <li>浙江省网络空间安全协会专家库专家</li>
+                                <li>浙江省法学会网络法治研究会理事</li>
+                                <li>浙江省法学会数字法治研究会理事</li>
+                                <li>浙江省企业法律顾问协会会员</li>
+                                <li>上海赛博网络安全产业创新研究院顾问</li>
+                                <li>杭州市律协数字经济委员会秘书长</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="content-section">
+                            <h4>标准编制工作</h4>
+                            <p>孙鹏程律师积极参与国家和行业标准制定工作，推动数据安全和个人信息保护法律实践的标准化。已参与多项团体标准的编订工作，包括《车联网应用软件通用安全技术规范》《面向互联网医院应用的个人信息保护指南》《健康医疗数据合规流通标准》《社交电商经营规范》等。</p>
+                            <p>作为专家参与《数字化改革 公共数据分类分级指南》地方标准的评审，参与CCIA《汽车网络安全体系实践指南》和中国网络空间安全协会《网络安全法律法规关键术语释义》的编撰工作。</p>
+                            <p>目前正在参与电信、车联网、跨境电商等多个领域的数据安全和个人信息保护相关标准的起草工作，为行业规范化发展贡献专业力量。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="features">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 36px; color: var(--primary-purple); margin-bottom: 20px;">为什么选择我们</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🧠</span>
+                    <h3 class="feature-title">专业法律背景</h3>
+                    <p class="feature-description">由数据安全与隐私保护领域专业律师主导，确保每份合同审查都符合最新法律法规要求</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🏆</span>
+                    <h3 class="feature-title">行业权威认可</h3>
+                    <p class="feature-description">获得AUTOCS年度优秀智能汽车信息安全领军人物等荣誉，参与多项国家和行业标准制定</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h3 class="feature-title">数据安全保障</h3>
+                    <p class="feature-description">拥有ISO/IEC 27001、27701等专业资质，采用银行级加密技术，确保您的合同信息绝对安全</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">AI合同审查</div>
+                <ul class="footer-links">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#features">功能</a></li>
+                    <li><a href="#process">流程</a></li>
+                    <li><a href="#testimonials">客户评价</a></li>
+                    <li><a href="#about">关于律师</a></li>
+                </ul>
+            </div>
+            <p class="copyright">© 2025 北京大成（杭州）律师事务所. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const theme = document.documentElement.getAttribute('data-theme');
+            const newTheme = theme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // File upload functionality
+        const fileUpload = document.getElementById('fileUpload');
+        const fileInput = document.getElementById('fileInput');
+        const fileName = document.getElementById('fileName');
+
+        // Drag and drop events
+        fileUpload.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            fileUpload.classList.add('drag-over');
+        });
+
+        fileUpload.addEventListener('dragleave', () => {
+            fileUpload.classList.remove('drag-over');
+        });
+
+        fileUpload.addEventListener('drop', (e) => {
+            e.preventDefault();
+            fileUpload.classList.remove('drag-over');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFileSelect(files[0]);
+            }
+        });
+
+        // File input change
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFileSelect(e.target.files[0]);
+            }
+        });
+
+        function handleFileSelect(file) {
+            fileName.textContent = file.name;
+            fileName.style.display = 'inline-block';
+        }
+
+        // Form submission
+        document.getElementById('contractForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData();
+            const file = fileInput.files[0];
+            const position = document.querySelector('input[name="position"]:checked');
+            const requirements = document.getElementById('specialRequirements').value;
+
+            if (!file) {
+                alert('请先上传合同文件');
+                return;
+            }
+
+            if (!position) {
+                alert('请选择审查立场');
+                return;
+            }
+
+            // Here you would typically send the data to your backend
+            alert('合同上传成功！AI正在为您审查中...');
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.observe-element').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Handle lawyer photo and firm logo upload (for demonstration)
+        // In a real application, you would replace the src attributes with actual image URLs
+        const lawyerPhoto = document.getElementById('lawyerPhoto');
+        const firmLogo = document.getElementById('firmLogo');
+        
+        // You can uncomment and modify these lines when you have actual images:
+        // lawyerPhoto.src = 'path/to/lawyer-photo.jpg';
+        // lawyerPhoto.style.display = 'block';
+        // lawyerPhoto.nextElementSibling.style.display = 'none';
+        
+        // firmLogo.src = 'path/to/firm-logo.png';
+        // firmLogo.style.display = 'block';
+        // firmLogo.nextElementSibling.style.display = 'none';
+        
+        // Add click event to placeholders for future upload functionality
+        document.querySelector('.photo-placeholder').addEventListener('click', () => {
+            alert('请在代码中设置律师照片路径：lawyerPhoto.src = "您的照片URL"');
+        });
+        
+        document.querySelector('.logo-placeholder').addEventListener('click', () => {
+            alert('请在代码中设置律所Logo路径：firmLogo.src = "您的Logo URL"');
+        });
+    </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const submitButton = document.querySelector('.submit-btn');
+        if (submitButton) {
+            submitButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                window.location.href = 'https://harveyhan.netlify.app/ai_contract_review/loading.html';
+            });
+        }
+    });
+</script>
+</body>
+</html>
